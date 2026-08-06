@@ -297,7 +297,7 @@
       <h3>主要做法</h3>
       <ul class="practice-list">${course.practices.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
       <div class="dialog-meta">
-        <span>${escapeHtml(course.stage)}</span><span>${escapeHtml(course.grades)}</span>
+        <span>${escapeHtml(course.stage)}</span>
         ${course.relatedSubjects.length > 1 ? `<span>关联：${escapeHtml(course.relatedSubjects.join('、'))}</span>` : ''}
       </div>
       <button class="primary-button" id="dialogSelect" type="button">${selected ? '放回原货架' : '放入选课手推车'}</button>

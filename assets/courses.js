@@ -1,7 +1,7 @@
 window.COURSE_SUPERMARKET_DATA = {
   "meta": {
-    "generatedAt": "2026-08-06 16:41",
-    "courseCount": 203,
+    "generatedAt": "2026-08-06 16:50",
+    "courseCount": 211,
     "subjectCount": 12,
     "directionCount": 69
   },
@@ -24,7 +24,7 @@ window.COURSE_SUPERMARKET_DATA = {
     {
       "name": "科学",
       "code": "KX",
-      "count": 17
+      "count": 20
     },
     {
       "name": "信息科技与人工智能",
@@ -34,7 +34,7 @@ window.COURSE_SUPERMARKET_DATA = {
     {
       "name": "体育与健康",
       "code": "TY",
-      "count": 19
+      "count": 22
     },
     {
       "name": "艺术",
@@ -49,7 +49,7 @@ window.COURSE_SUPERMARKET_DATA = {
     {
       "name": "德育与班队",
       "code": "DY",
-      "count": 31
+      "count": 33
     },
     {
       "name": "心理健康与安全",
@@ -73,56 +73,56 @@ window.COURSE_SUPERMARKET_DATA = {
       "short": "建立年级递进",
       "question": "课程怎样形成一至六年级或小初贯通的成长序列？",
       "hint": "查看分级、分段、进阶与贯通型做法",
-      "count": 116
+      "count": 122
     },
     {
       "id": "activities",
       "short": "活动课程化",
       "question": "零散活动怎样变成一门可以持续开展的课程？",
       "hint": "查看节庆、社团、主题活动与课程群做法",
-      "count": 84
+      "count": 86
     },
     {
       "id": "subject特色",
       "short": "学科做出特色",
       "question": "国家课程和学科教学怎样做出自己的特色？",
       "hint": "查看阅读、思维、表达、探究与学科项目",
-      "count": 79
+      "count": 85
     },
     {
       "id": "local",
       "short": "盘活本地资源",
       "question": "地方文化、场馆与社区资源怎样进入课程？",
       "hint": "查看在地文化、非遗、研学与场馆课程",
-      "count": 56
+      "count": 60
     },
     {
       "id": "project",
       "short": "跨学科项目",
       "question": "跨学科和项目化学习怎样真正落到课堂？",
       "hint": "查看 PBL、主题任务与跨学科课程",
-      "count": 96
+      "count": 97
     },
     {
       "id": "outcome",
       "short": "看得见的成果",
       "question": "学生的学习成果怎样被看见、被积累？",
       "hint": "查看展演、发表、作品、认证与赛事出口",
-      "count": 133
+      "count": 139
     },
     {
       "id": "collaboration",
       "short": "家校社协同",
       "question": "家长、社区与校外资源怎样形成真实协同？",
       "hint": "查看家长课程、社区实践与协同机制",
-      "count": 55
+      "count": 60
     },
     {
       "id": "easy-start",
       "short": "先从易落地开始",
       "question": "如果学校想先小步启动，哪些方向更容易落地？",
       "hint": "优先查看实施要素较完整、资源门槛较低的做法",
-      "count": 101
+      "count": 102
     }
   ],
   "courses": [
@@ -130,7 +130,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YW-001",
       "subject": "语文",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "人文拓展",
       "title": "文学院",
       "subtitle": "人文综合拓展课程群",
@@ -155,7 +154,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YW-002",
       "subject": "语文",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "传统文化与国学",
       "title": "国学新解",
       "subtitle": "六年国学序列＋过级认证",
@@ -183,7 +181,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YW-003",
       "subject": "语文",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "表达与项目学习",
       "title": "儿童诗六年课程",
       "subtitle": "每周一课·四类课型·诗歌节与公共展览",
@@ -194,6 +191,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "以每周固定课时贯穿小学六年，用主题进阶、四类课型、五星评价和年度诗歌节，把儿童诗从课堂练习推向结集与公共展览。",
       "practices": [
         "一至六年级每周1课时、每学期18周，六年合计216课时；晨读和午间诵读补充诗歌阅读。",
+        "年级主题由童谣、自然、动物和自我逐步走向生活、成长、人物、家国、生命与青春。",
         "阅读赏析、仿写、思维激发、采风创作四类课型轮换实施，并采用分层\"五星\"评价。",
         "每年举办约一个月的诗歌节；学生作品可结集成书并进入公共文化空间展览，形成真实读者出口。"
       ],
@@ -212,7 +210,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YW-004",
       "subject": "语文",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "表达与项目学习",
       "title": "雁行表达",
       "subtitle": "语文项目与表达课程",
@@ -241,7 +238,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YW-005",
       "subject": "语文",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "诗教与跨学科表达",
       "title": "欢乐诗教",
       "subtitle": "诗词吟诵与诗乐融合课程",
@@ -268,7 +264,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YW-006",
       "subject": "语文",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "阅读课程",
       "title": "三线长读",
       "subtitle": "诗词积累·科普共读·名著深读",
@@ -296,7 +291,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YW-007",
       "subject": "语文",
       "stage": "初中",
-      "grades": "初一—初三（完整书单未披露）",
       "theme": "阅读课程",
       "title": "共建·共享整本书阅读课程",
       "subtitle": "三三制·三环节八课型",
@@ -307,8 +301,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "以约三分之一语文课时保障整本书阅读，用导读、促读、展示三环节八课型推进，并以小论文、读书会和多样作品形成成果出口。",
       "practices": [
         "区域课程机制把课文阅读、整本书阅读和写作各配置约三分之一课时；（集团）初中部教师公开分享了学校实施中的小论文反馈、线上读书会和学生阅读小组。",
-        "体裁进阶公开到初一、初二较多诗歌与小说，初二增加传记，初三增加散文；完整年级书单未披露。",
-        "成果可从批注、思维导图、戏剧表演和阅读小论文中选择；区域长期运行不等于学校近年仍完全沿用同一安排，使用时须保留边界。"
+        "体裁进阶公开到初一、初二较多诗歌与小说，初二增加传记，初三增加散文。",
+        "成果可从批注、思维导图、戏剧表演和阅读小论文中选择。"
       ],
       "relatedSubjects": [
         "语文"
@@ -324,7 +318,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YW-008",
       "subject": "语文",
       "stage": "初中",
-      "grades": "六—八年级（九年级未披露）",
       "theme": "阅读课程",
       "title": "初中语文整本书阅读课程",
       "subtitle": "每学期一书·四阶段读书会",
@@ -335,7 +328,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "每学期围绕一本书持续五至十六周，用导读、两次班级读书会和交流展示四阶段完成深读与作品评价。",
       "practices": [
         "2020—2022三年依次完成课程规划、实施手册与案例集，公开六本书的建议年级、周期和实施阶段。",
-        "由学校语文教师和项目组组织；单书常见八至十周，具体每周节数未披露。",
+        "由学校语文教师和项目组组织。",
         "学生成果包括海报、表演、演讲、小报告和诵读，评价兼顾完整阅读、个人作品、规定任务、小组参与与出勤。"
       ],
       "relatedSubjects": [
@@ -352,7 +345,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YW-009",
       "subject": "语文",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "阅读课程",
       "title": "芳草语言·语文",
       "subtitle": "四阶段语文拓展序列",
@@ -379,7 +371,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YW-010",
       "subject": "语文",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "阅读课程",
       "title": "追光阅读",
       "subtitle": "阅读课程（含12级古诗文考级）",
@@ -406,7 +397,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YW-011",
       "subject": "语文",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "阅读课程",
       "title": "阅读有法",
       "subtitle": "语文周阅读素养课程",
@@ -434,7 +424,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "SX-001",
       "subject": "数学",
       "stage": "初中",
-      "grades": "九年级课例已核实（七、八年级未披露）",
       "theme": "数学实践与跨学科",
       "title": "全过程数学建模教学",
       "subtitle": "真实情境八环节建模",
@@ -446,7 +435,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "practices": [
         "课程结构为\"情境—问题—抽象—建模—识模—用模—探模—总结\"，以九年级二次函数概念课和应用任务为已公开课例。",
         "载体是常态数学课及每学期1—2次主题综合实践活动，由本校数学教师实施并获得区教研协同。",
-        "学生成果包括建模写作、模型应用任务和课堂检测；七、八年级主题、完整覆盖规模及量化成效未披露。"
+        "学生成果包括建模写作、模型应用任务和课堂检测。"
       ],
       "relatedSubjects": [
         "数学"
@@ -464,7 +453,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "SX-002",
       "subject": "数学",
       "stage": "初中",
-      "grades": "未披露",
       "theme": "数学实践与跨学科",
       "title": "数学与音乐",
       "subtitle": "吸管乐器数学建模项目",
@@ -475,7 +463,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "学生通过吸管奏乐、实验测量和数据拟合建立长度与音高关系，再制作乐器并完成汇报演出。",
       "practices": [
         "项目用\"提出问题—分析问题—收集数据—建立模型—应用模型—成果展示\"六步推进，与实验测量、描点拟合、制作乐器和汇演相连。",
-        "具体年级、固定课时频次和完整评价量规未披露。"
+        "由集团数学教师与数学教研组实施。"
       ],
       "relatedSubjects": [
         "数学",
@@ -491,7 +479,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "SX-003",
       "subject": "数学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "数学实践与跨学科",
       "title": "智慧链接",
       "subtitle": "数学科学生活任务序列",
@@ -519,7 +506,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "SX-004",
       "subject": "数学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "数学实践与跨学科",
       "title": "量感在身边",
       "subtitle": "具身数学课程",
@@ -546,7 +532,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "SX-005",
       "subject": "数学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "数学思维与游戏",
       "title": "全景思维",
       "subtitle": "六年十二模块思维校本课",
@@ -576,7 +561,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "SX-006",
       "subject": "数学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "数学思维与游戏",
       "title": "巧思乐玩",
       "subtitle": "数学思维游戏课程",
@@ -604,7 +588,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "SX-007",
       "subject": "数学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "数学思维与游戏",
       "title": "数学六阶·看玩说议用探",
       "subtitle": "数学学习方式进阶",
@@ -628,7 +611,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "SX-008",
       "subject": "数学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "数学思维与游戏",
       "title": "火花思维日",
       "subtitle": "低中高段数学科学闯关",
@@ -657,7 +639,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "SX-009",
       "subject": "数学",
       "stage": "小学",
-      "grades": "6—12岁",
       "theme": "数学思维与游戏",
       "title": "芯算思维",
       "subtitle": "6—12岁数学思维进阶",
@@ -682,7 +663,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "SX-010",
       "subject": "数学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "数学思维与游戏",
       "title": "雁执围棋",
       "subtitle": "围棋文化·训练·比赛",
@@ -706,7 +686,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "SX-011",
       "subject": "数学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "数学表达",
       "title": "每日一讲",
       "subtitle": "讲思微课程",
@@ -731,7 +710,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "SX-012",
       "subject": "数学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "数学表达",
       "title": "炽火思维",
       "subtitle": "数学思维与说理课程",
@@ -758,7 +736,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YY-001",
       "subject": "英语",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "国际理解",
       "title": "青年联合国",
       "subtitle": "模拟联合国课程",
@@ -786,7 +763,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YY-002",
       "subject": "英语",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "英语基础与阅读",
       "title": "单词王",
       "subtitle": "分年级词汇课程",
@@ -812,7 +788,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YY-003",
       "subject": "英语",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "英语基础与阅读",
       "title": "芳草语言·英语",
       "subtitle": "四阶段英语拓展序列",
@@ -841,7 +816,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YY-004",
       "subject": "英语",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "英语基础与阅读",
       "title": "英文悦读",
       "subtitle": "阅读策略课程",
@@ -865,7 +839,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YY-005",
       "subject": "英语",
       "stage": "初中",
-      "grades": "初中（逐年级读物序列未披露）",
       "theme": "英语基础与阅读",
       "title": "英语整本书阅读校本课程",
       "subtitle": "任务单·日志·阅读圈三轮推进",
@@ -877,7 +850,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "practices": [
         "读物采用故事类英语整本书；英语教研团队集体备课，课内整课与自习、周末阅读共同保障时间。",
         "任务单从文本理解升级到高低阶与分层任务；阅读日志按周互评；阅读圈设置词汇、好句、情节、人物和主题角色。",
-        "成果包括任务单、日志、阅读圈展示、个人档案、阅读竞赛和微视频；七—九年级具体读物与难度进阶未披露。"
+        "成果包括任务单、日志、阅读圈展示、个人档案、阅读竞赛和微视频。"
       ],
       "relatedSubjects": [
         "英语"
@@ -892,7 +865,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YY-009",
       "subject": "英语",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "英语基础与阅读",
       "title": "图画书阅读课程",
       "subtitle": "每周共读·课前默读·六年成果进阶",
@@ -922,7 +894,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YY-010",
       "subject": "英语",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "英语基础与阅读",
       "title": "意趣英语",
       "subtitle": "教材·拼读·分级绘本·经典故事四线协同",
@@ -951,7 +922,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YY-011",
       "subject": "英语",
       "stage": "小学",
-      "grades": "4—5年级",
       "theme": "英语基础与阅读",
       "title": "英语绘本自由泛读",
       "subtitle": "21天计划·记录载体递进·有读必展",
@@ -979,7 +949,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YY-006",
       "subject": "英语",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "英语情境表达",
       "title": "Dragon Go",
       "subtitle": "绘本到课本剧的英语应用序列",
@@ -1004,7 +973,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YY-007",
       "subject": "英语",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "英语情境表达",
       "title": "英语小剧场",
       "subtitle": "情景表达课程",
@@ -1029,7 +997,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YY-008",
       "subject": "英语",
       "stage": "初中",
-      "grades": "八年级案例已核实（七、九年级未披露）",
       "theme": "英语情境表达",
       "title": "英语模块微项目课程",
       "subtitle": "真实受众·产品逆推·学生共建量规",
@@ -1041,7 +1008,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "practices": [
         "学校英语组在一个学期开展三次微项目；公开详例嵌入八年级下册模块，学生为模拟澳大利亚受众设计英文暑期游学宣传册。",
         "教师从产品反推三个学习阶段，学生共同制定内容、设计和课程评价三张量表。",
-        "项目使用课内文本并争取不增加课时；七、九年级项目地图和2022年后的连续运行未披露。"
+        "项目使用课内文本并争取不增加课时。"
       ],
       "relatedSubjects": [
         "英语"
@@ -1056,7 +1023,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-001",
       "subject": "科学",
       "stage": "小学",
-      "grades": "4年级",
       "theme": "中医药与本草",
       "title": "神农本草",
       "subtitle": "中医药文化启蒙课程（20课时）",
@@ -1085,7 +1051,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-002",
       "subject": "科学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "作物全链探究",
       "title": "辣可不一样",
       "subtitle": "辣椒全链跨学科探究",
@@ -1113,7 +1078,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-003",
       "subject": "科学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "工程与未来科学",
       "title": "探秘火星",
       "subtitle": "22课时大观念科学迁移",
@@ -1138,7 +1102,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-004",
       "subject": "科学",
       "stage": "小学",
-      "grades": "3—5年级",
       "theme": "工程与未来科学",
       "title": "知桥·话桥·造桥",
       "subtitle": "桥梁文化与工程21课时",
@@ -1161,10 +1124,92 @@ window.COURSE_SUPERMARKET_DATA = {
       ]
     },
     {
+      "id": "KX-018",
+      "subject": "科学",
+      "stage": "九年一贯",
+      "theme": "工程与未来科学",
+      "title": "三院一体三级进阶工程课程",
+      "subtitle": "少年工程院认知—设计—制造—控制能力线",
+      "directions": [
+        "工程课程进阶",
+        "项目化学习"
+      ],
+      "summary": "用少年科学院、数学院、工程院与基础、拓展、进阶三级供给，把工程学习由认知推进到设计、制造和控制。",
+      "practices": [
+        "五至七年级公开课程含木工、工程机器人编程，六至八年级进入C++和巡线机器人；年级区间交叠，不写成互斥年级梯子。",
+        "校内跨学科教师为主体，课程纳入基础/拓展/进阶供给。"
+      ],
+      "relatedSubjects": [
+        "科学",
+        "信息科技"
+      ],
+      "problems": [
+        "progression",
+        "subject特色",
+        "project"
+      ]
+    },
+    {
+      "id": "KX-019",
+      "subject": "科学",
+      "stage": "初中",
+      "theme": "工程与未来科学",
+      "title": "初中工程教育课程体系",
+      "subtitle": "七年级基础—八年级情境—九年级项目进阶",
+      "directions": [
+        "初中工程教育",
+        "七至九年级项目进阶"
+      ],
+      "summary": "七年级学习基础工程知识，八年级解决真实情境问题，九年级完成综合工程项目，并以测试、制作和数字制造留下成果。",
+      "practices": [
+        "课程进阶为七年级基础工程、八年级真实情境问题解决、九年级项目课程。",
+        "公开任务包括木梁承重测试与优化、赛车制造、数字建模和3D打印；2025—2026仍有工程实践、研学及项目采购证据。",
+        "校内教师与高校/校外工程资源协同。"
+      ],
+      "relatedSubjects": [
+        "科学"
+      ],
+      "problems": [
+        "progression",
+        "subject特色",
+        "local",
+        "outcome",
+        "collaboration"
+      ]
+    },
+    {
+      "id": "KX-020",
+      "subject": "科学",
+      "stage": "初中",
+      "theme": "工程与未来科学",
+      "title": "学思用合一",
+      "subtitle": "初中科学综合学习五形态进阶",
+      "directions": [
+        "初中科学综合学习",
+        "工程探究认知进阶"
+      ],
+      "summary": "把初中科学学习由证实/探究推进到建模、解释、论证和创造，用统一流程解决校园真实问题并形成可展评成果。",
+      "practices": [
+        "五种学习形态为\"主题证实/探究—主题建模—主题解释—主题论证—主题创造\"，共享\"问题驱动—支架学习—问题解决—成果展评—拓展应用\"流程。",
+        "课程融入初中科学课堂，连接课内、校园场馆与社会场域；八年级公开课出现简易人行浮桥，其他公开任务包括通风改造、家庭电路装置、智慧农场、黑板擦与折叠课桌。",
+        "学生交付模型、装置、研究报告、问题解决方案和展评作品；高技术设备项目是可选项，不是普通学校迁移的前提。"
+      ],
+      "relatedSubjects": [
+        "科学"
+      ],
+      "problems": [
+        "progression",
+        "subject特色",
+        "local",
+        "outcome",
+        "collaboration",
+        "easy-start"
+      ]
+    },
+    {
       "id": "KX-005",
       "subject": "科学",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "理科拓展",
       "title": "理学院",
       "subtitle": "科学与技术拓展课程群",
@@ -1192,7 +1237,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-006",
       "subject": "科学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "生命与自然观察",
       "title": "生命观察",
       "subtitle": "小蚕大世界·立体农场",
@@ -1218,7 +1262,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-007",
       "subject": "科学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "生命与自然观察",
       "title": "自然观察六阶",
       "subtitle": "观察成果进阶课程",
@@ -1243,7 +1286,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-008",
       "subject": "科学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "生命与自然观察",
       "title": "节气自然课程",
       "subtitle": "二十四节气农事文化课程资源",
@@ -1270,7 +1312,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-009",
       "subject": "科学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "科学动手与创客",
       "title": "心力小工匠·非遗师·小创客",
       "subtitle": "动手进阶三阶六级",
@@ -1299,7 +1340,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-010",
       "subject": "科学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "科学探究机制",
       "title": "好问题实验室",
       "subtitle": "问题探究课程",
@@ -1322,7 +1362,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-011",
       "subject": "科学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "科学普及与课程群",
       "title": "1+3科学课程",
       "subtitle": "国家＋主题＋STEAM＋实践四层科学课程",
@@ -1334,7 +1373,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "主题课程：科学与信息科技教师从 1—6 年级教材中梳理出 60 个\"麓创未来\"小主题＋60 个科学小实验，作为国家课程补充（文化育人）。",
         "STEAM 课程：低中高三年段真实问题项目，走\"生活＋\"\"技术＋\"\"学科＋\"路径，经历\"立项—研究—实践—汇报\"（活动育人）。",
         "实践课程：每班组建 6—7 个科技兴趣小组，双休日走进田间、车间、博物馆、企业园区（协同育人）。",
-        "佐证：长沙市科技教育特色学校、央馆第三批人工智能课程规模化应用试点校；校内\"两廊四中心\"科学场馆。"
+        "校内\"两廊四中心\"科学场馆。"
       ],
       "relatedSubjects": [
         "科学",
@@ -1354,7 +1393,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-012",
       "subject": "科学",
       "stage": "九年一贯",
-      "grades": "小学—初中（逐年级细目未披露）",
       "theme": "科学普及与课程群",
       "title": "三全三化贯通式科技教育",
       "subtitle": "全员·全程·全域九年校本育人模式",
@@ -1367,6 +1405,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "practices": [
         "国家课程用项目式、探究式教学把知识点转为微型探究课题；地方课程整合辽宁科技产业和自然人文资源，形成\"行走的科技课\"。",
         "校本科创课程按\"启蒙—探究—创新\"递进：小学公开内容为创意编程、3D设计、无人机基础；初中进入智能机器人、无人机编程和工程实践。",
+        "课程还延伸至社团、家庭科学实验任务、校外研学、联盟学校和科技节。",
         "\"小哥白尼科技节\"已连续举办12年，每届持续一个月；课程成果另进入校园赛事和各级科技竞赛。"
       ],
       "relatedSubjects": [
@@ -1390,7 +1429,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-013",
       "subject": "科学",
       "stage": "九年一贯",
-      "grades": "小学—初中（逐年级课程地图未披露）",
       "theme": "科学普及与课程群",
       "title": "智创未来，育和美创新少年",
       "subtitle": "课内·课后·校外三位一体九年科学体系",
@@ -1402,6 +1440,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "把国家与地方课程、课后社团和校外实践统一编排为九年贯通科学体系，并以跨学科项目、师资团队和基地支撑实施。",
       "practices": [
         "学校把国家与地方科学课程、课后服务社团和校外实践课程整合为\"三位一体、九年贯通\"体系，并以\"1516\"概括一个核心目标、五个建设领域和十六项创新行动。",
+        "校本与课后内容包括人工智能、头脑奥赛、小小发明家、创客、无人机和信息学奥赛。",
         "学校连接30余家校外基地，开发航空航天、新材料、新能源实践课程及20余门科创研学课程。",
         "校内由科学及相关学科教师、科技辅导员和理工类骨干教师实施，并有科创副校长及高校、科研院所参与。"
       ],
@@ -1426,7 +1465,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-014",
       "subject": "科学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "科学普及与课程群",
       "title": "科学之光",
       "subtitle": "前沿启蒙与科学家故事",
@@ -1453,7 +1491,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-015",
       "subject": "科学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "科学普及与课程群",
       "title": "馆中有科学",
       "subtitle": "校内科技馆课程",
@@ -1481,7 +1518,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-016",
       "subject": "科学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "科学节庆项目",
       "title": "乐创未来",
       "subtitle": "科技节项目课程",
@@ -1513,7 +1549,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "KX-017",
       "subject": "科学",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "科普与人工智能",
       "title": "登高创新",
       "subtitle": "科普＋人工智能启蒙课程",
@@ -1539,7 +1574,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "AI-001",
       "subject": "信息科技与人工智能",
       "stage": "小学",
-      "grades": "高年级",
       "theme": "人工智能素养与应用",
       "title": "AI慧用",
       "subtitle": "人工智能素养课程",
@@ -1562,7 +1596,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "AI-002",
       "subject": "信息科技与人工智能",
       "stage": "小学",
-      "grades": "1—6年级（逐年级主题表未披露）",
       "theme": "人工智能素养与应用",
       "title": "AI通识与AI思维课程",
       "subtitle": "全员月课·质疑回答·多方核验",
@@ -1573,8 +1606,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "以六年级段全员月度 AI 课为底座，把\"解决问题—质疑回答—多方核验\"做成 AI 思维课程，再以混龄和真实项目形成提高出口。",
       "practices": [
         "2021 年起六个年级全覆盖，每月至少一节 AI 课；2023 年后形成平台支撑与 AI 思维课程。",
-        "课程重点不是工具操作，而是用大模型解决问题、质疑 AI 回答并多方核验；具体任课教师与逐年级主题表未披露。",
-        "学生成果包括三、五年级\"未来学校\"混龄项目、六年级机器视觉课题与基地项目；隐私、版权和使用年龄规则未披露。"
+        "课程重点不是工具操作，而是用大模型解决问题、质疑 AI 回答并多方核验。",
+        "学生成果包括三、五年级\"未来学校\"混龄项目、六年级机器视觉课题与基地项目。"
       ],
       "relatedSubjects": [
         "信息科技"
@@ -1589,7 +1622,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "AI-003",
       "subject": "信息科技与人工智能",
       "stage": "小学",
-      "grades": "1—6年级（完整逐年级单元表未披露）",
       "theme": "人工智能素养与应用",
       "title": "STEAM与AI校本课程",
       "subtitle": "跨年级进阶·隐私安全·跨学科创制",
@@ -1600,7 +1632,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "从低年级程序设计思维、三年级机器学习推进到高年级 AI 技术项目，并把隐私、安全和社会责任纳入跨学科创制。",
       "practices": [
         "低年级融入程序设计思维，三年级起学习机器学习；学校官网另证实四至六年级自 2017 学年起学习识别技术与 AI 编程。",
-        "创新科技科承担 AI 知识和编程，常识科、数学科协作解决生活问题；具体周课时与现行完整单元表未披露。",
+        "创新科技科承担 AI 知识和编程，常识科、数学科协作解决生活问题。",
         "学生成果包括脊椎动物识别系统、AI 古诗绘本和生活化 STEM 发明；课程明确融入隐私、安全及理性数字公民议题。"
       ],
       "relatedSubjects": [
@@ -1617,7 +1649,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "AI-004",
       "subject": "信息科技与人工智能",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "人工智能素养与应用",
       "title": "人工智能课程",
       "subtitle": "AI听说·AI练字·创意编程",
@@ -1626,8 +1657,7 @@ window.COURSE_SUPERMARKET_DATA = {
       ],
       "summary": "央馆 AI 课程规模化应用试点校：AI 听说、AI 练字、智慧阅读、人工智能四个场景已建成运行。",
       "practices": [
-        "课后服务开设 AI 听说、AI 练字、创意编程；校内 11 间智慧教室＋4 个 AI 智能场景支撑。",
-        "身份佐证：央馆第三批人工智能课程规模化应用试点校。"
+        "课后服务开设 AI 听说、AI 练字、创意编程；校内 11 间智慧教室＋4 个 AI 智能场景支撑。"
       ],
       "relatedSubjects": [
         "信息科技"
@@ -1640,7 +1670,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "AI-005",
       "subject": "信息科技与人工智能",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "编程创客与科技创新",
       "title": "创翼提高课程",
       "subtitle": "编程·AI·创客提高课程",
@@ -1667,7 +1696,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "AI-006",
       "subject": "信息科技与人工智能",
       "stage": "九年一贯",
-      "grades": "1—9年级",
       "theme": "编程创客与科技创新",
       "title": "君子融慧致新",
       "subtitle": "编程·机器人·航空·创客",
@@ -1694,7 +1722,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "AI-007",
       "subject": "信息科技与人工智能",
       "stage": "小学",
-      "grades": "3—6年级",
       "theme": "编程创客与科技创新",
       "title": "极客与创客",
       "subtitle": "提高—竞赛课程",
@@ -1719,7 +1746,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "AI-008",
       "subject": "信息科技与人工智能",
       "stage": "高中",
-      "grades": "高一—高二",
       "theme": "编程创客与科技创新",
       "title": "澄技工坊",
       "subtitle": "无人机·机器人·Python选修",
@@ -1742,7 +1768,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "AI-009",
       "subject": "信息科技与人工智能",
       "stage": "小学",
-      "grades": "定稿未标注",
       "theme": "编程创客与科技创新",
       "title": "魔力科技社",
       "subtitle": "前沿型科学技术社团",
@@ -1767,7 +1792,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-001",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "专项技能进阶",
       "title": "星竞六级进阶",
       "subtitle": "专项技能进阶通道",
@@ -1777,8 +1801,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "室内普及→兴趣班→校梯队→校队→平台→荣誉，六级通道配全国啦啦操示范校＋省武术特色校的硬佐证。",
       "practices": [
         "六级：室内特色普及课（全员兴趣）→兴趣班（专项入门）→校梯队（发现苗子）→校队（系统训练＋校外比赛）→平台（外出赛/专家指导/联合训练营）→成绩与荣誉（校内榜样）。",
-        "每群\"2+X\"配置：2 个重点项目＋若干拓展项目，拓展项目可升级为重点。",
-        "佐证：全国啦啦操示范窗口学校/五星级俱乐部、湖南省武术特色学校、大课间市一等奖；体育走班制、全员运动会等已常态开展（定稿原话\"如火如荼\"）。"
+        "每群\"2+X\"配置：2 个重点项目＋若干拓展项目，拓展项目可升级为重点。"
       ],
       "relatedSubjects": [
         "体育"
@@ -1794,7 +1817,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-002",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "专项技能进阶",
       "title": "绳彩飞扬",
       "subtitle": "分年段跳绳课程",
@@ -1819,7 +1841,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-003",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "专项技能进阶",
       "title": "跳绳六阶",
       "subtitle": "分年级跳绳进阶课程",
@@ -1843,7 +1864,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-004",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "体育文化与跨学科",
       "title": "星传体育文化",
       "subtitle": "体育文化主题课程",
@@ -1871,7 +1891,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-005",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "体育文化与跨学科",
       "title": "星创跨学科体育",
       "subtitle": "体育×科学×艺术项目课程",
@@ -1899,7 +1918,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-006",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "体育文化与跨学科",
       "title": "生命运动节",
       "subtitle": "安全·心理·运动三板块健康节",
@@ -1931,7 +1949,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-007",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—5年级",
       "theme": "体育走班与选修",
       "title": "小操场大体育",
       "subtitle": "诊断补偿·多项体验·自主选项体育课程",
@@ -1959,7 +1976,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-008",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "体育走班与选修",
       "title": "赛场追光",
       "subtitle": "体育走班课程",
@@ -1980,10 +1996,92 @@ window.COURSE_SUPERMARKET_DATA = {
       ]
     },
     {
+      "id": "TY-020",
+      "subject": "体育与健康",
+      "stage": "初中",
+      "theme": "体育走班与选修",
+      "title": "3+2+2+X体育课程",
+      "subtitle": "基础课·选修轮换·年度节庆·社团",
+      "directions": [
+        "体育选修",
+        "年度节庆"
+      ],
+      "summary": "用每周3节基础体育、2类选修轮换、2项年度节庆和X个社团组合初中体育供给，让学生逐年接触新项目。",
+      "practices": [
+        "课程由基础课、选修/轮换、年度体育节庆和社团组成，公开项目由13项扩展至14项。",
+        "学校体育教师与校外俱乐部教练协同；学生每年选择一个新项目，七至九年级大课间分别侧重游戏、力量和中考体能。",
+        "成果进入专项技能、社团和赛事/节庆展示。"
+      ],
+      "relatedSubjects": [
+        "体育"
+      ],
+      "problems": [
+        "progression",
+        "activities",
+        "subject特色",
+        "outcome",
+        "collaboration"
+      ]
+    },
+    {
+      "id": "TY-021",
+      "subject": "体育与健康",
+      "stage": "初中",
+      "theme": "体育走班与选修",
+      "title": "初中学校体育与健康课程群",
+      "subtitle": "基础体育＋技能体育＋综合体育",
+      "directions": [
+        "初中体育课程群",
+        "选项走班"
+      ],
+      "summary": "用每周不少于3节基础体育托底，再让学生每学期选择1—3项技能课程并按水平走班，最后接入活动、赛事和挑战。",
+      "practices": [
+        "课程群由基础体育、技能体育、综合体育组成；技能课程先选项目类别，再按能力分层和班级轮换。",
+        "体育教师、具专项能力的非体育教师与外聘教练协同；另有每日活动、每周选修和学期综合课程。",
+        "学生以学分、积分、专项技能、班级—年级—学校—校际赛事及体育毕业证书留下成果。",
+        "100多个项目依赖原校场地、师资和教练。"
+      ],
+      "relatedSubjects": [
+        "体育"
+      ],
+      "problems": [
+        "progression",
+        "activities",
+        "subject特色",
+        "outcome",
+        "collaboration"
+      ]
+    },
+    {
+      "id": "TY-022",
+      "subject": "体育与健康",
+      "stage": "初中",
+      "theme": "体育走班与选修",
+      "title": "循证体育课堂",
+      "subtitle": "体能诊断·项目分组·动态运动处方",
+      "directions": [
+        "体能诊断",
+        "动态分层"
+      ],
+      "summary": "先用体质数据识别学生差异，再按项目与能力分层，在持续监测中动态重组并给出个性化运动处方。",
+      "practices": [
+        "学生进入篮球、足球、乒乓球项目组，再分为基础、提高、竞赛层级；根据阶段数据动态调整。",
+        "体育教师组织课堂与处方，可穿戴设备监测运动负荷。",
+        "成果包括体质数据、训练记录、专项技能和层级变化。"
+      ],
+      "relatedSubjects": [
+        "体育"
+      ],
+      "problems": [
+        "progression",
+        "subject特色",
+        "outcome"
+      ]
+    },
+    {
       "id": "TY-009",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "全员体能与大课间",
       "title": "体能闯关",
       "subtitle": "全员体质健康课程",
@@ -2006,7 +2104,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-010",
       "subject": "体育与健康",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "全员体能与大课间",
       "title": "全员全运动课",
       "subtitle": "全员体育与数据化健康课程",
@@ -2032,7 +2129,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-011",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "小学部（从一年级开始）",
       "theme": "全员体能与大课间",
       "title": "零点体育",
       "subtitle": "文化课前固定运动与课后选择",
@@ -2043,13 +2139,15 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "把小学集中运动固定在第一节文化课之前，并与常规体育课、课后服务兴趣选择叠加成每日体育时间结构。",
       "practices": [
         "新华网披露，学校连续多年从一年级开始，把体育活动安排在第一节文化课之前，并以每天体育活动不少于1小时为公开口径。",
-        "2021年后，\"零点体育\"拓展为\"零点体育+\"，与课后服务结合，让学生按兴趣选择项目；常规体育课仍单独保留。"
+        "2021年后，\"零点体育\"拓展为\"零点体育+\"，与课后服务结合，让学生按兴趣选择项目；常规体育课仍单独保留。",
+        "项目包括球类、田径、跳绳、障碍跑、健美操及传统游戏等。"
       ],
       "relatedSubjects": [
         "体育"
       ],
       "problems": [
         "activities",
+        "local",
         "outcome"
       ]
     },
@@ -2057,7 +2155,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-012",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "全员体能与大课间",
       "title": "魅力大课间",
       "subtitle": "全员健体课程",
@@ -2082,7 +2179,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-013",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "球类特色与联赛",
       "title": "棒垒球",
       "subtitle": "校本特色球类课程",
@@ -2107,7 +2203,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-014",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "球类特色与联赛",
       "title": "活力乒乓",
       "subtitle": "18课时三阶乒乓课程",
@@ -2132,7 +2227,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-015",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "球类特色与联赛",
       "title": "立本健康",
       "subtitle": "乒乓特色＋全项目运动课程",
@@ -2157,7 +2251,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-016",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "低年级／中高年级",
       "theme": "球类特色与联赛",
       "title": "篮球\"一校一品\"课程",
       "subtitle": "专项课·课间·联赛·家庭·体质跟踪闭环",
@@ -2185,7 +2278,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-017",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "球类特色与联赛",
       "title": "赛场少年",
       "subtitle": "球类与田径课程",
@@ -2210,7 +2302,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-018",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "球类特色与联赛",
       "title": "雁竞足球",
       "subtitle": "足球技能·文化·比赛三线",
@@ -2234,7 +2325,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "TY-019",
       "subject": "体育与健康",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "课间游戏",
       "title": "心力课间",
       "subtitle": "课间游戏课程化",
@@ -2259,7 +2349,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-001",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "戏曲跨学科",
       "title": "国风美韵",
       "subtitle": "戏曲唱做念打跨学科",
@@ -2286,7 +2375,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-002",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—5年级为明确梯队（六年级安排未披露）",
       "theme": "艺术课程群与社团",
       "title": "合唱金字塔",
       "subtitle": "全员普及·低段梯队·中高段主力团",
@@ -2297,13 +2385,12 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "以全员艺术普及为塔基，一二年级每周基础梯队为塔身，三至五年级约40人主力团每周两练为塔尖，并连向市区展演和专业团输送。",
       "practices": [
         "一二年级每周训练乐理、发声和合唱礼仪；三至五年级经选拔组成约40人主力团，每周两次专项训练。",
-        "出口包括市区艺术展演、教学现场会、社区演出、国际交流和向市区专业合唱团输送；六年级安排未披露。"
+        "出口包括市区艺术展演、教学现场会、社区演出、国际交流和向市区专业合唱团输送。"
       ],
       "relatedSubjects": [
         "音乐"
       ],
       "problems": [
-        "progression",
         "activities",
         "subject特色",
         "local",
@@ -2316,7 +2403,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-003",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—5年级（公开报告所列学制）",
       "theme": "艺术课程群与社团",
       "title": "班班唱与班班弹",
       "subtitle": "班歌分声部·高段口风琴·社团提高",
@@ -2327,7 +2413,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "以班级为稳定共同体，持续练习分声部班歌，高年级全员学习口风琴，再由合唱、管乐、古筝等社团承接提高。",
       "practices": [
         "每个班自选班歌并分声部练习；高年级统一学习口风琴，低年级另有形体训练。",
-        "一至五年级每周2节音乐课，3名音乐教师承担常规教学与社团指导；社团固定时段和外聘情况未披露。",
+        "一至五年级每周2节音乐课，3名音乐教师承担常规教学与社团指导。",
         "提高层包含合唱、中国鼓、古筝和管乐等社团，出口为年度合唱节、艺术节、戏剧节和校内展示。"
       ],
       "relatedSubjects": [
@@ -2344,7 +2430,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-004",
       "subject": "艺术",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "艺术课程群与社团",
       "title": "美翼提高课程",
       "subtitle": "美术特长提高课程",
@@ -2371,7 +2456,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-005",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "艺术课程群与社团",
       "title": "草间艺趣",
       "subtitle": "八模块艺术体验课程",
@@ -2396,7 +2480,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-006",
       "subject": "艺术",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "艺术课程群与社团",
       "title": "阶梯成长艺美课程",
       "subtitle": "一年级一艺的六年艺术阶梯",
@@ -2425,7 +2508,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-007",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "艺术课程群与社团",
       "title": "雁声悠扬",
       "subtitle": "合唱·器乐·戏曲·舞蹈",
@@ -2450,7 +2532,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-021",
       "subject": "艺术",
       "stage": "初中",
-      "grades": "初中阶段（逐年级明细未披露）",
       "theme": "艺术课程群与社团",
       "title": "初中戏剧课程",
       "subtitle": "全员基础＋复合发展·认知实践创造三阶",
@@ -2462,8 +2543,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "practices": [
         "基础素养课程面向全体形成戏剧通识，复合发展课程承接兴趣与能力深入；教学从认知进入实践，再走向创作。",
         "戏剧课程正式进入课表，并与相关学科形成课程集群；学校开发、修订系列指导用书，以师资协同、教学范式与评价体系保障。",
-        "公开课堂可见定格画面、肢体情绪表达、戏剧接龙、编曲练唱、诗乐舞创编等任务；成果包括原创心理剧、戏剧作品、课程展示和教学案例。",
-        "源体系为初高中贯通，本卡只收录初中阶段可确认做法，不扩写高中内容；七至九年级逐级课程与周节数未披露。"
+        "公开课堂可见定格画面、肢体情绪表达、戏剧接龙、编曲练唱、诗乐舞创编等任务；成果包括原创心理剧、戏剧作品、课程展示和教学案例。"
       ],
       "relatedSubjects": [
         "音乐",
@@ -2482,7 +2562,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-022",
       "subject": "艺术",
       "stage": "初中",
-      "grades": "6—8年级（原文为预初至初二）",
       "theme": "艺术课程群与社团",
       "title": "校园原创音乐剧课程群",
       "subtitle": "创·编·排·演整剧生产链",
@@ -2495,7 +2574,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "\"一点三阶四维\"中的三阶指面向全体、兴趣学生和特长学生的三类课程，四维为\"创、编、排、演\"，不是年级阶梯。",
         "预初至初二公开有12门基础课程，覆盖歌词与鉴赏、历史人物、剧本、课本剧、配乐诗朗诵、摄影、道具、台词、舞蹈、曲目、影视配音和地方文化。",
         "综合实践课进入课表，音乐剧课程教师为主力，相关学科教师参与创编；学生承担创作、编排、表演、舞美、服装与道具等岗位。",
-        "成果汇入正式原创音乐剧公演；公开证据显示2006年启动，2025年完成第11部作品。六、七、八年级逐级内容未披露。"
+        "成果汇入正式原创音乐剧公演。"
       ],
       "relatedSubjects": [
         "音乐",
@@ -2514,7 +2593,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-008",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "视觉艺术与造型",
       "title": "乡村画卷",
       "subtitle": "自然写生·壁画·版画木雕",
@@ -2542,7 +2620,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-009",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "视觉艺术与造型",
       "title": "四季美育",
       "subtitle": "顺时而美的美育课程",
@@ -2569,7 +2646,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-010",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "视觉艺术与造型",
       "title": "泥陶造物",
       "subtitle": "泥塑与陶艺",
@@ -2594,7 +2670,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-011",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "视觉艺术与造型",
       "title": "苗圃艺术",
       "subtitle": "花卉养殖与艺术创作",
@@ -2622,7 +2697,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-012",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "视觉艺术与造型",
       "title": "视觉表达",
       "subtitle": "创意美术·漫画·素描·油画·科创画",
@@ -2650,7 +2724,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-013",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "非遗与本土艺术",
       "title": "剪纸有根",
       "subtitle": "传统剪纸与纹样创作",
@@ -2678,7 +2751,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-014",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "非遗与本土艺术",
       "title": "小草传承",
       "subtitle": "戏曲·剪纸·长沙方言文化课程",
@@ -2707,7 +2779,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-015",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "非遗与本土艺术",
       "title": "纸间行动",
       "subtitle": "剪纸六年三段课程",
@@ -2734,7 +2805,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-016",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "非遗与本土艺术",
       "title": "衡阳皮影坊",
       "subtitle": "地方非遗皮影课程",
@@ -2760,7 +2830,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-017",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "非遗与本土艺术",
       "title": "非遗传承",
       "subtitle": "扎染与制扇低中高段进阶",
@@ -2791,7 +2860,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-018",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "音乐创造与民族艺术",
       "title": "声音创客",
       "subtitle": "自制乐器与音乐剧",
@@ -2814,7 +2882,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-019",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级（高段具体年级边界未披露）",
       "theme": "音乐创造与民族艺术",
       "title": "民乐队三层三阶",
       "subtitle": "低段启蒙·分声部专项·核心演出团",
@@ -2825,7 +2892,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "从一二年级兴趣启蒙，中高年级进入二胡、琵琶、竹笛等分声部专项，高年级骨干组成核心演出团，形成稳定民乐梯队。",
       "practices": [
         "低段与少年宫合作开兴趣班并建立成长档案；中高段进行单项与分声部训练，同步学习乐理；高段骨干进入核心合奏团。",
-        "乐团设拉弦、弹拨、吹管、打击四大声部，使用标准化训练方案并\"以老带新\"；具体周频次未披露。",
+        "乐团设拉弦、弹拨、吹管、打击四大声部，使用标准化训练方案并\"以老带新\"。",
         "出口包括学校艺术节、毕业典礼、市区展演、社区公益演出和向上级艺术团队输送。"
       ],
       "relatedSubjects": [
@@ -2844,7 +2911,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "YS-020",
       "subject": "艺术",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "音乐创造与民族艺术",
       "title": "节奏里的中国",
       "subtitle": "腰鼓·号鼓民族打击乐课程",
@@ -2868,7 +2934,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-001",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "一物六年",
       "title": "\"薯\"你最厉害",
       "subtitle": "红薯种植到产品六年课程",
@@ -2896,7 +2961,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-002",
       "subject": "劳动",
       "stage": "九年一贯",
-      "grades": "1—9年级",
       "theme": "一物六年",
       "title": "信物君子风",
       "subtitle": "君子植物九年智慧劳动",
@@ -2922,7 +2986,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-003",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "一物六年",
       "title": "融炼季·姜的六年",
       "subtitle": "姜主题生产劳动课程（六年全链）",
@@ -2955,7 +3018,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-004",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "校园岗位与志愿服务",
       "title": "校园小主人",
       "subtitle": "校园岗位实践",
@@ -2980,7 +3042,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-005",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "校园岗位与志愿服务",
       "title": "雏鹰志愿服务",
       "subtitle": "社区行动课程",
@@ -3009,7 +3070,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-006",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "生活劳动与技能",
       "title": "今天我当家",
       "subtitle": "自主自立·和家和美·校乐校融",
@@ -3040,7 +3100,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-007",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "生活劳动与技能",
       "title": "劳动六师",
       "subtitle": "一年一师的劳动身份序列",
@@ -3063,7 +3122,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-008",
       "subject": "劳动",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "生活劳动与技能",
       "title": "劳动实践课程",
       "subtitle": "技能·审美·实践三线劳动课程",
@@ -3087,7 +3145,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-009",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "生活劳动与技能",
       "title": "劳动打卡",
       "subtitle": "六年60项家校劳动清单",
@@ -3113,7 +3170,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-010",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "生活劳动与技能",
       "title": "劳动技能挑战",
       "subtitle": "劳动节项目课程",
@@ -3136,7 +3192,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-011",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "生活劳动与技能",
       "title": "生活小当家",
       "subtitle": "自理与家务劳动",
@@ -3160,7 +3215,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-012",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "生活劳动与技能",
       "title": "起居生活",
       "subtitle": "种植养护与趣味收纳劳动课程",
@@ -3184,7 +3238,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-013",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "种植与园艺",
       "title": "华实天地",
       "subtitle": "劳动与园艺课程",
@@ -3209,7 +3262,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-014",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "种植与园艺",
       "title": "火辣种植",
       "subtitle": "辣椒种植课程",
@@ -3237,7 +3289,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-015",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "职业与社会劳动",
       "title": "创意军地劳动",
       "subtitle": "军地共建劳动实践",
@@ -3262,7 +3313,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-016",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "职业与社会劳动",
       "title": "致远季·一年级一场馆",
       "subtitle": "社会服务劳动序列",
@@ -3288,7 +3338,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-017",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "食育与烹饪",
       "title": "三餐四季",
       "subtitle": "节气食育探究课程",
@@ -3314,7 +3363,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "LD-018",
       "subject": "劳动",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "食育与烹饪",
       "title": "呦呦厨房",
       "subtitle": "食育课程",
@@ -3337,7 +3385,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-001",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "个体关怀与成长",
       "title": "幸福生日",
       "subtitle": "班级生日课程",
@@ -3362,7 +3409,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-002",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "公民与国防教育",
       "title": "公民主题",
       "subtitle": "乡德·文化·国防·公益",
@@ -3389,7 +3435,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-003",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "公民与国防教育",
       "title": "少年砺剑",
       "subtitle": "国防教育课程",
@@ -3399,8 +3444,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "行为习惯、国防知识、军事技能三线六年分层，配八大实施环节和铜银金三级\"少年军章\"。",
       "practices": [
         "分层内容：低段队列常识/国旗国歌/擒敌拳1-4动→中段内务整理/军歌/急救技能→高段领海领土领空/国防科技/擒敌拳全套/战术动作。",
-        "实施八环节：组织架构（含退役军人教师与校外教官）→每周1课时（道法时间）＋学期半日集训→体验+演练三段课型→资源配置（武警消防共建，每学期进校示范≥1次）→安全管理（风险清单/体能分层）→评价（行为记录卡＋学期末\"小小军校检阅\"＋少年军章铜银金）→成长档案袋→师资工作坊。",
-        "背景佐证：学校为国防教育相关国家试点单位。"
+        "实施八环节：组织架构（含退役军人教师与校外教官）→每周1课时（道法时间）＋学期半日集训→体验+演练三段课型→资源配置（武警消防共建，每学期进校示范≥1次）→安全管理（风险清单/体能分层）→评价（行为记录卡＋学期末\"小小军校检阅\"＋少年军章铜银金）→成长档案袋→师资工作坊。"
       ],
       "relatedSubjects": [
         "德育",
@@ -3418,7 +3462,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-004",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "公民与国防教育",
       "title": "龙湘公民",
       "subtitle": "雅行·国防·湖湘公民教育",
@@ -3441,7 +3484,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-005",
       "subject": "德育与班队",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "团队组织衔接",
       "title": "铁中·青春先锋课",
       "subtitle": "少先队—共青团衔接课程",
@@ -3467,7 +3509,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-006",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "家国情怀与思政",
       "title": "国旗下成长",
       "subtitle": "升旗与朝会课程",
@@ -3493,7 +3534,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-007",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "家国情怀与思政",
       "title": "寻水情怀",
       "subtitle": "节日·红色·家国课程",
@@ -3520,7 +3560,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-008",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "家国情怀与思政",
       "title": "我们的节日",
       "subtitle": "节日文化课程",
@@ -3546,7 +3585,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-009",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "家国情怀与思政",
       "title": "浏阳红军路",
       "subtitle": "红色研学探究课程",
@@ -3570,7 +3608,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-010",
       "subject": "德育与班队",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "家国情怀与思政",
       "title": "铁中·成长思政课",
       "subtitle": "红色·传统·价值观思政课程",
@@ -3599,7 +3636,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-011",
       "subject": "德育与班队",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "家国情怀与思政",
       "title": "铁中·青春信仰课",
       "subtitle": "理想信念教育课程",
@@ -3623,7 +3659,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-012",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "德育活动与节庆",
       "title": "雷小锋超级课程",
       "subtitle": "四大超级活动课程",
@@ -3653,7 +3688,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-013",
       "subject": "德育与班队",
       "stage": "九年一贯",
-      "grades": "1—9年级",
       "theme": "志愿服务与公益",
       "title": "君子仁爱",
       "subtitle": "爱心道德银行与雷锋驿站",
@@ -3676,7 +3710,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-014",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "志愿服务与公益",
       "title": "若水实践",
       "subtitle": "爱心·守护·探知实践课程",
@@ -3707,7 +3740,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-015",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "思辨议事与自治",
       "title": "思想论衡",
       "subtitle": "红色教育＋儿童思辨课程",
@@ -3734,7 +3766,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-016",
       "subject": "德育与班队",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "思辨议事与自治",
       "title": "铁中·青春自序课",
       "subtitle": "自主管理与民主参与课程",
@@ -3756,10 +3787,59 @@ window.COURSE_SUPERMARKET_DATA = {
       ]
     },
     {
+      "id": "DY-032",
+      "subject": "德育与班队",
+      "stage": "小学",
+      "theme": "思辨议事与自治",
+      "title": "共同生活课—公共议事课",
+      "subtitle": "每周真实议题·师生平等表决·执行复议",
+      "directions": [
+        "公共议事",
+        "学生自治"
+      ],
+      "summary": "每周把真实校园生活问题带入公共议事课，由学生主持、师生平等辩论和投票，通过后共同执行，并允许用新提案复议。",
+      "practices": [
+        "议题来自校服、饮料、运动会、农场结余、器材和动物照护等真实生活；课堂可在班级或全校开展。",
+        "一至六年级学生与教师一人一票；通过的提案形成共同公约、行动小组和执行安排，不同意见需提交新提案重启程序。",
+        "课程有学期复盘，养羊议题跨三个学期多次讨论并形成管理公约和寄养安排。"
+      ],
+      "relatedSubjects": [
+        "德育"
+      ],
+      "problems": [
+        "progression"
+      ]
+    },
+    {
+      "id": "DY-033",
+      "subject": "德育与班队",
+      "stage": "小学",
+      "theme": "思辨议事与自治",
+      "title": "红领巾议事厅",
+      "subtitle": "法律论证·校园社区真实提案",
+      "directions": [
+        "法治议事",
+        "校园社区治理"
+      ],
+      "summary": "学生每月围绕校园和社区真实问题调研、查法、论证和提案，把法治学习转成设施改进、制度文本与公共传播。",
+      "practices": [
+        "红领巾议事员围绕校园安全和规则议事，调研队按\"调研—论证—提案\"推进；骨干再进入社区公共设施调研。",
+        "学生用法律条款支持建议，已有瓷砖维修、路灯升级、减速带安装和社区维护办法等真实反馈。",
+        "成果另包括隐患分布图、情景剧、家庭行动表和《平安密码手册》；民警、法律专家、人大代表提供专业支持。"
+      ],
+      "relatedSubjects": [
+        "德育"
+      ],
+      "problems": [
+        "local",
+        "outcome",
+        "collaboration"
+      ]
+    },
+    {
       "id": "DY-017",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "班队课程与德育序列",
       "title": "班会有约",
       "subtitle": "班队会课程",
@@ -3785,7 +3865,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-018",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "班队课程与德育序列",
       "title": "礼乐追光",
       "subtitle": "德育三课堂",
@@ -3813,7 +3892,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-019",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "班队课程与德育序列",
       "title": "追光计划",
       "subtitle": "\"六爱\"主题德育课程",
@@ -3838,7 +3916,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-020",
       "subject": "德育与班队",
       "stage": "初中",
-      "grades": "初中",
       "theme": "班队课程与德育序列",
       "title": "锋华德育·15项打卡",
       "subtitle": "三线德育＋15项必打卡",
@@ -3866,7 +3943,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-021",
       "subject": "德育与班队",
       "stage": "初中",
-      "grades": "初一",
       "theme": "衔接与成长仪式",
       "title": "一力四型入学衔接",
       "subtitle": "小初衔接起步课程",
@@ -3894,7 +3970,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-022",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "衔接与成长仪式",
       "title": "幸福三礼",
       "subtitle": "火种仪式课程",
@@ -3922,7 +3997,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-023",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "衔接与成长仪式",
       "title": "成长有礼",
       "subtitle": "仪式与入学适应课程",
@@ -3948,7 +4022,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-024",
       "subject": "德育与班队",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "衔接与成长仪式",
       "title": "社会实践课程",
       "subtitle": "志愿服务·学科研学·成长仪式",
@@ -3977,7 +4050,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-025",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "衔接与成长仪式",
       "title": "筑梦人生",
       "subtitle": "仪式与职业启蒙",
@@ -4003,7 +4075,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-026",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "规则品格与责任",
       "title": "三安课程",
       "subtitle": "安全·安静·安定",
@@ -4027,7 +4098,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-027",
       "subject": "德育与班队",
       "stage": "九年一贯",
-      "grades": "1—9年级",
       "theme": "规则品格与责任",
       "title": "君子如一",
       "subtitle": "践行清单·家务·职业实践",
@@ -4052,7 +4122,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-028",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "2年级",
       "theme": "规则品格与责任",
       "title": "和雁一起飞",
       "subtitle": "二年级雁文化规则课程（10课时）",
@@ -4076,7 +4145,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-029",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "规则品格与责任",
       "title": "师水规则",
       "subtitle": "习惯·安全·法治规则课程",
@@ -4102,7 +4170,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-030",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "规则品格与责任",
       "title": "班级有品",
       "subtitle": "班级共同体课程",
@@ -4124,7 +4191,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "DY-031",
       "subject": "德育与班队",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "规则品格与责任",
       "title": "责任教育六级",
       "subtitle": "六级身份进阶序列",
@@ -4146,7 +4212,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "XL-001",
       "subject": "心理健康与安全",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "安全教育",
       "title": "安全护航",
       "subtitle": "生命安全课程",
@@ -4156,8 +4221,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "按年段与季节节点组织的安全教育序列，守住身心成长底线。",
       "practices": [
         "序列：交通、消防、防欺凌、网络安全、青春期保护、心理危机求助，按年段与季节节点排布。",
-        "场景资源：科技馆安全体验（火灾演示、地震小屋）。",
-        "边界说明：一体（国家课程）管安全课堂教学，右翼管校本主题序列。"
+        "场景资源：科技馆安全体验（火灾演示、地震小屋）。"
       ],
       "relatedSubjects": [
         "心理健康",
@@ -4174,7 +4238,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "XL-009",
       "subject": "心理健康与安全",
       "stage": "小学",
-      "grades": "1—5年级（逐年级模块对应未披露）",
       "theme": "安全教育",
       "title": "儿童学救护",
       "subtitle": "每学年一模块·教材与二维码示范",
@@ -4186,7 +4249,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "practices": [
         "课程自2018年起分年级实施，教材按外出、校园、家庭、常见创伤和紧急情况五个生活域组织，包含心肺复苏、AED、气道异物梗阻、包扎和搬运等。",
         "每项技能配二维码真人示范，学校建设安全体验教室和四模块网站，以微课程、微活动和实操演示推进。",
-        "学生完成年度技能模块并进行包扎、急救等公开展示；各年级具体模块、常态任课教师、课表与频次未披露。"
+        "学生完成年度技能模块并进行包扎、急救等公开展示。"
       ],
       "relatedSubjects": [
         "安全"
@@ -4201,7 +4264,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "XL-010",
       "subject": "心理健康与安全",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "安全教育",
       "title": "六年十二技",
       "subtitle": "每学期一项健康技能·情境实操认证",
@@ -4231,7 +4293,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "XL-011",
       "subject": "心理健康与安全",
       "stage": "小学",
-      "grades": "小学（逐年级内容未披露）",
       "theme": "安全教育",
       "title": "安全样本课程",
       "subtitle": "双馆·阵地·校园微场景实境学习",
@@ -4243,7 +4304,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "practices": [
         "\"2+4+N\"空间包括消防体验馆、民防教育馆、四类固定阵地和遍布校园的教育点，连接实物教学、问答、技能练习与逃生演练。",
         "学校教师承担日常课程，消防救援人员和专家资源库提供专业支持，2026年有固定兼职消防辅导员。",
-        "成果包括安全逃生、技能实操和学生志愿讲解；课程已进入课表，但具体周节数、逐年级内容与个体达标方式未披露。"
+        "成果包括安全逃生、技能实操和学生志愿讲解。"
       ],
       "relatedSubjects": [
         "安全"
@@ -4258,7 +4319,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "XL-002",
       "subject": "心理健康与安全",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "心理健康与优势成长",
       "title": "幸福心育",
       "subtitle": "分年级心理课程（七届心育节）",
@@ -4285,7 +4345,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "XL-003",
       "subject": "心理健康与安全",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "心理健康与优势成长",
       "title": "心学院",
       "subtitle": "心理成长课程群",
@@ -4312,7 +4371,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "XL-004",
       "subject": "心理健康与安全",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "心理健康与优势成长",
       "title": "心晴成长",
       "subtitle": "心理健康与优势发现课程",
@@ -4341,7 +4399,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "XL-005",
       "subject": "心理健康与安全",
       "stage": "小学",
-      "grades": "1—5年级",
       "theme": "心理健康与优势成长",
       "title": "心理韧性专题课",
       "subtitle": "15分钟午会课·全员导师·四心课堂",
@@ -4352,7 +4409,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "把心理韧性拆成每周15分钟的常态午会微课，由全员导师共同实施，让学生在合作、冲突和真实烦恼中反复练习、复盘再尝试。",
       "practices": [
         "覆盖一至五年级，每周二安排15分钟午会课；课程资源按\"模块—主题—课时\"组织，已形成40个主题、160课时资源包。",
-        "聚焦\"坚韧、乐观、自强\"三个维度，按年级发展要求递进；完整逐年主题表未公开，不自行补写。",
+        "聚焦\"坚韧、乐观、自强\"三个维度，按年级发展要求递进。",
         "采用\"心放松—心探索—心共鸣—心自问\"的\"四心\"课堂；合作书写、换位思考等任务都包含失败或冲突、复盘、再次尝试。",
         "心理教师提供专业支持，班主任、副班主任和学科教师依托全员导师制参与；\"解忧信箱\"收集真实困惑，教师端以观察量表和典型案例支持教研。"
       ],
@@ -4368,7 +4425,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "XL-006",
       "subject": "心理健康与安全",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "心理健康与优势成长",
       "title": "港湾心理",
       "subtitle": "生活适应与人际交往心理课程",
@@ -4392,7 +4448,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "XL-007",
       "subject": "心理健康与安全",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "心理健康与优势成长",
       "title": "田园心语",
       "subtitle": "乡村儿童心理成长序列",
@@ -4417,7 +4472,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "XL-008",
       "subject": "心理健康与安全",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "心理健康与优势成长",
       "title": "积极心理品质序列",
       "subtitle": "周心理课·积极乐观—心理韧性—坚毅",
@@ -4446,7 +4500,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "JX-001",
       "subject": "家校共育",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "家庭社会实践",
       "title": "行走的课堂",
       "subtitle": "社会与职业体验",
@@ -4472,7 +4525,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "JX-002",
       "subject": "家校共育",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "家校资源与协同",
       "title": "活力家校",
       "subtitle": "亲师生共育四路径",
@@ -4495,7 +4547,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "JX-003",
       "subject": "家校共育",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "家校资源与协同",
       "title": "百业家长课",
       "subtitle": "家长进课堂",
@@ -4519,7 +4570,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "JX-004",
       "subject": "家校共育",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "家长成长课程",
       "title": "以常家校",
       "subtitle": "家长学校课程",
@@ -4545,7 +4595,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "JX-005",
       "subject": "家校共育",
       "stage": "小学",
-      "grades": "1—6年级家长",
       "theme": "家长成长课程",
       "title": "德爸香妈家长课程",
       "subtitle": "六年12册·一外三内讲师体系",
@@ -4555,9 +4604,9 @@ window.COURSE_SUPERMARKET_DATA = {
       ],
       "summary": "以一至六年级上下学期共12册家长读本为底座，配置专家、骨干教师、班主任和优秀家长四类讲师，并以分阶段证书形成出口。",
       "practices": [
-        "每个年级上下学期各使用一册《德爸香妈读本》，共12册；具体册名与主题未披露。",
+        "每个年级上下学期各使用一册《德爸香妈读本》，共12册。",
         "\"一外三内\"师资由家庭教育专家、骨干讲师、班主任讲师和优秀家长讲师组成，通过集体备课、培训班主任和案例教学保障实施。",
-        "家长完成分阶段培训后可获得初级证、中级证或优秀家长证书；原文未解释\"24+2+N\"，不得自行换算课时。"
+        "家长完成分阶段培训后可获得初级证、中级证或优秀家长证书。"
       ],
       "relatedSubjects": [
         "家校共育"
@@ -4571,7 +4620,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "JX-006",
       "subject": "家校共育",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "家长成长课程",
       "title": "父母成长六课",
       "subtitle": "亲子沟通与心理健康家长课程",
@@ -4600,7 +4648,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "JX-007",
       "subject": "家校共育",
       "stage": "小学",
-      "grades": "1—6年级家长",
       "theme": "家长成长课程",
       "title": "阶梯式家长学堂",
       "subtitle": "入学领证·年度答卷·六年结业",
@@ -4611,7 +4658,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "让家长随孩子同步\"入学\"，按年级学习并完成家庭实践答卷，经案例评审逐年晋级，六年后获得结业证。",
       "practices": [
         "一至六年级依次聚焦新生角色转换、亲子关系、父母语言、父母信念、学习力和青春期准备；前期通过多种渠道调研家长需要。",
-        "家庭教育专家、班主任和家长讲师团共同授课；课程包括新生入学前第一课、每学期定期课程和月度主题，单次时长未披露。",
+        "家庭教育专家、班主任和家长讲师团共同授课。",
         "家长每学年提交家庭教育实践答卷，优秀案例经委员会评审后进入《慧爱父母》，并随年级晋级、毕业结业。"
       ],
       "relatedSubjects": [
@@ -4628,7 +4675,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "JX-008",
       "subject": "家校共育",
       "stage": "小学",
-      "grades": "4年级",
       "theme": "家风教育",
       "title": "溁小家风",
       "subtitle": "四年级家风家训课程",
@@ -4655,7 +4701,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-001",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "一物跨学科探究",
       "title": "田园牧歌",
       "subtitle": "种植主题六年跨学科探究",
@@ -4681,7 +4726,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-002",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "一物跨学科探究",
       "title": "雁探实践",
       "subtitle": "小寒腊八粥六年探究",
@@ -4708,7 +4752,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-003",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "乡土文化课程",
       "title": "探秘乡间游戏",
       "subtitle": "风筝文化·制作·科学",
@@ -4737,7 +4780,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-004",
       "subject": "综合实践与跨学科",
       "stage": "初中",
-      "grades": "初中",
       "theme": "乡土文化课程",
       "title": "湖湘茶文化",
       "subtitle": "茶文化校本课程",
@@ -4763,7 +4805,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-005",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "乡土文化课程",
       "title": "神奇的望城",
       "subtitle": "乡土文化三段课程",
@@ -4774,8 +4815,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "practices": [
         "低段：童谣里的望城（有声绘本）、传统游戏（规则卡）、舌尖上的家乡（黏土美食）→《我的望城第一本》电子相册。",
         "中段：水墨绘建筑（数位板电子线稿）、水彩记手工艺（竹编纹样数学测量）、漫画说美食（方言对话）→扫码可听方言解说的《望城故事画册》。",
-        "高段：数字非遗实验室（3D复刻古桥/腊肉腌制科普图）、口述史动态漫画微视频、望城文化旅游地图APP原型、VR传统游戏→学生自主策划《望城文化数字博物馆》线上展＋校外\"数字望城\"主题展＋学生公众号。",
-        "佐证：定稿称其为\"具有品牌号召力的校本课程\"（已有基础）。"
+        "高段：数字非遗实验室（3D复刻古桥/腊肉腌制科普图）、口述史动态漫画微视频、望城文化旅游地图APP原型、VR传统游戏→学生自主策划《望城文化数字博物馆》线上展＋校外\"数字望城\"主题展＋学生公众号。"
       ],
       "relatedSubjects": [
         "综合实践",
@@ -4792,7 +4832,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-006",
       "subject": "综合实践与跨学科",
       "stage": "初中",
-      "grades": "初中",
       "theme": "作业设计与课程化",
       "title": "分层作业与AI复习包",
       "subtitle": "数据驱动的作业课程化改革",
@@ -4802,8 +4841,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "A/B/C 三层作业＋AI 错题分析＋单元复习包：市级课题实证平均错误率下降 15%、满意度 92%。",
       "practices": [
         "三层：A层核心夯基（错因引导视频）、B层拔中提优（变式迁移＋思维导图模板）、C层拓展创新（开放探究竞赛题＋延伸阅读）。",
-        "闭环：AI扫描→数据分析→错题推送→单元复习包；未来计划引入AI辅助学情分层。",
-        "佐证：市级课题《基于数据分析的单元复习作业分层设计研究》实证——平均错误率降15%，学生满意度92%。"
+        "闭环：AI扫描→数据分析→错题推送→单元复习包；未来计划引入AI辅助学情分层。"
       ],
       "relatedSubjects": [
         "综合实践",
@@ -4820,7 +4858,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-007",
       "subject": "综合实践与跨学科",
       "stage": "初中",
-      "grades": "初中",
       "theme": "作业设计与课程化",
       "title": "跨学科作业一体化",
       "subtitle": "学科实践作业→跨学科作业→探究课程",
@@ -4845,7 +4882,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-008",
       "subject": "综合实践与跨学科",
       "stage": "初中",
-      "grades": "初中",
       "theme": "国家课程项目化",
       "title": "学期任务群·银杏调查",
       "subtitle": "国家课程项目化的学期纲要范例",
@@ -4872,7 +4908,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-009",
       "subject": "综合实践与跨学科",
       "stage": "初中",
-      "grades": "高中",
       "theme": "国际理解与研学",
       "title": "乘风国际研学",
       "subtitle": "中欧班列·中非贸易·金砖主题研学",
@@ -4900,7 +4935,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-010",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "3—6年级",
       "theme": "国际理解与研学",
       "title": "国际视野",
       "subtitle": "三至六年级跨学科国际理解",
@@ -4932,7 +4966,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-011",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "4—5年级",
       "theme": "在地文化PBL",
       "title": "三古一新",
       "subtitle": "古井·古街·古树项目式学习",
@@ -4961,7 +4994,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-012",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "在地文化PBL",
       "title": "花炮探秘",
       "subtitle": "浏阳花炮非遗探究课程",
@@ -4987,7 +5019,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-013",
       "subject": "综合实践与跨学科",
       "stage": "初中",
-      "grades": "7—9年级",
       "theme": "生涯教育",
       "title": "初中生涯体验式学习",
       "subtitle": "三年四领域·六册教材·60个活动课例",
@@ -5015,7 +5046,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-014",
       "subject": "综合实践与跨学科",
       "stage": "初中",
-      "grades": "7—9年级",
       "theme": "生涯教育",
       "title": "生涯教育与职业体验",
       "subtitle": "专职科组·全学科融合·校企体验",
@@ -5026,9 +5056,9 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "由4名专职生涯教师牵头，把七至九年级固定课时、全学科融合、校内职业体验店和校企课程连成全员生涯学习链。",
       "practices": [
         "设综合生涯科组和4名专职生涯教师；全学科教师承担融合职责，并引入家长、企业和校外职业导师。",
-        "七年级上学期每周2课时，八、九年级每周0.5课时，开课年级全员参与；0.5课时的具体排法未披露。",
+        "七年级上学期每周2课时，八、九年级每周0.5课时，开课年级全员参与。",
         "课程包括生涯通识课、全学科融合课、个性化课程、校内体验和校外企业课程。",
-        "学生制作高校招生海报并模拟宣讲、编职业人物传记杂志、成立模拟旅行社、经营职业体验店并完成分工与复盘；2022年报道还披露19家职业体验店和多次企业课程。"
+        "学生制作高校招生海报并模拟宣讲、编职业人物传记杂志、成立模拟旅行社、经营职业体验店并完成分工与复盘。"
       ],
       "relatedSubjects": [
         "综合实践"
@@ -5043,7 +5073,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-015",
       "subject": "综合实践与跨学科",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "生涯教育",
       "title": "生涯系列课程",
       "subtitle": "导师制·职业探索·模拟招聘·生涯课堂",
@@ -5069,7 +5098,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-016",
       "subject": "综合实践与跨学科",
       "stage": "高中",
-      "grades": "高一—高三",
       "theme": "生涯教育",
       "title": "生涯课程",
       "subtitle": "高中三年职业规划1.0—3.0",
@@ -5094,7 +5122,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-017",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "研学与职业体验",
       "title": "XIN旅潇湘",
       "subtitle": "六年六主题潇湘研学",
@@ -5120,7 +5147,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-018",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "研学与职业体验",
       "title": "三原色背包课",
       "subtitle": "红·黄·蓝三主题研学体系",
@@ -5145,7 +5171,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-019",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "研学与职业体验",
       "title": "小鹿看世界",
       "subtitle": "项目化学习＋研学实践＋职业体验",
@@ -5173,7 +5198,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-020",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "研学与职业体验",
       "title": "职业启蒙教育",
       "subtitle": "省教改课题依托的职业启蒙课程",
@@ -5197,7 +5221,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-021",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "研学与职业体验",
       "title": "花儿東游记",
       "subtitle": "四板块花主题研学",
@@ -5226,7 +5249,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-022",
       "subject": "综合实践与跨学科",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "社团与学科拓展",
       "title": "七彩社团",
       "subtitle": "学生自组社团课程",
@@ -5253,7 +5275,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-023",
       "subject": "综合实践与跨学科",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "社团与学科拓展",
       "title": "智翼提高课程",
       "subtitle": "学科拔尖与小语种课程",
@@ -5281,7 +5302,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-024",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "节庆与学科节",
       "title": "八节月历",
       "subtitle": "活动拓展课程（定稿称\"活动拓展\"）",
@@ -5306,7 +5326,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-025",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "定稿未标注",
       "theme": "节庆与学科节",
       "title": "多彩融创节",
       "subtitle": "一主学科带多学科游戏闯关",
@@ -5338,7 +5357,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-026",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "节庆与学科节",
       "title": "校园节日体系",
       "subtitle": "六节月历＋常态/创新双轨",
@@ -5364,7 +5382,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-027",
       "subject": "综合实践与跨学科",
       "stage": "初中",
-      "grades": "初高中",
       "theme": "节庆与学科节",
       "title": "校园风尚课程",
       "subtitle": "五风校园节课程",
@@ -5391,7 +5408,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-028",
       "subject": "综合实践与跨学科",
       "stage": "高中",
-      "grades": "高一—高三",
       "theme": "节庆与学科节",
       "title": "珺园学科节",
       "subtitle": "高中学科活动矩阵",
@@ -5416,7 +5432,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-029",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "表达与展示",
       "title": "光芒大放·自信大擂台",
       "subtitle": "全员才艺展示平台",
@@ -5442,7 +5457,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-030",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "6—12岁",
       "theme": "表达与展示",
       "title": "校园XIN主播",
       "subtitle": "校园舞台综合表达",
@@ -5471,7 +5485,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-031",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "跨学科主题课程",
       "title": "成长阶梯",
       "subtitle": "思维能力与生命情感双线六年项目",
@@ -5500,7 +5513,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-032",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "4年级",
       "theme": "跨学科主题课程",
       "title": "探火",
       "subtitle": "四年级火文化跨学科课程（10课时）",
@@ -5526,7 +5538,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-033",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "跨学科主题课程",
       "title": "追光行动",
       "subtitle": "\"光\"主题六年跨学科课程链",
@@ -5555,7 +5566,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "id": "ZH-034",
       "subject": "综合实践与跨学科",
       "stage": "小学",
-      "grades": "1—6年级",
       "theme": "项目化学习体系",
       "title": "心力项目",
       "subtitle": "三级项目化学习体系＋工具箱",
