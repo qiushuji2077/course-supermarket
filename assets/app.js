@@ -1,0 +1,519 @@
+(() => {
+  'use strict';
+
+  const data = window.COURSE_SUPERMARKET_DATA;
+  if (!data) throw new Error('课程数据未加载');
+
+  const STORAGE_KEY = 'course-supermarket-selection-v1';
+  const SHELF_COUNT = 5;
+  const state = {
+    problem: '',
+    subject: data.subjects[0]?.name || '',
+    stage: '全部',
+    theme: '',
+    query: '',
+    selection: loadSelection()
+  };
+
+  const els = {
+    courseTotal: document.querySelector('#courseTotal'),
+    directionTotal: document.querySelector('#directionTotal'),
+    subjectTotal: document.querySelector('#subjectTotal'),
+    updateTime: document.querySelector('#updateTime'),
+    searchInput: document.querySelector('#searchInput'),
+    startBrowse: document.querySelector('#startBrowse'),
+    browse: document.querySelector('#browse'),
+    problemGrid: document.querySelector('#problemGrid'),
+    subjectGrid: document.querySelector('#subjectGrid'),
+    clearFilter: document.querySelector('#clearFilter'),
+    shelfTitle: document.querySelector('#shelfTitle'),
+    departmentCode: document.querySelector('#departmentCode'),
+    activeGuide: document.querySelector('#activeGuide'),
+    resultCount: document.querySelector('#resultCount'),
+    stageFilter: document.querySelector('#stageFilter'),
+    themeFilter: document.querySelector('#themeFilter'),
+    shelfUnit: document.querySelector('#shelfUnit'),
+    emptyState: document.querySelector('#emptyState'),
+    selectionCount: document.querySelector('#selectionCount'),
+    dockCount: document.querySelector('#dockCount'),
+    openSelection: document.querySelector('#openSelection'),
+    openSelectionBottom: document.querySelector('#openSelectionBottom'),
+    cartDock: document.querySelector('#cartDock'),
+    selectionDrawer: document.querySelector('#selectionDrawer'),
+    drawerBackdrop: document.querySelector('#drawerBackdrop'),
+    closeSelection: document.querySelector('#closeSelection'),
+    continueShopping: document.querySelector('#continueShopping'),
+    selectionSummary: document.querySelector('#selectionSummary'),
+    selectionList: document.querySelector('#selectionList'),
+    makeReceipt: document.querySelector('#makeReceipt'),
+    courseDialog: document.querySelector('#courseDialog'),
+    closeDialog: document.querySelector('#closeDialog'),
+    dialogContent: document.querySelector('#dialogContent'),
+    receiptDialog: document.querySelector('#receiptDialog'),
+    closeReceipt: document.querySelector('#closeReceipt'),
+    receiptContent: document.querySelector('#receiptContent'),
+    downloadReceipt: document.querySelector('#downloadReceipt'),
+    copyReceipt: document.querySelector('#copyReceipt'),
+    printReceipt: document.querySelector('#printReceipt'),
+    toast: document.querySelector('#toast'),
+    printSheet: document.querySelector('#printSheet')
+  };
+
+  function escapeHtml(value) {
+    return String(value ?? '')
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#039;');
+  }
+
+  function loadSelection() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      const validIds = new Set(data.courses.map((course) => course.id));
+      return Object.fromEntries(Object.entries(saved).filter(([id]) => validIds.has(id)));
+    } catch {
+      return {};
+    }
+  }
+
+  function saveSelection() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state.selection));
+    updateSelectionCount();
+  }
+
+  function selectedCourses() {
+    const byId = new Map(data.courses.map((course) => [course.id, course]));
+    return Object.keys(state.selection).map((id) => byId.get(id)).filter(Boolean);
+  }
+
+  function initMeta() {
+    els.courseTotal.textContent = data.meta.courseCount;
+    els.directionTotal.textContent = data.meta.directionCount;
+    els.subjectTotal.textContent = data.meta.subjectCount;
+    els.updateTime.textContent = `内容更新于 ${data.meta.generatedAt}`;
+  }
+
+  function problemDefinition() {
+    return data.problems.find((item) => item.id === state.problem);
+  }
+
+  function coursesForProblem(problemId = state.problem) {
+    return data.courses.filter((course) => !problemId || course.problems.includes(problemId));
+  }
+
+  function subjectCount(subject) {
+    return coursesForProblem().filter((course) => course.subject === subject).length;
+  }
+
+  function renderProblems() {
+    els.problemGrid.innerHTML = data.problems.map((item, index) => `
+      <button class="guide-card ${state.problem === item.id ? 'active' : ''}" type="button" data-problem="${escapeHtml(item.id)}">
+        <span class="guide-no"><span>导购 ${String(index + 1).padStart(2, '0')}</span><span>${item.count} 件</span></span>
+        <h3>${escapeHtml(item.question)}</h3>
+        <p>${escapeHtml(item.hint)}</p>
+      </button>
+    `).join('');
+  }
+
+  function renderSubjects() {
+    els.subjectGrid.innerHTML = data.subjects.map((item, index) => {
+      const count = subjectCount(item.name);
+      return `
+        <button class="subject-tab ${state.subject === item.name ? 'active' : ''}" type="button" data-subject="${escapeHtml(item.name)}" ${count === 0 ? 'disabled' : ''}>
+          <span class="aisle-no">${String(index + 1).padStart(2, '0')}</span>
+          <strong>${escapeHtml(item.name)}</strong>
+          <small>${count} 门可选</small>
+        </button>
+      `;
+    }).join('');
+  }
+
+  function availableStages() {
+    const order = ['全部', '小学', '初中', '九年一贯', '高中'];
+    const stages = new Set(coursesForProblem().filter((course) => course.subject === state.subject).map((course) => course.stage));
+    return order.filter((stage) => stage === '全部' || stages.has(stage));
+  }
+
+  function renderStageFilter() {
+    if (!availableStages().includes(state.stage)) state.stage = '全部';
+    els.stageFilter.innerHTML = availableStages().map((stage) => `
+      <button type="button" class="${state.stage === stage ? 'active' : ''}" data-stage="${stage}">${stage}</button>
+    `).join('');
+  }
+
+  function preThemeCourses() {
+    return data.courses.filter((course) => {
+      if (course.subject !== state.subject) return false;
+      if (state.problem && !course.problems.includes(state.problem)) return false;
+      if (state.stage !== '全部' && course.stage !== state.stage) return false;
+      if (state.query) {
+        const haystack = [course.id, course.subject, course.theme, course.title, course.summary, ...course.practices, ...course.directions].join(' ').toLowerCase();
+        if (!haystack.includes(state.query.toLowerCase())) return false;
+      }
+      return true;
+    });
+  }
+
+  function renderThemeFilter() {
+    const themes = [...new Set(preThemeCourses().map((course) => course.theme))].sort((a, b) => a.localeCompare(b, 'zh-CN'));
+    if (state.theme && !themes.includes(state.theme)) state.theme = '';
+    els.themeFilter.innerHTML = `<option value="">全部方向</option>${themes.map((theme) => `
+      <option value="${escapeHtml(theme)}" ${state.theme === theme ? 'selected' : ''}>${escapeHtml(theme)}</option>
+    `).join('')}`;
+  }
+
+  function filteredCourses() {
+    return preThemeCourses().filter((course) => !state.theme || course.theme === state.theme);
+  }
+
+  function distributeToShelves(courses) {
+    const grouped = new Map();
+    courses.forEach((course) => {
+      if (!grouped.has(course.theme)) grouped.set(course.theme, []);
+      grouped.get(course.theme).push(course);
+    });
+    const rows = Array.from({ length: SHELF_COUNT }, () => ({ themes: [], courses: [] }));
+    [...grouped.entries()]
+      .sort(([themeA, coursesA], [themeB, coursesB]) => coursesB.length - coursesA.length || themeA.localeCompare(themeB, 'zh-CN'))
+      .forEach(([theme, items]) => {
+        const target = rows.reduce((best, row) => row.courses.length < best.courses.length ? row : best, rows[0]);
+        target.themes.push(theme);
+        target.courses.push(...items.sort((a, b) => a.id.localeCompare(b.id)));
+      });
+    return rows;
+  }
+
+  function packClass(course) {
+    return `pack-${[...course.id].reduce((sum, char) => sum + char.charCodeAt(0), 0) % 7}`;
+  }
+
+  function productCard(course) {
+    const selected = Boolean(state.selection[course.id]);
+    return `
+      <article class="product-card ${packClass(course)} ${selected ? 'selected' : ''}" data-course-id="${course.id}" tabindex="0" aria-label="${escapeHtml(`${course.id} ${course.title}`)}">
+        <div class="product-top">
+          <span class="product-id">${course.id}</span>
+          ${course.externalReference ? '<span class="product-badge external">外部参考</span>' : `<span class="product-badge">${escapeHtml(course.stage)}</span>`}
+        </div>
+        <p class="product-theme">${escapeHtml(course.theme)}</p>
+        <h3>${escapeHtml(course.title)}</h3>
+        <p class="product-summary">${escapeHtml(course.summary || course.practices[0])}</p>
+        <div class="product-bottom">
+          <span class="barcode" aria-hidden="true"></span>
+          <button class="put-button ${selected ? 'selected' : ''}" type="button" data-action="select">${selected ? '放回' : '放入车'}</button>
+        </div>
+      </article>
+    `;
+  }
+
+  function renderDepartment() {
+    const subjectInfo = data.subjects.find((item) => item.name === state.subject) || data.subjects[0];
+    const problem = problemDefinition();
+    els.shelfTitle.textContent = `${state.subject}货架`;
+    els.departmentCode.textContent = `A${String(data.subjects.indexOf(subjectInfo) + 1).padStart(2, '0')}`;
+    els.activeGuide.textContent = problem ? `导购推荐 · ${problem.short}` : '全场精选 · 自由选购';
+
+    const courses = filteredCourses();
+    els.resultCount.textContent = courses.length;
+    const rows = distributeToShelves(courses);
+    els.shelfUnit.innerHTML = rows.map((row, index) => `
+      <section class="shelf-row" aria-label="第 ${index + 1} 层货栏">
+        <div class="shelf-row-head">
+          <span><b>${index + 1}</b> 第 ${index + 1} 层货栏</span>
+          <em>${row.themes.length ? escapeHtml(row.themes.join(' · ')) : '等待补货'}</em>
+        </div>
+        <div class="shelf-track">
+          ${row.courses.length ? row.courses.map(productCard).join('') : '<div class="shelf-empty">本层暂无相符课程</div>'}
+        </div>
+        <div class="shelf-board" aria-hidden="true"></div>
+      </section>
+    `).join('');
+    els.emptyState.hidden = courses.length !== 0;
+  }
+
+  function renderFilters() {
+    const anyFilter = Boolean(state.problem || state.stage !== '全部' || state.theme || state.query);
+    els.clearFilter.hidden = !anyFilter;
+    renderStageFilter();
+    renderThemeFilter();
+  }
+
+  function render() {
+    renderProblems();
+    renderSubjects();
+    renderFilters();
+    renderDepartment();
+    updateSelectionCount();
+  }
+
+  function chooseProblem(problemId) {
+    state.problem = state.problem === problemId ? '' : problemId;
+    state.stage = '全部';
+    state.theme = '';
+    const firstAvailable = data.subjects.find((subject) => subjectCount(subject.name) > 0);
+    if (firstAvailable && subjectCount(state.subject) === 0) state.subject = firstAvailable.name;
+    render();
+    document.querySelector('#catalog').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function clearFilters() {
+    state.problem = '';
+    state.stage = '全部';
+    state.theme = '';
+    state.query = '';
+    els.searchInput.value = '';
+    render();
+  }
+
+  function courseFromEvent(event) {
+    const product = event.target.closest('[data-course-id]');
+    return product ? data.courses.find((course) => course.id === product.dataset.courseId) : null;
+  }
+
+  function toggleSelection(course) {
+    if (state.selection[course.id]) {
+      delete state.selection[course.id];
+      showToast(`${course.id} 已放回货架`);
+    } else {
+      state.selection[course.id] = { note: '' };
+      showToast(`${course.id} 已放入手推车`);
+      els.cartDock.classList.remove('bump');
+      requestAnimationFrame(() => els.cartDock.classList.add('bump'));
+    }
+    saveSelection();
+    renderDepartment();
+    if (els.selectionDrawer.classList.contains('open')) renderSelection();
+    if (els.courseDialog.open) renderDialog(course);
+  }
+
+  function renderDialog(course) {
+    const selected = Boolean(state.selection[course.id]);
+    els.dialogContent.innerHTML = `
+      <span class="dialog-code">商品编号 ${course.id}</span>
+      <h2>${escapeHtml(course.title)}</h2>
+      <p class="dialog-theme">${escapeHtml(course.subject)} · ${escapeHtml(course.theme)}</p>
+      ${course.externalReference ? '<span class="product-badge external">外部参考</span>' : ''}
+      <p class="dialog-summary">${escapeHtml(course.summary)}</p>
+      <h3>包装背面的主要做法</h3>
+      <ul class="practice-list">${course.practices.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+      <div class="dialog-meta">
+        <span>${escapeHtml(course.stage)}</span><span>${escapeHtml(course.grades)}</span>
+        ${course.relatedSubjects.length > 1 ? `<span>关联：${escapeHtml(course.relatedSubjects.join('、'))}</span>` : ''}
+      </div>
+      <button class="primary-button" id="dialogSelect" type="button">${selected ? '放回原货架' : '放入选课手推车'}</button>
+    `;
+    els.dialogContent.querySelector('#dialogSelect').addEventListener('click', () => toggleSelection(course));
+  }
+
+  function openDialog(course) {
+    renderDialog(course);
+    els.courseDialog.showModal();
+  }
+
+  function updateSelectionCount() {
+    const count = Object.keys(state.selection).length;
+    els.selectionCount.textContent = count;
+    els.dockCount.textContent = count;
+  }
+
+  function renderSelection() {
+    const courses = selectedCourses();
+    const subjects = new Set(courses.map((course) => course.subject));
+    els.selectionSummary.textContent = courses.length
+      ? `车内有 ${courses.length} 门课程，来自 ${subjects.size} 个学科货架。可以写下学校的第一反应。`
+      : '手推车还是空的。关掉这里，去货架上把有感觉的课程放进来。';
+    els.selectionList.innerHTML = courses.length ? courses.map((course) => `
+      <article class="selection-item" data-course-id="${course.id}">
+        <div class="selection-item-top">
+          <div><span class="course-id">${course.id} · ${escapeHtml(course.subject)}</span><h3>${escapeHtml(course.theme)}｜${escapeHtml(course.title)}</h3></div>
+          <button class="remove-button" type="button" data-action="remove">放回货架</button>
+        </div>
+        <label>学校的想法<textarea data-note placeholder="例如：想先在三年级试做；可结合本地资源……">${escapeHtml(state.selection[course.id]?.note || '')}</textarea></label>
+      </article>
+    `).join('') : '<div class="selection-empty"><strong>手推车还是空的</strong><span>先去逛五层货栏，看到有感觉的就放进来。</span></div>';
+    els.makeReceipt.disabled = courses.length === 0;
+  }
+
+  function openSelection() {
+    renderSelection();
+    els.drawerBackdrop.hidden = false;
+    els.selectionDrawer.setAttribute('aria-hidden', 'false');
+    requestAnimationFrame(() => els.selectionDrawer.classList.add('open'));
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSelection() {
+    els.selectionDrawer.classList.remove('open');
+    els.selectionDrawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    setTimeout(() => { els.drawerBackdrop.hidden = true; }, 230);
+  }
+
+  function receiptRows() {
+    return selectedCourses().map((course) => ({
+      id: course.id,
+      subject: course.subject,
+      theme: course.theme,
+      title: course.title,
+      summary: course.summary || course.practices.join('；'),
+      note: state.selection[course.id]?.note || ''
+    }));
+  }
+
+  function receiptNumber() {
+    const now = new Date();
+    const compact = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}`;
+    return `CS-${compact}-${String(receiptRows().length).padStart(2, '0')}`;
+  }
+
+  function receiptMarkup() {
+    const rows = receiptRows();
+    const subjectCount = new Set(rows.map((row) => row.subject)).size;
+    return `
+      <div class="receipt-logo"><span class="receipt-cart">▰</span><h2>课程超市</h2><p>选课流水单 · ${receiptNumber()}</p></div>
+      <div class="receipt-rule">------------------------------------------</div>
+      ${rows.map((row) => `
+        <div class="receipt-line">
+          <span>${row.id}</span>
+          <div><strong>${escapeHtml(row.theme)}</strong><small>${escapeHtml(row.subject)} · ${escapeHtml(row.title)}</small>${row.note ? `<div class="receipt-note">想法：${escapeHtml(row.note)}</div>` : ''}</div>
+          <span class="qty">×1</span>
+        </div>
+      `).join('')}
+      <div class="receipt-total"><span>${subjectCount} 个学科货架</span><strong>共 ${rows.length} 门</strong></div>
+      <div class="receipt-rule">------------------------------------------</div>
+      <div class="receipt-footer"><div class="receipt-barcode" aria-hidden="true"></div><p>请保留课程编号，便于后续沟通与定制。<br>选中的方向将结合学校实际继续加工。</p></div>
+    `;
+  }
+
+  function receiptText() {
+    const rows = receiptRows();
+    const lines = ['课程超市｜选课流水单', `流水号：${receiptNumber()}`, '--------------------------------'];
+    rows.forEach((row) => {
+      lines.push(`${row.id}  ${row.subject}｜${row.theme}  ×1`);
+      lines.push(`    ${row.title}`);
+      lines.push(`    主要做法：${row.summary}`);
+      if (row.note) lines.push(`    学校想法：${row.note}`);
+      lines.push('');
+    });
+    lines.push('--------------------------------');
+    lines.push(`合计：${rows.length} 门课程｜${new Set(rows.map((row) => row.subject)).size} 个学科`);
+    lines.push('请保留课程编号，便于后续沟通与定制。');
+    return lines.join('\n');
+  }
+
+  function openReceipt() {
+    els.receiptContent.innerHTML = receiptMarkup();
+    closeSelection();
+    setTimeout(() => els.receiptDialog.showModal(), 240);
+  }
+
+  function downloadReceipt() {
+    const blob = new Blob([`\ufeff${receiptText()}`], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `课程超市选课流水单_${new Date().toISOString().slice(0, 10)}.txt`;
+    link.click();
+    URL.revokeObjectURL(url);
+    showToast('流水单已下载');
+  }
+
+  async function copyReceipt() {
+    try {
+      await navigator.clipboard.writeText(receiptText());
+      showToast('流水单已复制');
+    } catch {
+      showToast('复制失败，请使用下载流水单');
+    }
+  }
+
+  function printReceipt() {
+    const rows = receiptRows();
+    els.printSheet.innerHTML = `
+      <h1>课程超市</h1><p class="print-meta">选课流水单 · ${receiptNumber()}</p>
+      ${rows.map((row) => `<div class="print-item"><strong>${row.id}｜${escapeHtml(row.subject)}｜${escapeHtml(row.theme)} ×1</strong>${escapeHtml(row.title)}${row.note ? `<br>学校想法：${escapeHtml(row.note)}` : ''}</div>`).join('')}
+      <div class="print-total">合计 ${rows.length} 门</div><div class="print-footer">请保留课程编号，便于后续沟通与定制。</div>
+    `;
+    window.print();
+  }
+
+  let toastTimer;
+  function showToast(message) {
+    clearTimeout(toastTimer);
+    els.toast.textContent = message;
+    els.toast.classList.add('show');
+    toastTimer = setTimeout(() => els.toast.classList.remove('show'), 1800);
+  }
+
+  els.problemGrid.addEventListener('click', (event) => {
+    const card = event.target.closest('[data-problem]');
+    if (card) chooseProblem(card.dataset.problem);
+  });
+  els.subjectGrid.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-subject]');
+    if (!button || button.disabled) return;
+    state.subject = button.dataset.subject;
+    state.stage = '全部';
+    state.theme = '';
+    render();
+    document.querySelector('.shelf-department').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  els.stageFilter.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-stage]');
+    if (!button) return;
+    state.stage = button.dataset.stage;
+    state.theme = '';
+    renderFilters();
+    renderDepartment();
+  });
+  els.themeFilter.addEventListener('change', () => { state.theme = els.themeFilter.value; renderDepartment(); });
+  els.searchInput.addEventListener('input', () => { state.query = els.searchInput.value.trim(); renderFilters(); renderDepartment(); });
+  els.clearFilter.addEventListener('click', clearFilters);
+  els.shelfUnit.addEventListener('click', (event) => {
+    const course = courseFromEvent(event);
+    if (!course) return;
+    if (event.target.closest('[data-action="select"]')) toggleSelection(course);
+    else openDialog(course);
+  });
+  els.shelfUnit.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    const course = courseFromEvent(event);
+    if (course) { event.preventDefault(); openDialog(course); }
+  });
+  els.startBrowse.addEventListener('click', () => els.browse.scrollIntoView({ behavior: 'smooth' }));
+  [els.openSelection, els.openSelectionBottom, els.cartDock].forEach((button) => button.addEventListener('click', openSelection));
+  els.closeSelection.addEventListener('click', closeSelection);
+  els.continueShopping.addEventListener('click', closeSelection);
+  els.drawerBackdrop.addEventListener('click', closeSelection);
+  els.selectionList.addEventListener('click', (event) => {
+    if (event.target.dataset.action !== 'remove') return;
+    const course = courseFromEvent(event);
+    if (course) toggleSelection(course);
+  });
+  els.selectionList.addEventListener('input', (event) => {
+    if (!event.target.matches('[data-note]')) return;
+    const courseId = event.target.closest('[data-course-id]')?.dataset.courseId;
+    if (!courseId || !state.selection[courseId]) return;
+    state.selection[courseId].note = event.target.value;
+    saveSelection();
+  });
+  els.makeReceipt.addEventListener('click', openReceipt);
+  els.closeDialog.addEventListener('click', () => els.courseDialog.close());
+  els.closeReceipt.addEventListener('click', () => els.receiptDialog.close());
+  els.downloadReceipt.addEventListener('click', downloadReceipt);
+  els.copyReceipt.addEventListener('click', copyReceipt);
+  els.printReceipt.addEventListener('click', printReceipt);
+  [els.courseDialog, els.receiptDialog].forEach((dialog) => dialog.addEventListener('click', (event) => {
+    const rect = dialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+  }));
+  document.addEventListener('keydown', (event) => {
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); els.searchInput.focus(); }
+    if (event.key === 'Escape' && els.selectionDrawer.classList.contains('open')) closeSelection();
+  });
+
+  initMeta();
+  render();
+})();
