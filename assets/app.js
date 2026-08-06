@@ -33,7 +33,6 @@
     stageFilter: document.querySelector('#stageFilter'),
     themeFilter: document.querySelector('#themeFilter'),
     shelfUnit: document.querySelector('#shelfUnit'),
-    emptyState: document.querySelector('#emptyState'),
     selectionCount: document.querySelector('#selectionCount'),
     dockCount: document.querySelector('#dockCount'),
     openSelection: document.querySelector('#openSelection'),
@@ -230,7 +229,6 @@
         <div class="shelf-board" aria-hidden="true"></div>
       </section>
     `).join('');
-    els.emptyState.hidden = courses.length !== 0;
   }
 
   function renderFilters() {
@@ -479,6 +477,7 @@
   });
   els.shelfUnit.addEventListener('keydown', (event) => {
     if (event.key !== 'Enter' && event.key !== ' ') return;
+    if (event.target.closest('button')) return;
     const course = courseFromEvent(event);
     if (course) { event.preventDefault(); openDialog(course); }
   });
