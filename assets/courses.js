@@ -1,7 +1,7 @@
 window.COURSE_SUPERMARKET_DATA = {
   "meta": {
-    "generatedAt": "2026-08-06 16:10",
-    "courseCount": 198,
+    "generatedAt": "2026-08-06 16:18",
+    "courseCount": 203,
     "subjectCount": 12,
     "directionCount": 69
   },
@@ -39,7 +39,7 @@ window.COURSE_SUPERMARKET_DATA = {
     {
       "name": "艺术",
       "code": "YS",
-      "count": 20
+      "count": 22
     },
     {
       "name": "劳动",
@@ -54,7 +54,7 @@ window.COURSE_SUPERMARKET_DATA = {
     {
       "name": "心理健康与安全",
       "code": "XL",
-      "count": 8
+      "count": 11
     },
     {
       "name": "家校共育",
@@ -73,49 +73,49 @@ window.COURSE_SUPERMARKET_DATA = {
       "short": "建立年级递进",
       "question": "课程怎样形成一至六年级或小初贯通的成长序列？",
       "hint": "查看分级、分段、进阶与贯通型做法",
-      "count": 113
+      "count": 116
     },
     {
       "id": "activities",
       "short": "活动课程化",
       "question": "零散活动怎样变成一门可以持续开展的课程？",
       "hint": "查看节庆、社团、主题活动与课程群做法",
-      "count": 80
+      "count": 84
     },
     {
       "id": "subject特色",
       "short": "学科做出特色",
       "question": "国家课程和学科教学怎样做出自己的特色？",
       "hint": "查看阅读、思维、表达、探究与学科项目",
-      "count": 77
+      "count": 79
     },
     {
       "id": "local",
       "short": "盘活本地资源",
       "question": "地方文化、场馆与社区资源怎样进入课程？",
       "hint": "查看在地文化、非遗、研学与场馆课程",
-      "count": 54
+      "count": 56
     },
     {
       "id": "project",
       "short": "跨学科项目",
       "question": "跨学科和项目化学习怎样真正落到课堂？",
       "hint": "查看 PBL、主题任务与跨学科课程",
-      "count": 93
+      "count": 96
     },
     {
       "id": "outcome",
       "short": "看得见的成果",
       "question": "学生的学习成果怎样被看见、被积累？",
       "hint": "查看展演、发表、作品、认证与赛事出口",
-      "count": 128
+      "count": 133
     },
     {
       "id": "collaboration",
       "short": "家校社协同",
       "question": "家长、社区与校外资源怎样形成真实协同？",
       "hint": "查看家长课程、社区实践与协同机制",
-      "count": 51
+      "count": 55
     },
     {
       "id": "easy-start",
@@ -2445,6 +2445,70 @@ window.COURSE_SUPERMARKET_DATA = {
       "externalReference": false
     },
     {
+      "id": "YS-021",
+      "subject": "艺术",
+      "stage": "初中",
+      "grades": "初中阶段（逐年级明细未披露）",
+      "theme": "艺术课程群与社团",
+      "title": "初中戏剧能力阶梯 · 全员基础与复合发展",
+      "directions": [
+        "初中戏剧能力阶梯",
+        "全员基础与复合发展"
+      ],
+      "summary": "把初中戏剧从一次展演升级为面向全体和兴趣特长学生的双通道课程，按认知、实践、创造三阶推进。",
+      "practices": [
+        "基础素养课程面向全体形成戏剧通识，复合发展课程承接兴趣与能力深入；教学从认知进入实践，再走向创作。",
+        "戏剧课程正式进入课表，并与相关学科形成课程集群；学校开发、修订系列指导用书，以师资协同、教学范式与评价体系保障。",
+        "公开课堂可见定格画面、肢体情绪表达、戏剧接龙、编曲练唱、诗乐舞创编等任务；成果包括原创心理剧、戏剧作品、课程展示和教学案例。",
+        "源体系为初高中贯通，本卡只收录初中阶段可确认做法，不扩写高中内容；七至九年级逐级课程与周节数未披露。"
+      ],
+      "relatedSubjects": [
+        "音乐",
+        "综合实践"
+      ],
+      "problems": [
+        "progression",
+        "activities",
+        "subject特色",
+        "project",
+        "outcome",
+        "collaboration"
+      ],
+      "externalReference": true
+    },
+    {
+      "id": "YS-022",
+      "subject": "艺术",
+      "stage": "初中",
+      "grades": "6—8年级（原文为预初至初二）",
+      "theme": "艺术课程群与社团",
+      "title": "校园原创音乐剧 · 跨学科整剧生产",
+      "directions": [
+        "校园原创音乐剧",
+        "跨学科整剧生产"
+      ],
+      "summary": "以一部校园原创音乐剧统领编剧、作曲、表演、舞蹈、摄影、道具和舞美课程，让不同角色的学生共同完成整剧生产。",
+      "practices": [
+        "\"一点三阶四维\"中的三阶指面向全体、兴趣学生和特长学生的三类课程，四维为\"创、编、排、演\"，不是年级阶梯。",
+        "预初至初二公开有12门基础课程，覆盖歌词与鉴赏、历史人物、剧本、课本剧、配乐诗朗诵、摄影、道具、台词、舞蹈、曲目、影视配音和地方文化。",
+        "综合实践课进入课表，音乐剧课程教师为主力，相关学科教师参与创编；学生承担创作、编排、表演、舞美、服装与道具等岗位。",
+        "成果汇入正式原创音乐剧公演；公开证据显示2006年启动，2025年完成第11部作品。六、七、八年级逐级内容未披露。"
+      ],
+      "relatedSubjects": [
+        "音乐",
+        "综合实践"
+      ],
+      "problems": [
+        "progression",
+        "activities",
+        "subject特色",
+        "local",
+        "project",
+        "outcome"
+      ],
+      "externalReference": true
+    },
+    {
       "id": "YS-008",
       "subject": "艺术",
       "stage": "小学",
@@ -4100,6 +4164,90 @@ window.COURSE_SUPERMARKET_DATA = {
         "easy-start"
       ],
       "externalReference": false
+    },
+    {
+      "id": "XL-009",
+      "subject": "心理健康与安全",
+      "stage": "小学",
+      "grades": "1—5年级（逐年级模块对应未披露）",
+      "theme": "安全教育",
+      "title": "儿童急救 · 分年级技能模块",
+      "directions": [
+        "儿童急救",
+        "分年级技能模块"
+      ],
+      "summary": "以每人每学年一个急救模块为纵向载体，用五类生活情境教材、二维码真人示范和体验教室反复训练儿童自救互救技能。",
+      "practices": [
+        "课程自2018年起分年级实施，教材按外出、校园、家庭、常见创伤和紧急情况五个生活域组织，包含心肺复苏、AED、气道异物梗阻、包扎和搬运等。",
+        "每项技能配二维码真人示范，学校建设安全体验教室和四模块网站，以微课程、微活动和实操演示推进。",
+        "学生完成年度技能模块并进行包扎、急救等公开展示；各年级具体模块、常态任课教师、课表与频次未披露。"
+      ],
+      "relatedSubjects": [
+        "安全"
+      ],
+      "problems": [
+        "activities",
+        "outcome",
+        "collaboration"
+      ],
+      "externalReference": true
+    },
+    {
+      "id": "XL-010",
+      "subject": "心理健康与安全",
+      "stage": "小学",
+      "grades": "1—6年级",
+      "theme": "安全教育",
+      "title": "生命健康技能 · 情境应急与认证",
+      "directions": [
+        "生命健康技能",
+        "情境应急与认证"
+      ],
+      "summary": "把小学六年拆成12学期、12项可训练和可认证的健康技能，以情境模拟、实操测评和同伴/家庭再教学形成闭环。",
+      "practices": [
+        "低年级聚焦卫生习惯、交通标识和正确报警，中年级学习眼健康、情绪识别、外伤处理与动物伤害预防，高年级进入营养、青春期自护、海姆立克和心肺复苏。",
+        "课程进入班会课和体育与健康课反复练习；每学期末采用\"知识问答＋情境模拟＋实操展示\"分段测评。",
+        "合格学生获校级技能徽章，毕业时12项均合格者获区级称号；高年级\"小教官\"带低年级，学生回家做\"小老师\"并完成家庭打卡。"
+      ],
+      "relatedSubjects": [
+        "安全",
+        "心理健康"
+      ],
+      "problems": [
+        "progression",
+        "activities",
+        "project",
+        "outcome",
+        "collaboration"
+      ],
+      "externalReference": true
+    },
+    {
+      "id": "XL-011",
+      "subject": "心理健康与安全",
+      "stage": "小学",
+      "grades": "小学（逐年级内容未披露）",
+      "theme": "安全教育",
+      "title": "实境安全教育 · 校园场馆课程化",
+      "directions": [
+        "实境安全教育",
+        "校园场馆课程化"
+      ],
+      "summary": "把安全教育排入课表，并用校内消防/民防体验馆、固定阵地和校园微场景支持可反复进入的实境训练。",
+      "practices": [
+        "\"2+4+N\"空间包括消防体验馆、民防教育馆、四类固定阵地和遍布校园的教育点，连接实物教学、问答、技能练习与逃生演练。",
+        "学校教师承担日常课程，消防救援人员和专家资源库提供专业支持，2026年有固定兼职消防辅导员。",
+        "成果包括安全逃生、技能实操和学生志愿讲解；课程已进入课表，但具体周节数、逐年级内容与个体达标方式未披露。"
+      ],
+      "relatedSubjects": [
+        "安全"
+      ],
+      "problems": [
+        "local",
+        "outcome",
+        "collaboration"
+      ],
+      "externalReference": true
     },
     {
       "id": "XL-002",
