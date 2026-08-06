@@ -1,6 +1,6 @@
 window.COURSE_SUPERMARKET_DATA = {
   "meta": {
-    "generatedAt": "2026-08-06 16:18",
+    "generatedAt": "2026-08-06 16:41",
     "courseCount": 203,
     "subjectCount": 12,
     "directionCount": 69
@@ -132,7 +132,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "人文拓展",
-      "title": "人文拓展",
+      "title": "文学院",
+      "subtitle": "人文综合拓展课程群",
       "directions": [
         "人文拓展"
       ],
@@ -148,8 +149,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YW-002",
@@ -157,7 +157,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "传统文化与国学",
-      "title": "国学序列",
+      "title": "国学新解",
+      "subtitle": "六年国学序列＋过级认证",
       "directions": [
         "国学序列"
       ],
@@ -176,8 +177,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YW-003",
@@ -185,7 +185,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "表达与项目学习",
-      "title": "儿童诗创作 · 真实发表",
+      "title": "儿童诗六年课程",
+      "subtitle": "每周一课·四类课型·诗歌节与公共展览",
       "directions": [
         "儿童诗创作",
         "真实发表"
@@ -205,8 +206,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "YW-004",
@@ -214,7 +214,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "表达与项目学习",
-      "title": "表达与项目",
+      "title": "雁行表达",
+      "subtitle": "语文项目与表达课程",
       "directions": [
         "表达与项目"
       ],
@@ -234,8 +235,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YW-005",
@@ -243,7 +243,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "诗教与跨学科表达",
-      "title": "诗教融合",
+      "title": "欢乐诗教",
+      "subtitle": "诗词吟诵与诗乐融合课程",
       "directions": [
         "诗教融合"
       ],
@@ -261,8 +262,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "project",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YW-006",
@@ -270,14 +270,15 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "阅读课程",
-      "title": "阅读",
+      "title": "三线长读",
+      "subtitle": "诗词积累·科普共读·名著深读",
       "directions": [
         "阅读"
       ],
       "summary": "六年贯通的三线阅读：古诗词300首、科普整本书12本、名著整本书12本，从\"能读、愿读\"走向\"会读、会想、会表达\"。",
       "practices": [
         "诗词线：六年300首古诗词，每周一首（晨读）。低段听读跟诵，借节奏和画面读准字音、读出韵律；中段借注释、节令理解诗意；高段群诗比较、批注短评、飞花令和诗词讲解。",
-        "科普线：六年12本科普整本书，每学期一本。低段图文共读发现\"原来如此\"；中段问题导读、读做相连；高段证据阅读、观察与科普说明。",
+        "科普线：六年12本科普整本书，每学期一本。低段图文共读发现\"原来如此\"；中段问题导读、读做相连；高段证据阅读、观察验证与科普说明。",
         "名著线：六年12本必读整本书。低段桥梁阅读与故事复述；中段人物关系与阅读交流；高段主题探究、课本剧、书评与人物辩论。",
         "实施：晨读＋语文课＋阅读课；篇目书目已定；与语文周、阅读展示联动。"
       ],
@@ -289,8 +290,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YW-007",
@@ -298,7 +298,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初一—初三（完整书单未披露）",
       "theme": "阅读课程",
-      "title": "整本书阅读课程化 · 专题研讨与小论文",
+      "title": "共建·共享整本书阅读课程",
+      "subtitle": "三三制·三环节八课型",
       "directions": [
         "整本书阅读课程化",
         "专题研讨与小论文"
@@ -317,8 +318,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "YW-008",
@@ -326,7 +326,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "六—八年级（九年级未披露）",
       "theme": "阅读课程",
-      "title": "整本书阅读课程化 · 班级读书会",
+      "title": "初中语文整本书阅读课程",
+      "subtitle": "每学期一书·四阶段读书会",
       "directions": [
         "整本书阅读课程化",
         "班级读书会"
@@ -345,8 +346,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "YW-009",
@@ -354,7 +354,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "阅读课程",
-      "title": "阅读与表达序列",
+      "title": "芳草语言·语文",
+      "subtitle": "四阶段语文拓展序列",
       "directions": [
         "阅读与表达序列"
       ],
@@ -372,8 +373,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "subject特色",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YW-010",
@@ -381,7 +381,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "阅读课程",
-      "title": "阅读",
+      "title": "追光阅读",
+      "subtitle": "阅读课程（含12级古诗文考级）",
       "directions": [
         "阅读"
       ],
@@ -399,8 +400,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "subject特色",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YW-011",
@@ -408,7 +408,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "阅读课程",
-      "title": "阅读方法 · 学科周",
+      "title": "阅读有法",
+      "subtitle": "语文周阅读素养课程",
       "directions": [
         "阅读方法",
         "学科周"
@@ -427,8 +428,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "SX-001",
@@ -436,7 +436,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "九年级课例已核实（七、八年级未披露）",
       "theme": "数学实践与跨学科",
-      "title": "全过程数学建模 · 真实问题解决",
+      "title": "全过程数学建模教学",
+      "subtitle": "真实情境八环节建模",
       "directions": [
         "全过程数学建模",
         "真实问题解决"
@@ -457,8 +458,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "SX-002",
@@ -466,7 +466,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "未披露",
       "theme": "数学实践与跨学科",
-      "title": "数学建模 · 数学与音乐跨学科",
+      "title": "数学与音乐",
+      "subtitle": "吸管乐器数学建模项目",
       "directions": [
         "数学建模",
         "数学与音乐跨学科"
@@ -484,8 +485,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "project",
         "outcome"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "SX-003",
@@ -493,7 +493,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "数学实践与跨学科",
-      "title": "数学科学融合",
+      "title": "智慧链接",
+      "subtitle": "数学科学生活任务序列",
       "directions": [
         "数学科学融合"
       ],
@@ -512,8 +513,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "project",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "SX-004",
@@ -521,7 +521,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "数学实践与跨学科",
-      "title": "具身数学 · 课题转化",
+      "title": "量感在身边",
+      "subtitle": "具身数学课程",
       "directions": [
         "具身数学",
         "课题转化"
@@ -539,8 +540,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "subject特色",
         "project"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "SX-005",
@@ -548,7 +548,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "数学思维与游戏",
-      "title": "思维课程序列",
+      "title": "全景思维",
+      "subtitle": "六年十二模块思维校本课",
       "directions": [
         "思维课程序列"
       ],
@@ -557,7 +558,9 @@ window.COURSE_SUPERMARKET_DATA = {
         "一年级：大脑加工厂（认识思维）＋多多奇遇记（绘本情境逻辑）。",
         "二年级：数字兄弟（数字乐园/火柴棒/摸小球）＋图形家族（蒙眼寻宝等空间感知）。",
         "三年级：数字推理（幻方/数独/推理卡牌）＋数形结合（火柴棒拼图/扑克牌）。",
-        "四年级：问题建模（Flash动画/动力车模）＋规律探索（数字成语谜/情报加密）。"
+        "四年级：问题建模（Flash动画/动力车模）＋规律探索（数字成语谜/情报加密）。",
+        "五年级：平面王国（平面设计/七巧板）＋统计概率（数据分析/课表制作）。",
+        "六年级：立体世界（3D空间/校园沙盘）＋生活综合（毕业晚会舞台设计、演唱会门票营销计划）。"
       ],
       "relatedSubjects": [
         "数学"
@@ -567,8 +570,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "SX-006",
@@ -576,7 +578,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "数学思维与游戏",
-      "title": "思维游戏",
+      "title": "巧思乐玩",
+      "subtitle": "数学思维游戏课程",
       "directions": [
         "思维游戏"
       ],
@@ -595,8 +598,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "SX-007",
@@ -604,7 +606,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "数学思维与游戏",
-      "title": "数学思维序列",
+      "title": "数学六阶·看玩说议用探",
+      "subtitle": "数学学习方式进阶",
       "directions": [
         "数学思维序列"
       ],
@@ -619,8 +622,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "activities",
         "subject特色"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "SX-008",
@@ -628,7 +630,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "数学思维与游戏",
-      "title": "思维游戏",
+      "title": "火花思维日",
+      "subtitle": "低中高段数学科学闯关",
       "directions": [
         "思维游戏"
       ],
@@ -648,8 +651,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "SX-009",
@@ -657,7 +659,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "6—12岁",
       "theme": "数学思维与游戏",
-      "title": "数学思维",
+      "title": "芯算思维",
+      "subtitle": "6—12岁数学思维进阶",
       "directions": [
         "数学思维"
       ],
@@ -673,8 +676,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "subject特色",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "SX-010",
@@ -682,7 +684,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "数学思维与游戏",
-      "title": "棋类思维",
+      "title": "雁执围棋",
+      "subtitle": "围棋文化·训练·比赛",
       "directions": [
         "棋类思维"
       ],
@@ -697,8 +700,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "subject特色",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "SX-011",
@@ -706,7 +708,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "数学表达",
-      "title": "数学表达 · 微课程",
+      "title": "每日一讲",
+      "subtitle": "讲思微课程",
       "directions": [
         "数学表达",
         "微课程"
@@ -722,8 +725,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "subject特色",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "SX-012",
@@ -731,7 +733,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "数学表达",
-      "title": "数学表达",
+      "title": "炽火思维",
+      "subtitle": "数学思维与说理课程",
       "directions": [
         "数学表达"
       ],
@@ -749,8 +752,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YY-001",
@@ -758,7 +760,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "国际理解",
-      "title": "国际理解",
+      "title": "青年联合国",
+      "subtitle": "模拟联合国课程",
       "directions": [
         "国际理解"
       ],
@@ -777,8 +780,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YY-002",
@@ -786,7 +788,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "英语基础与阅读",
-      "title": "词汇普及",
+      "title": "单词王",
+      "subtitle": "分年级词汇课程",
       "directions": [
         "词汇普及"
       ],
@@ -803,8 +806,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YY-003",
@@ -812,7 +814,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "英语基础与阅读",
-      "title": "分级语言序列",
+      "title": "芳草语言·英语",
+      "subtitle": "四阶段英语拓展序列",
       "directions": [
         "分级语言序列"
       ],
@@ -832,8 +835,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YY-004",
@@ -841,7 +843,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "英语基础与阅读",
-      "title": "分层阅读",
+      "title": "英文悦读",
+      "subtitle": "阅读策略课程",
       "directions": [
         "分层阅读"
       ],
@@ -856,8 +859,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "progression",
         "subject特色"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YY-005",
@@ -865,7 +867,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初中（逐年级读物序列未披露）",
       "theme": "英语基础与阅读",
-      "title": "英语整本书阅读课程化 · 阅读过程评价",
+      "title": "英语整本书阅读校本课程",
+      "subtitle": "任务单·日志·阅读圈三轮推进",
       "directions": [
         "英语整本书阅读课程化",
         "阅读过程评价"
@@ -883,8 +886,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "subject特色",
         "outcome"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "YY-009",
@@ -892,7 +894,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "英语基础与阅读",
-      "title": "图画书阅读课程化 · 分级阅读",
+      "title": "图画书阅读课程",
+      "subtitle": "每周共读·课前默读·六年成果进阶",
       "directions": [
         "图画书阅读课程化",
         "分级阅读"
@@ -913,8 +916,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "outcome",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "YY-010",
@@ -922,7 +924,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "英语基础与阅读",
-      "title": "自然拼读与分级阅读联动 · 读写成果进阶",
+      "title": "意趣英语",
+      "subtitle": "教材·拼读·分级绘本·经典故事四线协同",
       "directions": [
         "自然拼读与分级阅读联动",
         "读写成果进阶"
@@ -942,8 +945,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "YY-011",
@@ -951,7 +953,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "4—5年级",
       "theme": "英语基础与阅读",
-      "title": "高年级英语自由泛读 · 阅读记录与反馈",
+      "title": "英语绘本自由泛读",
+      "subtitle": "21天计划·记录载体递进·有读必展",
       "directions": [
         "高年级英语自由泛读",
         "阅读记录与反馈"
@@ -970,8 +973,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "YY-006",
@@ -979,7 +981,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "英语情境表达",
-      "title": "英语情境表达",
+      "title": "Dragon Go",
+      "subtitle": "绘本到课本剧的英语应用序列",
       "directions": [
         "英语情境表达"
       ],
@@ -995,8 +998,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "subject特色",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YY-007",
@@ -1004,7 +1006,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "英语情境表达",
-      "title": "情景表达",
+      "title": "英语小剧场",
+      "subtitle": "情景表达课程",
       "directions": [
         "情景表达"
       ],
@@ -1020,8 +1023,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "subject特色",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YY-008",
@@ -1029,7 +1031,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "八年级案例已核实（七、九年级未披露）",
       "theme": "英语情境表达",
-      "title": "英语情境表达 · 模块微项目",
+      "title": "英语模块微项目课程",
+      "subtitle": "真实受众·产品逆推·学生共建量规",
       "directions": [
         "英语情境表达",
         "模块微项目"
@@ -1047,8 +1050,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "subject特色",
         "outcome"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "KX-001",
@@ -1056,7 +1058,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "4年级",
       "theme": "中医药与本草",
-      "title": "中医药与本草启蒙",
+      "title": "神农本草",
+      "subtitle": "中医药文化启蒙课程（20课时）",
       "directions": [
         "中医药与本草启蒙"
       ],
@@ -1076,8 +1079,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "KX-002",
@@ -1085,7 +1087,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "作物全链探究",
-      "title": "单一作物全链",
+      "title": "辣可不一样",
+      "subtitle": "辣椒全链跨学科探究",
       "directions": [
         "单一作物全链"
       ],
@@ -1104,8 +1107,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "KX-003",
@@ -1113,7 +1115,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "工程与未来科学",
-      "title": "未来情境科学",
+      "title": "探秘火星",
+      "subtitle": "22课时大观念科学迁移",
       "directions": [
         "未来情境科学"
       ],
@@ -1129,8 +1132,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "subject特色",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "KX-004",
@@ -1138,7 +1140,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "3—5年级",
       "theme": "工程与未来科学",
-      "title": "工程设计",
+      "title": "知桥·话桥·造桥",
+      "subtitle": "桥梁文化与工程21课时",
       "directions": [
         "工程设计"
       ],
@@ -1155,8 +1158,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "project",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "KX-005",
@@ -1164,7 +1166,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "理科拓展",
-      "title": "理科拓展",
+      "title": "理学院",
+      "subtitle": "科学与技术拓展课程群",
       "directions": [
         "理科拓展"
       ],
@@ -1183,8 +1186,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "KX-006",
@@ -1192,7 +1194,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "生命与自然观察",
-      "title": "种植养殖观察",
+      "title": "生命观察",
+      "subtitle": "小蚕大世界·立体农场",
       "directions": [
         "种植养殖观察"
       ],
@@ -1209,8 +1212,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "KX-007",
@@ -1218,7 +1220,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "生命与自然观察",
-      "title": "自然观察",
+      "title": "自然观察六阶",
+      "subtitle": "观察成果进阶课程",
       "directions": [
         "自然观察"
       ],
@@ -1234,8 +1237,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "KX-008",
@@ -1243,7 +1245,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "生命与自然观察",
-      "title": "自然教育与节气",
+      "title": "节气自然课程",
+      "subtitle": "二十四节气农事文化课程资源",
       "directions": [
         "自然教育与节气"
       ],
@@ -1261,8 +1264,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "KX-009",
@@ -1270,7 +1272,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "科学动手与创客",
-      "title": "动手进阶序列",
+      "title": "心力小工匠·非遗师·小创客",
+      "subtitle": "动手进阶三阶六级",
       "directions": [
         "动手进阶序列"
       ],
@@ -1290,8 +1293,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "local",
         "project"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "KX-010",
@@ -1299,7 +1301,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "科学探究机制",
-      "title": "探究机制",
+      "title": "好问题实验室",
+      "subtitle": "问题探究课程",
       "directions": [
         "探究机制"
       ],
@@ -1313,8 +1316,7 @@ window.COURSE_SUPERMARKET_DATA = {
       ],
       "problems": [
         "subject特色"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "KX-011",
@@ -1322,7 +1324,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "科学普及与课程群",
-      "title": "科学课程群",
+      "title": "1+3科学课程",
+      "subtitle": "国家＋主题＋STEAM＋实践四层科学课程",
       "directions": [
         "科学课程群"
       ],
@@ -1345,8 +1348,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "KX-012",
@@ -1354,7 +1356,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "九年一贯",
       "grades": "小学—初中（逐年级细目未披露）",
       "theme": "科学普及与课程群",
-      "title": "九年贯通科技教育 · 家校社协同",
+      "title": "三全三化贯通式科技教育",
+      "subtitle": "全员·全程·全域九年校本育人模式",
       "directions": [
         "九年贯通科技教育",
         "家校社协同",
@@ -1381,8 +1384,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "KX-013",
@@ -1390,7 +1392,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "九年一贯",
       "grades": "小学—初中（逐年级课程地图未披露）",
       "theme": "科学普及与课程群",
-      "title": "九年贯通科学课程体系 · 课内课后校外协同",
+      "title": "智创未来，育和美创新少年",
+      "subtitle": "课内·课后·校外三位一体九年科学体系",
       "directions": [
         "九年贯通科学课程体系",
         "课内课后校外协同",
@@ -1417,8 +1420,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "collaboration"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "KX-014",
@@ -1426,7 +1428,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "科学普及与课程群",
-      "title": "科学启蒙 · 科学家精神",
+      "title": "科学之光",
+      "subtitle": "前沿启蒙与科学家故事",
       "directions": [
         "科学启蒙",
         "科学家精神"
@@ -1444,8 +1447,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "subject特色",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "KX-015",
@@ -1453,7 +1455,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "科学普及与课程群",
-      "title": "场馆课程",
+      "title": "馆中有科学",
+      "subtitle": "校内科技馆课程",
       "directions": [
         "场馆课程"
       ],
@@ -1472,8 +1475,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "KX-016",
@@ -1481,7 +1483,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "科学节庆项目",
-      "title": "节庆课程化 · 项目式学习",
+      "title": "乐创未来",
+      "subtitle": "科技节项目课程",
       "directions": [
         "节庆课程化",
         "项目式学习"
@@ -1504,8 +1507,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "KX-017",
@@ -1513,7 +1515,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "科普与人工智能",
-      "title": "科普与AI启蒙",
+      "title": "登高创新",
+      "subtitle": "科普＋人工智能启蒙课程",
       "directions": [
         "科普与AI启蒙"
       ],
@@ -1530,8 +1533,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "AI-001",
@@ -1539,7 +1541,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "高年级",
       "theme": "人工智能素养与应用",
-      "title": "人工智能素养",
+      "title": "AI慧用",
+      "subtitle": "人工智能素养课程",
       "directions": [
         "人工智能素养"
       ],
@@ -1553,8 +1556,7 @@ window.COURSE_SUPERMARKET_DATA = {
       ],
       "problems": [
         "subject特色"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "AI-002",
@@ -1562,7 +1564,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级（逐年级主题表未披露）",
       "theme": "人工智能素养与应用",
-      "title": "人工智能通识 · 生成式AI核验",
+      "title": "AI通识与AI思维课程",
+      "subtitle": "全员月课·质疑回答·多方核验",
       "directions": [
         "人工智能通识",
         "生成式AI核验"
@@ -1580,8 +1583,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "subject特色",
         "outcome"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "AI-003",
@@ -1589,7 +1591,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级（完整逐年级单元表未披露）",
       "theme": "人工智能素养与应用",
-      "title": "人工智能素养 · 隐私安全与数字公民",
+      "title": "STEAM与AI校本课程",
+      "subtitle": "跨年级进阶·隐私安全·跨学科创制",
       "directions": [
         "人工智能素养",
         "隐私安全与数字公民"
@@ -1608,8 +1611,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "project",
         "outcome"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "AI-004",
@@ -1617,7 +1619,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "人工智能素养与应用",
-      "title": "AI场景应用",
+      "title": "人工智能课程",
+      "subtitle": "AI听说·AI练字·创意编程",
       "directions": [
         "AI场景应用"
       ],
@@ -1631,8 +1634,7 @@ window.COURSE_SUPERMARKET_DATA = {
       ],
       "problems": [
         "subject特色"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "AI-005",
@@ -1640,7 +1642,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "编程创客与科技创新",
-      "title": "编程与AI创客",
+      "title": "创翼提高课程",
+      "subtitle": "编程·AI·创客提高课程",
       "directions": [
         "编程与AI创客"
       ],
@@ -1658,8 +1661,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "AI-006",
@@ -1667,7 +1669,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "九年一贯",
       "grades": "1—9年级",
       "theme": "编程创客与科技创新",
-      "title": "九年一贯科技创新",
+      "title": "君子融慧致新",
+      "subtitle": "编程·机器人·航空·创客",
       "directions": [
         "九年一贯科技创新"
       ],
@@ -1685,8 +1688,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "AI-007",
@@ -1694,7 +1696,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "3—6年级",
       "theme": "编程创客与科技创新",
-      "title": "创客与竞赛",
+      "title": "极客与创客",
+      "subtitle": "提高—竞赛课程",
       "directions": [
         "创客与竞赛"
       ],
@@ -1710,8 +1713,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "AI-008",
@@ -1719,7 +1721,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "高中",
       "grades": "高一—高二",
       "theme": "编程创客与科技创新",
-      "title": "高中创客技术",
+      "title": "澄技工坊",
+      "subtitle": "无人机·机器人·Python选修",
       "directions": [
         "高中创客技术"
       ],
@@ -1733,8 +1736,7 @@ window.COURSE_SUPERMARKET_DATA = {
       ],
       "problems": [
 
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "AI-009",
@@ -1742,7 +1744,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "定稿未标注",
       "theme": "编程创客与科技创新",
-      "title": "前沿科技社团",
+      "title": "魔力科技社",
+      "subtitle": "前沿型科学技术社团",
       "directions": [
         "前沿科技社团"
       ],
@@ -1758,8 +1761,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "activities",
         "project"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-001",
@@ -1767,7 +1769,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "专项技能进阶",
-      "title": "专项进阶通道",
+      "title": "星竞六级进阶",
+      "subtitle": "专项技能进阶通道",
       "directions": [
         "专项进阶通道"
       ],
@@ -1785,8 +1788,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "outcome",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-002",
@@ -1794,7 +1796,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "专项技能进阶",
-      "title": "跳绳特色",
+      "title": "绳彩飞扬",
+      "subtitle": "分年段跳绳课程",
       "directions": [
         "跳绳特色"
       ],
@@ -1810,8 +1813,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "activities",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-003",
@@ -1819,7 +1821,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "专项技能进阶",
-      "title": "跳绳特色",
+      "title": "跳绳六阶",
+      "subtitle": "分年级跳绳进阶课程",
       "directions": [
         "跳绳特色"
       ],
@@ -1834,8 +1837,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-004",
@@ -1843,7 +1845,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "体育文化与跨学科",
-      "title": "体育文化",
+      "title": "星传体育文化",
+      "subtitle": "体育文化主题课程",
       "directions": [
         "体育文化"
       ],
@@ -1862,8 +1865,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-005",
@@ -1871,7 +1873,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "体育文化与跨学科",
-      "title": "体育跨学科",
+      "title": "星创跨学科体育",
+      "subtitle": "体育×科学×艺术项目课程",
       "directions": [
         "体育跨学科"
       ],
@@ -1890,8 +1893,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-006",
@@ -1899,7 +1901,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "体育文化与跨学科",
-      "title": "体育跨学科",
+      "title": "生命运动节",
+      "subtitle": "安全·心理·运动三板块健康节",
       "directions": [
         "体育跨学科"
       ],
@@ -1922,8 +1925,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-007",
@@ -1931,7 +1933,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—5年级",
       "theme": "体育走班与选修",
-      "title": "体能诊断与运动补偿 · 多项目体验",
+      "title": "小操场大体育",
+      "subtitle": "诊断补偿·多项体验·自主选项体育课程",
       "directions": [
         "体能诊断与运动补偿",
         "多项目体验",
@@ -1950,8 +1953,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "progression",
         "subject特色"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "TY-008",
@@ -1959,7 +1961,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "体育走班与选修",
-      "title": "体育走班",
+      "title": "赛场追光",
+      "subtitle": "体育走班课程",
       "directions": [
         "体育走班"
       ],
@@ -1974,8 +1977,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "subject特色",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-009",
@@ -1983,7 +1985,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "全员体能与大课间",
-      "title": "体质健康",
+      "title": "体能闯关",
+      "subtitle": "全员体质健康课程",
       "directions": [
         "体质健康"
       ],
@@ -1997,8 +2000,7 @@ window.COURSE_SUPERMARKET_DATA = {
       ],
       "problems": [
 
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-010",
@@ -2006,7 +2008,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "全员体能与大课间",
-      "title": "全员运动与数据",
+      "title": "全员全运动课",
+      "subtitle": "全员体育与数据化健康课程",
       "directions": [
         "全员运动与数据"
       ],
@@ -2023,8 +2026,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-011",
@@ -2032,7 +2034,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "小学部（从一年级开始）",
       "theme": "全员体能与大课间",
-      "title": "晨间体育 · 每日运动制度",
+      "title": "零点体育",
+      "subtitle": "文化课前固定运动与课后选择",
       "directions": [
         "晨间体育",
         "每日运动制度"
@@ -2048,8 +2051,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "activities",
         "outcome"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "TY-012",
@@ -2057,7 +2059,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "全员体能与大课间",
-      "title": "大课间",
+      "title": "魅力大课间",
+      "subtitle": "全员健体课程",
       "directions": [
         "大课间"
       ],
@@ -2073,8 +2076,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-013",
@@ -2082,7 +2084,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "球类特色与联赛",
-      "title": "棒垒球特色",
+      "title": "棒垒球",
+      "subtitle": "校本特色球类课程",
       "directions": [
         "棒垒球特色"
       ],
@@ -2098,8 +2101,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-014",
@@ -2107,7 +2109,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "球类特色与联赛",
-      "title": "乒乓球特色",
+      "title": "活力乒乓",
+      "subtitle": "18课时三阶乒乓课程",
       "directions": [
         "乒乓球特色"
       ],
@@ -2123,8 +2126,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-015",
@@ -2132,7 +2134,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "球类特色与联赛",
-      "title": "乒乓球特色",
+      "title": "立本健康",
+      "subtitle": "乒乓特色＋全项目运动课程",
       "directions": [
         "乒乓球特色"
       ],
@@ -2148,8 +2151,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-016",
@@ -2157,7 +2159,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "低年级／中高年级",
       "theme": "球类特色与联赛",
-      "title": "篮球一校一品 · 教练赛评闭环",
+      "title": "篮球\"一校一品\"课程",
+      "subtitle": "专项课·课间·联赛·家庭·体质跟踪闭环",
       "directions": [
         "篮球一校一品",
         "教练赛评闭环"
@@ -2176,8 +2179,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "TY-017",
@@ -2185,7 +2187,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "球类特色与联赛",
-      "title": "球类联赛 · 校队梯队",
+      "title": "赛场少年",
+      "subtitle": "球类与田径课程",
       "directions": [
         "球类联赛",
         "校队梯队"
@@ -2201,8 +2204,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-018",
@@ -2210,7 +2212,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "球类特色与联赛",
-      "title": "校园足球",
+      "title": "雁竞足球",
+      "subtitle": "足球技能·文化·比赛三线",
       "directions": [
         "校园足球"
       ],
@@ -2225,8 +2228,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "TY-019",
@@ -2234,7 +2236,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "课间游戏",
-      "title": "课间游戏课程化",
+      "title": "心力课间",
+      "subtitle": "课间游戏课程化",
       "directions": [
         "课间游戏课程化"
       ],
@@ -2250,8 +2253,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "project",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-001",
@@ -2259,7 +2261,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "戏曲跨学科",
-      "title": "戏曲跨学科",
+      "title": "国风美韵",
+      "subtitle": "戏曲唱做念打跨学科",
       "directions": [
         "戏曲跨学科"
       ],
@@ -2277,8 +2280,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "project",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-002",
@@ -2286,7 +2288,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—5年级为明确梯队（六年级安排未披露）",
       "theme": "艺术课程群与社团",
-      "title": "合唱梯队 · 全员艺术普及",
+      "title": "合唱金字塔",
+      "subtitle": "全员普及·低段梯队·中高段主力团",
       "directions": [
         "合唱梯队",
         "全员艺术普及"
@@ -2307,8 +2310,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "outcome",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "YS-003",
@@ -2316,7 +2318,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—5年级（公开报告所列学制）",
       "theme": "艺术课程群与社团",
-      "title": "班级合唱 · 器乐普及",
+      "title": "班班唱与班班弹",
+      "subtitle": "班歌分声部·高段口风琴·社团提高",
       "directions": [
         "班级合唱",
         "器乐普及"
@@ -2335,8 +2338,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "YS-004",
@@ -2344,7 +2346,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "艺术课程群与社团",
-      "title": "美术特长",
+      "title": "美翼提高课程",
+      "subtitle": "美术特长提高课程",
       "directions": [
         "美术特长"
       ],
@@ -2362,8 +2365,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "local",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-005",
@@ -2371,7 +2373,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "艺术课程群与社团",
-      "title": "艺术社团模块",
+      "title": "草间艺趣",
+      "subtitle": "八模块艺术体验课程",
       "directions": [
         "艺术社团模块"
       ],
@@ -2387,8 +2390,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "subject特色",
         "project"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-006",
@@ -2396,7 +2398,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "艺术课程群与社团",
-      "title": "艺术阶梯课程",
+      "title": "阶梯成长艺美课程",
+      "subtitle": "一年级一艺的六年艺术阶梯",
       "directions": [
         "艺术阶梯课程"
       ],
@@ -2416,8 +2419,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-007",
@@ -2425,7 +2427,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "艺术课程群与社团",
-      "title": "表演艺术社团",
+      "title": "雁声悠扬",
+      "subtitle": "合唱·器乐·戏曲·舞蹈",
       "directions": [
         "表演艺术社团"
       ],
@@ -2441,8 +2444,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "subject特色",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-021",
@@ -2450,7 +2452,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初中阶段（逐年级明细未披露）",
       "theme": "艺术课程群与社团",
-      "title": "初中戏剧能力阶梯 · 全员基础与复合发展",
+      "title": "初中戏剧课程",
+      "subtitle": "全员基础＋复合发展·认知实践创造三阶",
       "directions": [
         "初中戏剧能力阶梯",
         "全员基础与复合发展"
@@ -2473,8 +2476,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "YS-022",
@@ -2482,7 +2484,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "6—8年级（原文为预初至初二）",
       "theme": "艺术课程群与社团",
-      "title": "校园原创音乐剧 · 跨学科整剧生产",
+      "title": "校园原创音乐剧课程群",
+      "subtitle": "创·编·排·演整剧生产链",
       "directions": [
         "校园原创音乐剧",
         "跨学科整剧生产"
@@ -2505,8 +2508,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "outcome"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "YS-008",
@@ -2514,7 +2516,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "视觉艺术与造型",
-      "title": "乡土美育",
+      "title": "乡村画卷",
+      "subtitle": "自然写生·壁画·版画木雕",
       "directions": [
         "乡土美育"
       ],
@@ -2533,8 +2536,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "outcome",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-009",
@@ -2542,7 +2544,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "视觉艺术与造型",
-      "title": "季节美育",
+      "title": "四季美育",
+      "subtitle": "顺时而美的美育课程",
       "directions": [
         "季节美育"
       ],
@@ -2560,8 +2563,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-010",
@@ -2569,7 +2571,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "视觉艺术与造型",
-      "title": "泥塑陶艺",
+      "title": "泥陶造物",
+      "subtitle": "泥塑与陶艺",
       "directions": [
         "泥塑陶艺"
       ],
@@ -2585,8 +2588,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "activities",
         "subject特色"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-011",
@@ -2594,7 +2596,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "视觉艺术与造型",
-      "title": "自然材料美育",
+      "title": "苗圃艺术",
+      "subtitle": "花卉养殖与艺术创作",
       "directions": [
         "自然材料美育"
       ],
@@ -2613,8 +2616,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-012",
@@ -2622,7 +2624,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "视觉艺术与造型",
-      "title": "视觉艺术 · 科创画",
+      "title": "视觉表达",
+      "subtitle": "创意美术·漫画·素描·油画·科创画",
       "directions": [
         "视觉艺术",
         "科创画"
@@ -2641,8 +2644,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-013",
@@ -2650,7 +2652,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "非遗与本土艺术",
-      "title": "非遗与传统工艺",
+      "title": "剪纸有根",
+      "subtitle": "传统剪纸与纹样创作",
       "directions": [
         "非遗与传统工艺"
       ],
@@ -2669,8 +2672,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-014",
@@ -2678,7 +2680,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "非遗与本土艺术",
-      "title": "非遗与本土文化",
+      "title": "小草传承",
+      "subtitle": "戏曲·剪纸·长沙方言文化课程",
       "directions": [
         "非遗与本土文化"
       ],
@@ -2698,8 +2701,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-015",
@@ -2707,7 +2709,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "非遗与本土艺术",
-      "title": "非遗与传统工艺",
+      "title": "纸间行动",
+      "subtitle": "剪纸六年三段课程",
       "directions": [
         "非遗与传统工艺"
       ],
@@ -2725,8 +2728,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-016",
@@ -2734,7 +2736,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "非遗与本土艺术",
-      "title": "非遗与本土文化",
+      "title": "衡阳皮影坊",
+      "subtitle": "地方非遗皮影课程",
       "directions": [
         "非遗与本土文化"
       ],
@@ -2751,8 +2754,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "local",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-017",
@@ -2760,7 +2762,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "非遗与本土艺术",
-      "title": "非遗与传统工艺",
+      "title": "非遗传承",
+      "subtitle": "扎染与制扇低中高段进阶",
       "directions": [
         "非遗与传统工艺"
       ],
@@ -2782,8 +2785,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-018",
@@ -2791,7 +2793,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "音乐创造与民族艺术",
-      "title": "音乐创造",
+      "title": "声音创客",
+      "subtitle": "自制乐器与音乐剧",
       "directions": [
         "音乐创造"
       ],
@@ -2805,8 +2808,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "subject特色",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "YS-019",
@@ -2814,7 +2816,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级（高段具体年级边界未披露）",
       "theme": "音乐创造与民族艺术",
-      "title": "民乐梯队 · 分声部器乐进阶",
+      "title": "民乐队三层三阶",
+      "subtitle": "低段启蒙·分声部专项·核心演出团",
       "directions": [
         "民乐梯队",
         "分声部器乐进阶"
@@ -2835,8 +2838,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "YS-020",
@@ -2844,7 +2846,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "音乐创造与民族艺术",
-      "title": "民族打击乐",
+      "title": "节奏里的中国",
+      "subtitle": "腰鼓·号鼓民族打击乐课程",
       "directions": [
         "民族打击乐"
       ],
@@ -2859,8 +2862,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-001",
@@ -2868,7 +2870,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "一物六年",
-      "title": "单一作物全链",
+      "title": "\"薯\"你最厉害",
+      "subtitle": "红薯种植到产品六年课程",
       "directions": [
         "单一作物全链"
       ],
@@ -2887,8 +2890,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-002",
@@ -2896,7 +2898,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "九年一贯",
       "grades": "1—9年级",
       "theme": "一物六年",
-      "title": "植物智慧劳动",
+      "title": "信物君子风",
+      "subtitle": "君子植物九年智慧劳动",
       "directions": [
         "植物智慧劳动"
       ],
@@ -2913,8 +2916,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "progression",
         "project"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-003",
@@ -2922,7 +2924,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "一物六年",
-      "title": "主题劳动课程链",
+      "title": "融炼季·姜的六年",
+      "subtitle": "姜主题生产劳动课程（六年全链）",
       "directions": [
         "主题劳动课程链"
       ],
@@ -2931,7 +2934,10 @@ window.COURSE_SUPERMARKET_DATA = {
         "一年级\"认识姜·初入姜湖\"：五感观察、黏土姜、标本、姜的故事与诗歌。",
         "二年级\"分享姜·说姜hua姜\"：姜字源流、民间传说、名人名事、国际文化、观察笔记。",
         "三年级\"加工姜·姜技尽展\"：切割/磨粉/晒干/醋泡姜/姜饼/姜汁/姜茶/姜酱/隔姜灸/香囊，十项动手。",
-        "四年级\"创意姜·姜心比心\"：姜雕、姜叶编织、盆景、姜汁植物印染、姜味香皂/蜡烛、姜水清洁剂。"
+        "四年级\"创意姜·姜心比心\"：姜雕、姜叶编织、盆景、姜汁植物印染、姜味香皂/蜡烛、姜水清洁剂。",
+        "五年级\"种植姜·姜植深耕\"：催芽/播种/移栽/生长曲线/科学施肥/病虫害防治/水培土培对比。",
+        "六年级\"推广姜·一品姜山\"：湘菜与国际美食制作、宣传文案、短视频、产品命名、包装设计、产品发布会。",
+        "出口：姜湾丰收节（厨神争霸/文艺表演/技能竞赛/农产品集市）。"
       ],
       "relatedSubjects": [
         "劳动",
@@ -2943,8 +2949,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-004",
@@ -2952,7 +2957,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "校园岗位与志愿服务",
-      "title": "校园岗位",
+      "title": "校园小主人",
+      "subtitle": "校园岗位实践",
       "directions": [
         "校园岗位"
       ],
@@ -2968,8 +2974,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-005",
@@ -2977,7 +2982,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "校园岗位与志愿服务",
-      "title": "志愿服务",
+      "title": "雏鹰志愿服务",
+      "subtitle": "社区行动课程",
       "directions": [
         "志愿服务"
       ],
@@ -2997,8 +3003,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "outcome",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-006",
@@ -3006,7 +3011,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "生活劳动与技能",
-      "title": "自理家务",
+      "title": "今天我当家",
+      "subtitle": "自主自立·和家和美·校乐校融",
       "directions": [
         "自理家务"
       ],
@@ -3028,8 +3034,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "outcome",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-007",
@@ -3037,7 +3042,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "生活劳动与技能",
-      "title": "劳动技能序列",
+      "title": "劳动六师",
+      "subtitle": "一年一师的劳动身份序列",
       "directions": [
         "劳动技能序列"
       ],
@@ -3051,8 +3057,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "progression",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-008",
@@ -3060,7 +3065,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "生活劳动与技能",
-      "title": "中学劳动",
+      "title": "劳动实践课程",
+      "subtitle": "技能·审美·实践三线劳动课程",
       "directions": [
         "中学劳动"
       ],
@@ -3075,8 +3081,7 @@ window.COURSE_SUPERMARKET_DATA = {
       ],
       "problems": [
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-009",
@@ -3084,7 +3089,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "生活劳动与技能",
-      "title": "劳动清单打卡",
+      "title": "劳动打卡",
+      "subtitle": "六年60项家校劳动清单",
       "directions": [
         "劳动清单打卡"
       ],
@@ -3101,8 +3107,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-010",
@@ -3110,22 +3115,22 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "生活劳动与技能",
-      "title": "劳动节挑战",
+      "title": "劳动技能挑战",
+      "subtitle": "劳动节项目课程",
       "directions": [
         "劳动节挑战"
       ],
       "summary": "分年段现场劳动技能挑战，与成长手册和争章衔接的劳动节项目。",
       "practices": [
         "分年段现场技能挑战（劳动节，4—5月）。",
-        "与成长手册、争章衔接，形成劳动成果。"
+        "与成长手册、争章衔接，形成劳动成果验证。"
       ],
       "relatedSubjects": [
         "劳动"
       ],
       "problems": [
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-011",
@@ -3133,7 +3138,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "生活劳动与技能",
-      "title": "自理家务",
+      "title": "生活小当家",
+      "subtitle": "自理与家务劳动",
       "directions": [
         "自理家务"
       ],
@@ -3148,8 +3154,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "activities",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-012",
@@ -3157,7 +3162,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "生活劳动与技能",
-      "title": "自理与种植",
+      "title": "起居生活",
+      "subtitle": "种植养护与趣味收纳劳动课程",
       "directions": [
         "自理与种植"
       ],
@@ -3172,8 +3178,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-013",
@@ -3181,7 +3186,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "种植与园艺",
-      "title": "劳动与园艺",
+      "title": "华实天地",
+      "subtitle": "劳动与园艺课程",
       "directions": [
         "劳动与园艺"
       ],
@@ -3197,8 +3203,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "progression",
         "project"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-014",
@@ -3206,7 +3211,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "种植与园艺",
-      "title": "种植课程",
+      "title": "火辣种植",
+      "subtitle": "辣椒种植课程",
       "directions": [
         "种植课程"
       ],
@@ -3225,8 +3231,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-015",
@@ -3234,7 +3239,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "职业与社会劳动",
-      "title": "军地劳动",
+      "title": "创意军地劳动",
+      "subtitle": "军地共建劳动实践",
       "directions": [
         "军地劳动"
       ],
@@ -3250,8 +3256,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-016",
@@ -3259,7 +3264,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "职业与社会劳动",
-      "title": "社会服务劳动",
+      "title": "致远季·一年级一场馆",
+      "subtitle": "社会服务劳动序列",
       "directions": [
         "社会服务劳动"
       ],
@@ -3276,8 +3282,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-017",
@@ -3285,7 +3290,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "食育与烹饪",
-      "title": "食育",
+      "title": "三餐四季",
+      "subtitle": "节气食育探究课程",
       "directions": [
         "食育"
       ],
@@ -3302,8 +3308,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "LD-018",
@@ -3311,7 +3316,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "食育与烹饪",
-      "title": "食育",
+      "title": "呦呦厨房",
+      "subtitle": "食育课程",
       "directions": [
         "食育"
       ],
@@ -3325,8 +3331,7 @@ window.COURSE_SUPERMARKET_DATA = {
       ],
       "problems": [
 
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-001",
@@ -3334,7 +3339,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "个体关怀与成长",
-      "title": "生日与被看见",
+      "title": "幸福生日",
+      "subtitle": "班级生日课程",
       "directions": [
         "生日与被看见"
       ],
@@ -3350,8 +3356,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-002",
@@ -3359,7 +3364,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "公民与国防教育",
-      "title": "乡村公民教育",
+      "title": "公民主题",
+      "subtitle": "乡德·文化·国防·公益",
       "directions": [
         "乡村公民教育"
       ],
@@ -3377,8 +3383,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-003",
@@ -3386,7 +3391,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "公民与国防教育",
-      "title": "国防教育",
+      "title": "少年砺剑",
+      "subtitle": "国防教育课程",
       "directions": [
         "国防教育"
       ],
@@ -3406,8 +3412,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "outcome",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-004",
@@ -3415,7 +3420,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "公民与国防教育",
-      "title": "公民与国防教育",
+      "title": "龙湘公民",
+      "subtitle": "雅行·国防·湖湘公民教育",
       "directions": [
         "公民与国防教育"
       ],
@@ -3429,8 +3435,7 @@ window.COURSE_SUPERMARKET_DATA = {
       ],
       "problems": [
         "progression"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-005",
@@ -3438,7 +3443,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "团队组织衔接",
-      "title": "团队衔接",
+      "title": "铁中·青春先锋课",
+      "subtitle": "少先队—共青团衔接课程",
       "directions": [
         "团队衔接"
       ],
@@ -3455,8 +3461,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "activities",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-006",
@@ -3464,7 +3469,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "家国情怀与思政",
-      "title": "升旗朝会序列",
+      "title": "国旗下成长",
+      "subtitle": "升旗与朝会课程",
       "directions": [
         "升旗朝会序列"
       ],
@@ -3481,8 +3487,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-007",
@@ -3490,7 +3495,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "家国情怀与思政",
-      "title": "节日与思想引领",
+      "title": "寻水情怀",
+      "subtitle": "节日·红色·家国课程",
       "directions": [
         "节日与思想引领"
       ],
@@ -3508,8 +3514,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-008",
@@ -3517,7 +3522,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "家国情怀与思政",
-      "title": "节日课程",
+      "title": "我们的节日",
+      "subtitle": "节日文化课程",
       "directions": [
         "节日课程"
       ],
@@ -3534,8 +3540,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-009",
@@ -3543,7 +3548,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "家国情怀与思政",
-      "title": "红色研学",
+      "title": "浏阳红军路",
+      "subtitle": "红色研学探究课程",
       "directions": [
         "红色研学"
       ],
@@ -3558,8 +3564,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "local",
         "project"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-010",
@@ -3567,7 +3572,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "家国情怀与思政",
-      "title": "思政课程",
+      "title": "铁中·成长思政课",
+      "subtitle": "红色·传统·价值观思政课程",
       "directions": [
         "思政课程"
       ],
@@ -3587,8 +3593,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-011",
@@ -3596,7 +3601,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "家国情怀与思政",
-      "title": "理想信念",
+      "title": "铁中·青春信仰课",
+      "subtitle": "理想信念教育课程",
       "directions": [
         "理想信念"
       ],
@@ -3611,8 +3617,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "activities",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-012",
@@ -3620,7 +3625,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "德育活动与节庆",
-      "title": "德育活动矩阵",
+      "title": "雷小锋超级课程",
+      "subtitle": "四大超级活动课程",
       "directions": [
         "德育活动矩阵"
       ],
@@ -3641,8 +3647,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-013",
@@ -3650,7 +3655,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "九年一贯",
       "grades": "1—9年级",
       "theme": "志愿服务与公益",
-      "title": "志愿服务机制",
+      "title": "君子仁爱",
+      "subtitle": "爱心道德银行与雷锋驿站",
       "directions": [
         "志愿服务机制"
       ],
@@ -3664,8 +3670,7 @@ window.COURSE_SUPERMARKET_DATA = {
       ],
       "problems": [
         "activities"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-014",
@@ -3673,7 +3678,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "志愿服务与公益",
-      "title": "志愿服务与实践",
+      "title": "若水实践",
+      "subtitle": "爱心·守护·探知实践课程",
       "directions": [
         "志愿服务与实践"
       ],
@@ -3695,8 +3701,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "outcome",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-015",
@@ -3704,7 +3709,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "思辨议事与自治",
-      "title": "儿童思辨与议事",
+      "title": "思想论衡",
+      "subtitle": "红色教育＋儿童思辨课程",
       "directions": [
         "儿童思辨与议事"
       ],
@@ -3722,8 +3728,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-016",
@@ -3731,7 +3736,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "思辨议事与自治",
-      "title": "自主管理",
+      "title": "铁中·青春自序课",
+      "subtitle": "自主管理与民主参与课程",
       "directions": [
         "自主管理"
       ],
@@ -3747,8 +3753,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "progression",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-017",
@@ -3756,7 +3761,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "班队课程与德育序列",
-      "title": "班队会课程",
+      "title": "班会有约",
+      "subtitle": "班队会课程",
       "directions": [
         "班队会课程"
       ],
@@ -3773,8 +3779,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "progression",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-018",
@@ -3782,7 +3787,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "班队课程与德育序列",
-      "title": "德育课堂序列",
+      "title": "礼乐追光",
+      "subtitle": "德育三课堂",
       "directions": [
         "德育课堂序列"
       ],
@@ -3801,8 +3807,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-019",
@@ -3810,7 +3815,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "班队课程与德育序列",
-      "title": "主题德育序列",
+      "title": "追光计划",
+      "subtitle": "\"六爱\"主题德育课程",
       "directions": [
         "主题德育序列"
       ],
@@ -3826,8 +3832,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-020",
@@ -3835,7 +3840,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初中",
       "theme": "班队课程与德育序列",
-      "title": "德育打卡体系",
+      "title": "锋华德育·15项打卡",
+      "subtitle": "三线德育＋15项必打卡",
       "directions": [
         "德育打卡体系"
       ],
@@ -3854,8 +3860,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "outcome",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-021",
@@ -3863,7 +3868,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初一",
       "theme": "衔接与成长仪式",
-      "title": "小初衔接",
+      "title": "一力四型入学衔接",
+      "subtitle": "小初衔接起步课程",
       "directions": [
         "小初衔接"
       ],
@@ -3882,8 +3888,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-022",
@@ -3891,7 +3896,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "衔接与成长仪式",
-      "title": "仪式课程",
+      "title": "幸福三礼",
+      "subtitle": "火种仪式课程",
       "directions": [
         "仪式课程"
       ],
@@ -3910,8 +3916,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-023",
@@ -3919,7 +3924,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "衔接与成长仪式",
-      "title": "仪式课程 · 幼小衔接",
+      "title": "成长有礼",
+      "subtitle": "仪式与入学适应课程",
       "directions": [
         "仪式课程",
         "幼小衔接"
@@ -3936,8 +3942,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "activities",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-024",
@@ -3945,7 +3950,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "衔接与成长仪式",
-      "title": "社会实践与仪式",
+      "title": "社会实践课程",
+      "subtitle": "志愿服务·学科研学·成长仪式",
       "directions": [
         "社会实践与仪式"
       ],
@@ -3965,8 +3971,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-025",
@@ -3974,7 +3979,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "衔接与成长仪式",
-      "title": "仪式与职业启蒙",
+      "title": "筑梦人生",
+      "subtitle": "仪式与职业启蒙",
       "directions": [
         "仪式与职业启蒙"
       ],
@@ -3991,8 +3997,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "project",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-026",
@@ -4000,7 +4005,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "规则品格与责任",
-      "title": "安全与品格",
+      "title": "三安课程",
+      "subtitle": "安全·安静·安定",
       "directions": [
         "安全与品格"
       ],
@@ -4015,8 +4021,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "activities",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-027",
@@ -4024,7 +4029,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "九年一贯",
       "grades": "1—9年级",
       "theme": "规则品格与责任",
-      "title": "行为评价与劳动",
+      "title": "君子如一",
+      "subtitle": "践行清单·家务·职业实践",
       "directions": [
         "行为评价与劳动"
       ],
@@ -4040,8 +4046,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "project",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-028",
@@ -4049,7 +4054,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "2年级",
       "theme": "规则品格与责任",
-      "title": "低段规则养成",
+      "title": "和雁一起飞",
+      "subtitle": "二年级雁文化规则课程（10课时）",
       "directions": [
         "低段规则养成"
       ],
@@ -4064,8 +4070,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-029",
@@ -4073,7 +4078,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "规则品格与责任",
-      "title": "行为规范与法治",
+      "title": "师水规则",
+      "subtitle": "习惯·安全·法治规则课程",
       "directions": [
         "行为规范与法治"
       ],
@@ -4090,8 +4096,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-030",
@@ -4099,7 +4104,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "规则品格与责任",
-      "title": "班级文化",
+      "title": "班级有品",
+      "subtitle": "班级共同体课程",
       "directions": [
         "班级文化"
       ],
@@ -4112,8 +4118,7 @@ window.COURSE_SUPERMARKET_DATA = {
       ],
       "problems": [
 
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "DY-031",
@@ -4121,7 +4126,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "规则品格与责任",
-      "title": "责任序列",
+      "title": "责任教育六级",
+      "subtitle": "六级身份进阶序列",
       "directions": [
         "责任序列"
       ],
@@ -4134,8 +4140,7 @@ window.COURSE_SUPERMARKET_DATA = {
       ],
       "problems": [
         "progression"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "XL-001",
@@ -4143,7 +4148,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "安全教育",
-      "title": "安全教育",
+      "title": "安全护航",
+      "subtitle": "生命安全课程",
       "directions": [
         "安全教育"
       ],
@@ -4162,8 +4168,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "XL-009",
@@ -4171,7 +4176,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—5年级（逐年级模块对应未披露）",
       "theme": "安全教育",
-      "title": "儿童急救 · 分年级技能模块",
+      "title": "儿童学救护",
+      "subtitle": "每学年一模块·教材与二维码示范",
       "directions": [
         "儿童急救",
         "分年级技能模块"
@@ -4189,8 +4195,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "XL-010",
@@ -4198,7 +4203,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "安全教育",
-      "title": "生命健康技能 · 情境应急与认证",
+      "title": "六年十二技",
+      "subtitle": "每学期一项健康技能·情境实操认证",
       "directions": [
         "生命健康技能",
         "情境应急与认证"
@@ -4219,8 +4225,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "XL-011",
@@ -4228,7 +4233,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "小学（逐年级内容未披露）",
       "theme": "安全教育",
-      "title": "实境安全教育 · 校园场馆课程化",
+      "title": "安全样本课程",
+      "subtitle": "双馆·阵地·校园微场景实境学习",
       "directions": [
         "实境安全教育",
         "校园场馆课程化"
@@ -4246,8 +4252,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "XL-002",
@@ -4255,7 +4260,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "心理健康与优势成长",
-      "title": "心理健康",
+      "title": "幸福心育",
+      "subtitle": "分年级心理课程（七届心育节）",
       "directions": [
         "心理健康"
       ],
@@ -4273,8 +4279,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "outcome",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "XL-003",
@@ -4282,7 +4287,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "心理健康与优势成长",
-      "title": "心理健康",
+      "title": "心学院",
+      "subtitle": "心理成长课程群",
       "directions": [
         "心理健康"
       ],
@@ -4300,8 +4306,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "XL-004",
@@ -4309,7 +4314,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "心理健康与优势成长",
-      "title": "心理健康 · 优势发现",
+      "title": "心晴成长",
+      "subtitle": "心理健康与优势发现课程",
       "directions": [
         "心理健康",
         "优势发现"
@@ -4329,8 +4335,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "XL-005",
@@ -4338,7 +4343,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—5年级",
       "theme": "心理健康与优势成长",
-      "title": "心理韧性 · 全员导师微课",
+      "title": "心理韧性专题课",
+      "subtitle": "15分钟午会课·全员导师·四心课堂",
       "directions": [
         "心理韧性",
         "全员导师微课"
@@ -4356,8 +4362,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "progression",
         "easy-start"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "XL-006",
@@ -4365,7 +4370,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "心理健康与优势成长",
-      "title": "心理健康",
+      "title": "港湾心理",
+      "subtitle": "生活适应与人际交往心理课程",
       "directions": [
         "心理健康"
       ],
@@ -4380,8 +4386,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "activities",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "XL-007",
@@ -4389,7 +4394,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "心理健康与优势成长",
-      "title": "乡村儿童心理",
+      "title": "田园心语",
+      "subtitle": "乡村儿童心理成长序列",
       "directions": [
         "乡村儿童心理"
       ],
@@ -4405,8 +4411,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "XL-008",
@@ -4414,7 +4419,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "心理健康与优势成长",
-      "title": "积极心理品质 · 高段韧性进阶",
+      "title": "积极心理品质序列",
+      "subtitle": "周心理课·积极乐观—心理韧性—坚毅",
       "directions": [
         "积极心理品质",
         "高段韧性进阶"
@@ -4434,8 +4440,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "JX-001",
@@ -4443,7 +4448,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "家庭社会实践",
-      "title": "社会实践",
+      "title": "行走的课堂",
+      "subtitle": "社会与职业体验",
       "directions": [
         "社会实践"
       ],
@@ -4460,8 +4466,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "JX-002",
@@ -4469,7 +4474,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "家校资源与协同",
-      "title": "家校机制",
+      "title": "活力家校",
+      "subtitle": "亲师生共育四路径",
       "directions": [
         "家校机制"
       ],
@@ -4483,8 +4489,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "activities",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "JX-003",
@@ -4492,7 +4497,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "家校资源与协同",
-      "title": "家长进课堂",
+      "title": "百业家长课",
+      "subtitle": "家长进课堂",
       "directions": [
         "家长进课堂"
       ],
@@ -4507,8 +4513,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "JX-004",
@@ -4516,7 +4521,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "家长成长课程",
-      "title": "家长课程",
+      "title": "以常家校",
+      "subtitle": "家长学校课程",
       "directions": [
         "家长课程"
       ],
@@ -4533,8 +4539,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "JX-005",
@@ -4542,7 +4547,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级家长",
       "theme": "家长成长课程",
-      "title": "分年级家长课程 · 家长课程读本",
+      "title": "德爸香妈家长课程",
+      "subtitle": "六年12册·一外三内讲师体系",
       "directions": [
         "分年级家长课程",
         "家长课程读本"
@@ -4559,8 +4565,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "progression",
         "collaboration"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "JX-006",
@@ -4568,7 +4573,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "家长成长课程",
-      "title": "家庭教育课程",
+      "title": "父母成长六课",
+      "subtitle": "亲子沟通与心理健康家长课程",
       "directions": [
         "家庭教育课程"
       ],
@@ -4588,8 +4594,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "JX-007",
@@ -4597,7 +4602,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级家长",
       "theme": "家长成长课程",
-      "title": "分年级家长课程 · 家庭实践成果",
+      "title": "阶梯式家长学堂",
+      "subtitle": "入学领证·年度答卷·六年结业",
       "directions": [
         "分年级家长课程",
         "家庭实践成果"
@@ -4616,8 +4622,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "outcome",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "JX-008",
@@ -4625,7 +4630,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "4年级",
       "theme": "家风教育",
-      "title": "家风课程",
+      "title": "溁小家风",
+      "subtitle": "四年级家风家训课程",
       "directions": [
         "家风课程"
       ],
@@ -4643,8 +4649,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-001",
@@ -4652,7 +4657,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "一物跨学科探究",
-      "title": "种植跨学科",
+      "title": "田园牧歌",
+      "subtitle": "种植主题六年跨学科探究",
       "directions": [
         "种植跨学科"
       ],
@@ -4669,8 +4675,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-002",
@@ -4678,7 +4683,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "一物跨学科探究",
-      "title": "节气主题探究",
+      "title": "雁探实践",
+      "subtitle": "小寒腊八粥六年探究",
       "directions": [
         "节气主题探究"
       ],
@@ -4696,8 +4702,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-003",
@@ -4705,7 +4710,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "乡土文化课程",
-      "title": "传统游戏探究",
+      "title": "探秘乡间游戏",
+      "subtitle": "风筝文化·制作·科学",
       "directions": [
         "传统游戏探究"
       ],
@@ -4725,8 +4731,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-004",
@@ -4734,7 +4739,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初中",
       "theme": "乡土文化课程",
-      "title": "茶文化",
+      "title": "湖湘茶文化",
+      "subtitle": "茶文化校本课程",
       "directions": [
         "茶文化"
       ],
@@ -4751,8 +4757,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-005",
@@ -4760,7 +4765,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "乡土文化课程",
-      "title": "乡土文化课程",
+      "title": "神奇的望城",
+      "subtitle": "乡土文化三段课程",
       "directions": [
         "乡土文化课程"
       ],
@@ -4780,8 +4786,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-006",
@@ -4789,7 +4794,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初中",
       "theme": "作业设计与课程化",
-      "title": "作业设计与数据",
+      "title": "分层作业与AI复习包",
+      "subtitle": "数据驱动的作业课程化改革",
       "directions": [
         "作业设计与数据"
       ],
@@ -4808,8 +4814,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-007",
@@ -4817,7 +4822,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初中",
       "theme": "作业设计与课程化",
-      "title": "跨学科作业",
+      "title": "跨学科作业一体化",
+      "subtitle": "学科实践作业→跨学科作业→探究课程",
       "directions": [
         "跨学科作业"
       ],
@@ -4833,8 +4839,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-008",
@@ -4842,7 +4847,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初中",
       "theme": "国家课程项目化",
-      "title": "国家课程项目化",
+      "title": "学期任务群·银杏调查",
+      "subtitle": "国家课程项目化的学期纲要范例",
       "directions": [
         "国家课程项目化"
       ],
@@ -4860,8 +4866,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-009",
@@ -4869,7 +4874,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "高中",
       "theme": "国际理解与研学",
-      "title": "国际主题研学",
+      "title": "乘风国际研学",
+      "subtitle": "中欧班列·中非贸易·金砖主题研学",
       "directions": [
         "国际主题研学"
       ],
@@ -4888,8 +4894,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-010",
@@ -4897,7 +4902,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "3—6年级",
       "theme": "国际理解与研学",
-      "title": "国际理解",
+      "title": "国际视野",
+      "subtitle": "三至六年级跨学科国际理解",
       "directions": [
         "国际理解"
       ],
@@ -4920,8 +4926,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-011",
@@ -4929,7 +4934,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "4—5年级",
       "theme": "在地文化PBL",
-      "title": "在地文化PBL",
+      "title": "三古一新",
+      "subtitle": "古井·古街·古树项目式学习",
       "directions": [
         "在地文化PBL"
       ],
@@ -4949,8 +4955,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-012",
@@ -4958,7 +4963,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "在地文化PBL",
-      "title": "在地文化PBL",
+      "title": "花炮探秘",
+      "subtitle": "浏阳花炮非遗探究课程",
       "directions": [
         "在地文化PBL"
       ],
@@ -4975,8 +4981,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-013",
@@ -4984,7 +4989,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "7—9年级",
       "theme": "生涯教育",
-      "title": "生涯教育 · 体验式学习",
+      "title": "初中生涯体验式学习",
+      "subtitle": "三年四领域·六册教材·60个活动课例",
       "directions": [
         "生涯教育",
         "体验式学习"
@@ -5003,8 +5009,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "activities",
         "project"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "ZH-014",
@@ -5012,7 +5017,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "7—9年级",
       "theme": "生涯教育",
-      "title": "生涯教育 · 职业体验",
+      "title": "生涯教育与职业体验",
+      "subtitle": "专职科组·全学科融合·校企体验",
       "directions": [
         "生涯教育",
         "职业体验"
@@ -5031,8 +5037,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "project",
         "collaboration"
-      ],
-      "externalReference": true
+      ]
     },
     {
       "id": "ZH-015",
@@ -5040,7 +5045,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "生涯教育",
-      "title": "生涯规划",
+      "title": "生涯系列课程",
+      "subtitle": "导师制·职业探索·模拟招聘·生涯课堂",
       "directions": [
         "生涯规划"
       ],
@@ -5057,8 +5063,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "progression",
         "project"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-016",
@@ -5066,7 +5071,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "高中",
       "grades": "高一—高三",
       "theme": "生涯教育",
-      "title": "高中生涯规划",
+      "title": "生涯课程",
+      "subtitle": "高中三年职业规划1.0—3.0",
       "directions": [
         "高中生涯规划"
       ],
@@ -5082,8 +5088,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "project",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-017",
@@ -5091,7 +5096,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "研学与职业体验",
-      "title": "湖湘研学",
+      "title": "XIN旅潇湘",
+      "subtitle": "六年六主题潇湘研学",
       "directions": [
         "湖湘研学"
       ],
@@ -5108,8 +5114,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-018",
@@ -5117,7 +5122,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "研学与职业体验",
-      "title": "研学体系",
+      "title": "三原色背包课",
+      "subtitle": "红·黄·蓝三主题研学体系",
       "directions": [
         "研学体系"
       ],
@@ -5133,8 +5139,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "local",
         "project"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-019",
@@ -5142,7 +5147,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "研学与职业体验",
-      "title": "研学与职业体验",
+      "title": "小鹿看世界",
+      "subtitle": "项目化学习＋研学实践＋职业体验",
       "directions": [
         "研学与职业体验"
       ],
@@ -5161,8 +5167,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "collaboration",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-020",
@@ -5170,7 +5175,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "研学与职业体验",
-      "title": "职业启蒙",
+      "title": "职业启蒙教育",
+      "subtitle": "省教改课题依托的职业启蒙课程",
       "directions": [
         "职业启蒙"
       ],
@@ -5185,8 +5191,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "local",
         "project"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-021",
@@ -5194,7 +5199,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "研学与职业体验",
-      "title": "主题研学",
+      "title": "花儿東游记",
+      "subtitle": "四板块花主题研学",
       "directions": [
         "主题研学"
       ],
@@ -5214,8 +5220,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "progression",
         "local",
         "project"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-022",
@@ -5223,7 +5228,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "社团与学科拓展",
-      "title": "社团体系",
+      "title": "七彩社团",
+      "subtitle": "学生自组社团课程",
       "directions": [
         "社团体系"
       ],
@@ -5241,8 +5247,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-023",
@@ -5250,7 +5255,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "社团与学科拓展",
-      "title": "学科拔尖",
+      "title": "智翼提高课程",
+      "subtitle": "学科拔尖与小语种课程",
       "directions": [
         "学科拔尖"
       ],
@@ -5269,8 +5275,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-024",
@@ -5278,7 +5283,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "节庆与学科节",
-      "title": "节庆课程化",
+      "title": "八节月历",
+      "subtitle": "活动拓展课程（定稿称\"活动拓展\"）",
       "directions": [
         "节庆课程化"
       ],
@@ -5294,8 +5300,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-025",
@@ -5303,7 +5308,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "定稿未标注",
       "theme": "节庆与学科节",
-      "title": "学科节",
+      "title": "多彩融创节",
+      "subtitle": "一主学科带多学科游戏闯关",
       "directions": [
         "学科节"
       ],
@@ -5326,8 +5332,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-026",
@@ -5335,7 +5340,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "节庆与学科节",
-      "title": "节庆课程化",
+      "title": "校园节日体系",
+      "subtitle": "六节月历＋常态/创新双轨",
       "directions": [
         "节庆课程化"
       ],
@@ -5352,8 +5358,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-027",
@@ -5361,7 +5366,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "初中",
       "grades": "初高中",
       "theme": "节庆与学科节",
-      "title": "节庆课程化",
+      "title": "校园风尚课程",
+      "subtitle": "五风校园节课程",
       "directions": [
         "节庆课程化"
       ],
@@ -5379,8 +5385,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-028",
@@ -5388,7 +5393,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "高中",
       "grades": "高一—高三",
       "theme": "节庆与学科节",
-      "title": "学科节",
+      "title": "珺园学科节",
+      "subtitle": "高中学科活动矩阵",
       "directions": [
         "学科节"
       ],
@@ -5404,8 +5410,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-029",
@@ -5413,7 +5418,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "表达与展示",
-      "title": "表达与展示",
+      "title": "光芒大放·自信大擂台",
+      "subtitle": "全员才艺展示平台",
       "directions": [
         "表达与展示"
       ],
@@ -5430,8 +5436,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-030",
@@ -5439,7 +5444,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "6—12岁",
       "theme": "表达与展示",
-      "title": "校园表达舞台",
+      "title": "校园XIN主播",
+      "subtitle": "校园舞台综合表达",
       "directions": [
         "校园表达舞台"
       ],
@@ -5459,8 +5465,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "subject特色",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-031",
@@ -5468,7 +5473,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "跨学科主题课程",
-      "title": "跨学科主题课程",
+      "title": "成长阶梯",
+      "subtitle": "思维能力与生命情感双线六年项目",
       "directions": [
         "跨学科主题课程"
       ],
@@ -5488,8 +5494,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "local",
         "project",
         "collaboration"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-032",
@@ -5497,7 +5502,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "4年级",
       "theme": "跨学科主题课程",
-      "title": "跨学科主题课程",
+      "title": "探火",
+      "subtitle": "四年级火文化跨学科课程（10课时）",
       "directions": [
         "跨学科主题课程"
       ],
@@ -5514,8 +5520,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-033",
@@ -5523,7 +5528,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "跨学科主题课程",
-      "title": "跨学科主题课程",
+      "title": "追光行动",
+      "subtitle": "\"光\"主题六年跨学科课程链",
       "directions": [
         "跨学科主题课程"
       ],
@@ -5543,8 +5549,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "project",
         "outcome",
         "easy-start"
-      ],
-      "externalReference": false
+      ]
     },
     {
       "id": "ZH-034",
@@ -5552,7 +5557,8 @@ window.COURSE_SUPERMARKET_DATA = {
       "stage": "小学",
       "grades": "1—6年级",
       "theme": "项目化学习体系",
-      "title": "项目化学习体系",
+      "title": "心力项目",
+      "subtitle": "三级项目化学习体系＋工具箱",
       "directions": [
         "项目化学习体系"
       ],
@@ -5570,8 +5576,7 @@ window.COURSE_SUPERMARKET_DATA = {
         "activities",
         "project",
         "outcome"
-      ],
-      "externalReference": false
+      ]
     }
   ]
 };

@@ -148,7 +148,7 @@
       if (state.problem && !course.problems.includes(state.problem)) return false;
       if (state.stage !== '全部' && course.stage !== state.stage) return false;
       if (state.query) {
-        const haystack = [course.id, course.subject, course.theme, course.title, course.summary, ...course.practices, ...course.directions].join(' ').toLowerCase();
+        const haystack = [course.id, course.subject, course.theme, course.title, course.subtitle, course.summary, ...course.practices, ...course.directions].join(' ').toLowerCase();
         if (!haystack.includes(state.query.toLowerCase())) return false;
       }
       return true;
@@ -194,7 +194,7 @@
       <article class="product-card ${packClass(course)} ${selected ? 'selected' : ''}" data-course-id="${course.id}" tabindex="0" aria-label="${escapeHtml(`${course.id} ${course.title}`)}">
         <div class="product-top">
           <span class="product-id">${course.id}</span>
-          ${course.externalReference ? '<span class="product-badge external">外部参考</span>' : `<span class="product-badge">${escapeHtml(course.stage)}</span>`}
+          <span class="product-badge">${escapeHtml(course.stage)}</span>
         </div>
         <p class="product-theme">${escapeHtml(course.theme)}</p>
         <h3>${escapeHtml(course.title)}</h3>
@@ -289,12 +289,12 @@
   function renderDialog(course) {
     const selected = Boolean(state.selection[course.id]);
     els.dialogContent.innerHTML = `
-      <span class="dialog-code">商品编号 ${course.id}</span>
+      <span class="dialog-code">课程编号 ${course.id}</span>
       <h2>${escapeHtml(course.title)}</h2>
       <p class="dialog-theme">${escapeHtml(course.subject)} · ${escapeHtml(course.theme)}</p>
-      ${course.externalReference ? '<span class="product-badge external">外部参考</span>' : ''}
+      ${course.subtitle ? `<p class="dialog-subtitle">${escapeHtml(course.subtitle)}</p>` : ''}
       <p class="dialog-summary">${escapeHtml(course.summary)}</p>
-      <h3>包装背面的主要做法</h3>
+      <h3>主要做法</h3>
       <ul class="practice-list">${course.practices.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
       <div class="dialog-meta">
         <span>${escapeHtml(course.stage)}</span><span>${escapeHtml(course.grades)}</span>

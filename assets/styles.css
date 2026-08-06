@@ -200,7 +200,7 @@ footer span:first-child { color: #fff; font-weight: 850; }
 .course-dialog h3 { margin: 22px 0 10px; font-size: 12px; letter-spacing: .12em; }
 .practice-list { padding: 0; list-style: none; }.practice-list li { position: relative; padding: 11px 0 11px 23px; border-bottom: 1px dashed var(--line); line-height: 1.7; }.practice-list li::before { position: absolute; left: 0; color: var(--red); content: "→"; }
 .dialog-meta { display: flex; gap: 7px; margin: 18px 0; flex-wrap: wrap; }.dialog-meta span { padding: 6px 9px; background: #efebdf; border-radius: 8px; font-size: 11px; }.course-dialog .primary-button { width: 100%; }
-.product-badge.external { color: #7d3a27; background: #ffe3d4; }
+.dialog-subtitle { margin: -5px 0 12px; color: var(--ink-soft); font-size: 13px; line-height: 1.6; }
 
 .receipt-dialog { width: min(560px,calc(100% - 20px)); padding: 26px; overflow: visible; background: #dfe6e0; }
 .receipt-paper { position: relative; max-height: 67vh; padding: 34px 30px 38px; overflow-y: auto; background: #fffef8; filter: drop-shadow(0 10px 16px rgba(22,52,47,.14)); font-family: ui-monospace,SFMono-Regular,"Microsoft YaHei",monospace; }
