@@ -2,7 +2,10 @@
   'use strict';
 
   const data = window.COURSE_SUPERMARKET_DATA;
-  if (!data) throw new Error('课程数据未加载');
+  if (!data) {
+    document.body.innerHTML = '<main class="load-error"><strong>课程数据未能读取</strong><p>请刷新页面。如果问题仍然存在，请使用离线版。</p></main>';
+    return;
+  }
 
   const STORAGE_KEY = 'course-supermarket-selection-v1';
   const SHELF_COUNT = 5;
@@ -108,8 +111,8 @@
 
   function renderProblems() {
     els.problemGrid.innerHTML = data.problems.map((item, index) => `
-      <button class="guide-card ${state.problem === item.id ? 'active' : ''}" type="button" data-problem="${escapeHtml(item.id)}">
-        <span class="guide-no"><span>导购 ${String(index + 1).padStart(2, '0')}</span><span>${item.count} 件</span></span>
+      <button class="guide-card ${state.problem === item.id ? 'active' : ''}" style="--i:${index}" type="button" data-problem="${escapeHtml(item.id)}">
+        <span class="guide-count">${item.count} 门相关课程</span>
         <h3>${escapeHtml(item.question)}</h3>
         <p>${escapeHtml(item.hint)}</p>
       </button>
@@ -117,11 +120,10 @@
   }
 
   function renderSubjects() {
-    els.subjectGrid.innerHTML = data.subjects.map((item, index) => {
+    els.subjectGrid.innerHTML = data.subjects.map((item) => {
       const count = subjectCount(item.name);
       return `
         <button class="subject-tab ${state.subject === item.name ? 'active' : ''}" type="button" data-subject="${escapeHtml(item.name)}" ${count === 0 ? 'disabled' : ''}>
-          <span class="aisle-no">${String(index + 1).padStart(2, '0')}</span>
           <strong>${escapeHtml(item.name)}</strong>
           <small>${count} 门可选</small>
         </button>
@@ -188,10 +190,10 @@
     return `pack-${[...course.id].reduce((sum, char) => sum + char.charCodeAt(0), 0) % 7}`;
   }
 
-  function productCard(course) {
+  function productCard(course, index) {
     const selected = Boolean(state.selection[course.id]);
     return `
-      <article class="product-card ${packClass(course)} ${selected ? 'selected' : ''}" data-course-id="${course.id}" tabindex="0" aria-label="${escapeHtml(`${course.id} ${course.title}`)}">
+      <article class="product-card ${packClass(course)} ${selected ? 'selected' : ''}" style="--i:${index % 12}" data-course-id="${course.id}" tabindex="0" aria-label="${escapeHtml(`${course.id} ${course.title}`)}">
         <div class="product-top">
           <span class="product-id">${course.id}</span>
           <span class="product-badge">${escapeHtml(course.stage)}</span>
@@ -211,8 +213,8 @@
     const subjectInfo = data.subjects.find((item) => item.name === state.subject) || data.subjects[0];
     const problem = problemDefinition();
     els.shelfTitle.textContent = `${state.subject}货架`;
-    els.departmentCode.textContent = `A${String(data.subjects.indexOf(subjectInfo) + 1).padStart(2, '0')}`;
-    els.activeGuide.textContent = problem ? `导购推荐 · ${problem.short}` : '全场精选 · 自由选购';
+    els.departmentCode.textContent = '课程货架';
+    els.activeGuide.textContent = problem ? `当前问题：${problem.short}` : '自由选购';
 
     const courses = filteredCourses();
     els.resultCount.textContent = courses.length;
@@ -220,11 +222,11 @@
     els.shelfUnit.innerHTML = rows.map((row, index) => `
       <section class="shelf-row" aria-label="第 ${index + 1} 层货栏">
         <div class="shelf-row-head">
-          <span><b>${index + 1}</b> 第 ${index + 1} 层货栏</span>
-          <em>${row.themes.length ? escapeHtml(row.themes.join(' · ')) : '等待补货'}</em>
+          <span><b>第 ${index + 1} 层</b> 货栏</span>
+          <em>${row.themes.length ? escapeHtml(row.themes.join(' / ')) : '本层暂无相符课程'}</em>
         </div>
         <div class="shelf-track">
-          ${row.courses.length ? row.courses.map(productCard).join('') : '<div class="shelf-empty">本层暂无相符课程</div>'}
+          ${row.courses.length ? row.courses.map((course, courseIndex) => productCard(course, courseIndex)).join('') : '<div class="shelf-empty">本层暂无相符课程</div>'}
         </div>
         <div class="shelf-board" aria-hidden="true"></div>
       </section>
@@ -291,14 +293,14 @@
     els.dialogContent.innerHTML = `
       <span class="dialog-code">课程编号 ${course.id}</span>
       <h2>${escapeHtml(course.title)}</h2>
-      <p class="dialog-theme">${escapeHtml(course.subject)} · ${escapeHtml(course.theme)}</p>
+      <p class="dialog-theme">${escapeHtml(course.subject)} / ${escapeHtml(course.theme)}</p>
       ${course.subtitle ? `<p class="dialog-subtitle">${escapeHtml(course.subtitle)}</p>` : ''}
       <p class="dialog-summary">${escapeHtml(course.summary)}</p>
       <h3>主要做法</h3>
       <ul class="practice-list">${course.practices.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
       <div class="dialog-meta">
         <span>${escapeHtml(course.stage)}</span>
-        ${course.relatedSubjects.length > 1 ? `<span>关联：${escapeHtml(course.relatedSubjects.join('、'))}</span>` : ''}
+        ${course.relatedSubjects.length > 1 ? `<span>关联学科：${escapeHtml(course.relatedSubjects.join('、'))}</span>` : ''}
       </div>
       <button class="primary-button" id="dialogSelect" type="button">${selected ? '放回原货架' : '放入选课手推车'}</button>
     `;
@@ -325,10 +327,10 @@
     els.selectionList.innerHTML = courses.length ? courses.map((course) => `
       <article class="selection-item" data-course-id="${course.id}">
         <div class="selection-item-top">
-          <div><span class="course-id">${course.id} · ${escapeHtml(course.subject)}</span><h3>${escapeHtml(course.theme)}｜${escapeHtml(course.title)}</h3></div>
+          <div><span class="course-id">${course.id} / ${escapeHtml(course.subject)}</span><h3>${escapeHtml(course.theme)}｜${escapeHtml(course.title)}</h3></div>
           <button class="remove-button" type="button" data-action="remove">放回货架</button>
         </div>
-        <label>学校的想法<textarea data-note placeholder="例如：想先在三年级试做；可结合本地资源……">${escapeHtml(state.selection[course.id]?.note || '')}</textarea></label>
+        <label>学校的想法<textarea data-note placeholder="例如：想先在三年级试做；可结合本地资源。">${escapeHtml(state.selection[course.id]?.note || '')}</textarea></label>
       </article>
     `).join('') : '<div class="selection-empty"><strong>手推车还是空的</strong><span>先去逛五层货栏，看到有感觉的就放进来。</span></div>';
     els.makeReceipt.disabled = courses.length === 0;
@@ -370,12 +372,12 @@
     const rows = receiptRows();
     const subjectCount = new Set(rows.map((row) => row.subject)).size;
     return `
-      <div class="receipt-logo"><span class="receipt-cart">▰</span><h2>课程超市</h2><p>选课流水单 · ${receiptNumber()}</p></div>
+      <div class="receipt-logo"><h2>课程超市</h2><p>选课流水单 / ${receiptNumber()}</p></div>
       <div class="receipt-rule">------------------------------------------</div>
       ${rows.map((row) => `
         <div class="receipt-line">
           <span>${row.id}</span>
-          <div><strong>${escapeHtml(row.theme)}</strong><small>${escapeHtml(row.subject)} · ${escapeHtml(row.title)}</small>${row.note ? `<div class="receipt-note">想法：${escapeHtml(row.note)}</div>` : ''}</div>
+          <div><strong>${escapeHtml(row.theme)}</strong><small>${escapeHtml(row.subject)} / ${escapeHtml(row.title)}</small>${row.note ? `<div class="receipt-note">想法：${escapeHtml(row.note)}</div>` : ''}</div>
           <span class="qty">×1</span>
         </div>
       `).join('')}
@@ -430,7 +432,7 @@
   function printReceipt() {
     const rows = receiptRows();
     els.printSheet.innerHTML = `
-      <h1>课程超市</h1><p class="print-meta">选课流水单 · ${receiptNumber()}</p>
+      <h1>课程超市</h1><p class="print-meta">选课流水单 / ${receiptNumber()}</p>
       ${rows.map((row) => `<div class="print-item"><strong>${row.id}｜${escapeHtml(row.subject)}｜${escapeHtml(row.theme)} ×1</strong>${escapeHtml(row.title)}${row.note ? `<br>学校想法：${escapeHtml(row.note)}` : ''}</div>`).join('')}
       <div class="print-total">合计 ${rows.length} 门</div><div class="print-footer">请保留课程编号，便于后续沟通与定制。</div>
     `;
@@ -443,6 +445,23 @@
     els.toast.textContent = message;
     els.toast.classList.add('show');
     toastTimer = setTimeout(() => els.toast.classList.remove('show'), 1800);
+  }
+
+  function initRevealObserver() {
+    const items = [...document.querySelectorAll('.reveal')];
+    if (!items.length || !('IntersectionObserver' in window)) {
+      items.forEach((item) => item.classList.add('is-visible'));
+      return;
+    }
+    document.body.classList.add('motion-ready');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12 });
+    items.forEach((item) => observer.observe(item));
   }
 
   els.problemGrid.addEventListener('click', (event) => {
@@ -515,4 +534,5 @@
 
   initMeta();
   render();
+  initRevealObserver();
 })();
