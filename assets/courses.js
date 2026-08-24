@@ -1,7 +1,7 @@
 window.COURSE_SUPERMARKET_DATA = {
   "meta": {
-    "generatedAt": "2026-08-24 11:21",
-    "courseCount": 278,
+    "generatedAt": "2026-08-24 13:25",
+    "courseCount": 279,
     "subjectCount": 12,
     "directionCount": 72
   },
@@ -44,7 +44,7 @@ window.COURSE_SUPERMARKET_DATA = {
     {
       "name": "劳动",
       "code": "LD",
-      "count": 25
+      "count": 26
     },
     {
       "name": "德育与班队",
@@ -73,14 +73,14 @@ window.COURSE_SUPERMARKET_DATA = {
       "short": "建立年级递进",
       "question": "课程怎样形成一至六年级或小初贯通的成长序列？",
       "hint": "查看分级、分段、进阶与贯通型做法",
-      "count": 153
+      "count": 154
     },
     {
       "id": "activities",
       "short": "活动课程化",
       "question": "零散活动怎样变成一门可以持续开展的课程？",
       "hint": "查看节庆、社团、主题活动与课程群做法",
-      "count": 111
+      "count": 112
     },
     {
       "id": "subject特色",
@@ -108,7 +108,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "short": "看得见的成果",
       "question": "学生的学习成果怎样被看见、被积累？",
       "hint": "查看展演、发表、作品、认证与赛事出口",
-      "count": 184
+      "count": 185
     },
     {
       "id": "collaboration",
@@ -4852,6 +4852,34 @@ window.COURSE_SUPERMARKET_DATA = {
       "problems": [
         "progression",
         "project",
+        "outcome"
+      ]
+    },
+    {
+      "id": "LD-026",
+      "subject": "劳动",
+      "stage": "小学",
+      "theme": "食育与烹饪",
+      "title": "开心农场与美味厨房",
+      "subtitle": "班级承包三月节点-厨师带徒围灶烹饪",
+      "directions": [
+        "班级承包农场",
+        "校园烹饪"
+      ],
+      "summary": "让中高年级按班承包一块地，走完播种、管护、采摘三个月，再把地里的菜在校内厨房做成家常菜和节日食。",
+      "practices": [
+        "校内约 900 平方米隔成 15 块约 60 平方米的开心农场，由中高年级各班承包；学校给种子菜秧，班主任组织学生在课余和实践课里管理。2026 年报道写三至六年级，2022 年报道写四至六年级，两说并列。",
+        "种植按三个节点走：播种月买种育苗，成长月管护，收获月采摘自己班地里长出来的作物。",
+        "2021 年起设美味厨房。请来专业厨师以师带徒方式从西红柿炒鸡蛋教起；5 名教师分 5 组，学生围灶练习择、洗、切和煎、炒、炖、蒸。",
+        "2022 年报道：每个班每周至少一节劳动课；低年级以生活技能为主，中高年级进入烹饪，毕业时多数能独立完成四菜一汤和两道主食。",
+        "食育与清明做青团、端午包粽子、冬至包饺子衔接；另有《\"开心农场\"读本》和《\"耕读幸福\"手册》，分别收本地家常菜和常见农作物种植。"
+      ],
+      "relatedSubjects": [
+        "劳动"
+      ],
+      "problems": [
+        "progression",
+        "activities",
         "outcome"
       ]
     },
