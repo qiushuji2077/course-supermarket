@@ -1,0 +1,36 @@
+name: PR 检查
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  check-public-files:
+    name: 检查公开文件
+    runs-on: ubuntu-latest
+    steps:
+      - name: 读取分支
+        uses: actions/checkout@v6
+      - name: 确认站点文件存在
+        run: |
+          test -f index.html
+          test -f assets/app.js
+          test -f assets/courses.js
+          test -f assets/styles.css
+      - name: 拒绝内部文件进入公开仓库
+        run: |
+          if [ -f generate.rb ] || [ -f "课程超市-内部编号.yml" ]; then
+            echo "generate.rb 或内部编号表不应出现在公开仓库。"
+            exit 1
+          fi
+      - name: 扫描明显的内部字段
+        run: |
+          if grep -E '特色度|实施度|"主推"|"在库"|验证:' assets/courses.js; then
+            echo "公开数据里出现了内部字段。"
+            exit 1
+          fi
+          echo "PR 检查通过。合并后才会发布到 GitHub Pages。"

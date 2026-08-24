@@ -6,6 +6,8 @@
 
 ## 更新内容
 
+不要直推 `main`。生成数据后开分支，用 Pull Request 合并。`main` 一合并就会发布到 GitHub Pages。
+
 在课程资源库根目录运行：
 
 ```bash
@@ -13,6 +15,10 @@ ruby "80 展示输出/课程超市/generate.rb"
 ```
 
 生成器会重新读取课程卡，只发布当前可对外展示的课程，并保留既有课程编号。
+
+然后在 `80 展示输出/课程超市/` 开分支、提交 `assets/courses.js`、创建 PR。协作说明见 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [AGENTS.md](AGENTS.md)。
+
+也可以双击主库里的 `80 展示输出/更新课程超市.command`：它会生成数据、创建分支并打开 PR，不会直接发布。
 
 ## 本地预览
 
