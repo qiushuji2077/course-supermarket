@@ -203,7 +203,7 @@
         <p class="product-summary">${escapeHtml(course.summary || course.practices[0])}</p>
         <div class="product-bottom">
           <span class="barcode" aria-hidden="true"></span>
-          <button class="put-button ${selected ? 'selected' : ''}" type="button" data-action="select">${selected ? '放回' : '放入车'}</button>
+          <button class="put-button ${selected ? 'selected' : ''}" type="button" data-action="select">${selected ? '已入篮' : '放入书篮 >'}</button>
         </div>
       </article>
     `;
@@ -212,17 +212,17 @@
   function renderDepartment() {
     const subjectInfo = data.subjects.find((item) => item.name === state.subject) || data.subjects[0];
     const problem = problemDefinition();
-    els.shelfTitle.textContent = `${state.subject}货架`;
-    els.departmentCode.textContent = '课程货架';
-    els.activeGuide.textContent = problem ? `当前问题：${problem.short}` : '自由选购';
+    els.shelfTitle.textContent = `${state.subject}书架`;
+    els.departmentCode.textContent = '课程书架';
+    els.activeGuide.textContent = problem ? `当前问题：${problem.short}` : '自由取阅';
 
     const courses = filteredCourses();
     els.resultCount.textContent = courses.length;
     const rows = distributeToShelves(courses);
     els.shelfUnit.innerHTML = rows.map((row, index) => `
-      <section class="shelf-row" aria-label="第 ${index + 1} 层货栏">
+      <section class="shelf-row" aria-label="第 ${index + 1} 层书栏">
         <div class="shelf-row-head">
-          <span><b>第 ${index + 1} 层</b> 货栏</span>
+          <span><b>第 ${index + 1} 层</b> 书栏</span>
           <em>${row.themes.length ? escapeHtml(row.themes.join(' / ')) : '本层暂无相符课程'}</em>
         </div>
         <div class="shelf-track">
@@ -275,10 +275,10 @@
   function toggleSelection(course) {
     if (state.selection[course.id]) {
       delete state.selection[course.id];
-      showToast(`${course.id} 已放回货架`);
+      showToast(`${course.id} 已放回书架`);
     } else {
       state.selection[course.id] = { note: '' };
-      showToast(`${course.id} 已放入手推车`);
+      showToast(`${course.id} 已放入书篮`);
       els.cartDock.classList.remove('bump');
       requestAnimationFrame(() => els.cartDock.classList.add('bump'));
     }
@@ -302,7 +302,7 @@
         <span>${escapeHtml(course.stage)}</span>
         ${course.relatedSubjects.length > 1 ? `<span>关联学科：${escapeHtml(course.relatedSubjects.join('、'))}</span>` : ''}
       </div>
-      <button class="primary-button" id="dialogSelect" type="button">${selected ? '放回原货架' : '放入选课手推车'}</button>
+      <button class="primary-button" id="dialogSelect" type="button">${selected ? '放回书架' : '放入书篮'}</button>
     `;
     els.dialogContent.querySelector('#dialogSelect').addEventListener('click', () => toggleSelection(course));
   }
@@ -322,17 +322,17 @@
     const courses = selectedCourses();
     const subjects = new Set(courses.map((course) => course.subject));
     els.selectionSummary.textContent = courses.length
-      ? `车内有 ${courses.length} 门课程，来自 ${subjects.size} 个学科货架。可以写下学校的第一反应。`
-      : '手推车还是空的。关掉这里，去货架上把有感觉的课程放进来。';
+      ? `书篮里有 ${courses.length} 门课程，来自 ${subjects.size} 个学科书架。可以写下学校的第一反应。`
+      : '书篮还是空的。关掉这里，去书架上把有感觉的课程放进来。';
     els.selectionList.innerHTML = courses.length ? courses.map((course) => `
       <article class="selection-item" data-course-id="${course.id}">
         <div class="selection-item-top">
           <div><span class="course-id">${course.id} / ${escapeHtml(course.subject)}</span><h3>${escapeHtml(course.theme)}｜${escapeHtml(course.title)}</h3></div>
-          <button class="remove-button" type="button" data-action="remove">放回货架</button>
+          <button class="remove-button" type="button" data-action="remove">放回书架</button>
         </div>
         <label>学校的想法<textarea data-note placeholder="例如：想先在三年级试做；可结合本地资源。">${escapeHtml(state.selection[course.id]?.note || '')}</textarea></label>
       </article>
-    `).join('') : '<div class="selection-empty"><strong>手推车还是空的</strong><span>先去逛五层货栏，看到有感觉的就放进来。</span></div>';
+    `).join('') : '<div class="selection-empty"><strong>书篮还是空的</strong><span>先去逛五层书栏，看到有感觉的就放进来。</span></div>';
     els.makeReceipt.disabled = courses.length === 0;
   }
 
@@ -381,7 +381,7 @@
           <span class="qty">×1</span>
         </div>
       `).join('')}
-      <div class="receipt-total"><span>${subjectCount} 个学科货架</span><strong>共 ${rows.length} 门</strong></div>
+      <div class="receipt-total"><span>${subjectCount} 个学科书架</span><strong>共 ${rows.length} 门</strong></div>
       <div class="receipt-rule">------------------------------------------</div>
       <div class="receipt-footer"><div class="receipt-barcode" aria-hidden="true"></div><p>请保留课程编号，便于后续沟通与定制。<br>选中的方向将结合学校实际继续加工。</p></div>
     `;

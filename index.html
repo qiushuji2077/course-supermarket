@@ -3,43 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f2f2ee" />
-    <meta name="description" content="按问题和学科选择课程，放入手推车并导出带编号的选课流水单。" />
-    <title>课程超市｜学校选课平台</title>
+    <meta name="theme-color" content="#efe6d4" />
+    <meta name="description" content="按问题和学科选择课程，放入书篮并导出带编号的选课流水单。" />
+    <title>课程超市｜学校选课</title>
     <link rel="icon" href="data:," />
-    <link rel="preload" href="./assets/course-market-hero.webp" as="image" type="image/webp" />
     <link rel="stylesheet" href="./assets/styles.css" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="#top">
+        <span class="seal" aria-hidden="true">选</span>
         <strong>课程超市</strong>
-        <span>CURRICULUM MARKET</span>
       </a>
       <nav aria-label="主要导航">
         <a href="#guide">问题导购</a>
-        <a href="#catalog">学科货架</a>
+        <a href="#catalog">学科书架</a>
       </nav>
       <button class="header-cart" id="openSelection" type="button">
-        <span>手推车</span>
+        <span>书篮</span>
         <strong id="selectionCount">0</strong>
       </button>
     </header>
 
+    <aside class="side-verse" aria-hidden="true">以文养心　以文化人</aside>
+
     <main id="top">
       <section class="hero" aria-labelledby="heroTitle">
-        <img src="./assets/course-market-hero.webp" alt="摆满课程材料的现代超市货架，前方停着一辆红色手推车" width="1536" height="1024" fetchpriority="high" />
-        <div class="hero-shade" aria-hidden="true"></div>
-        <div class="hero-copy">
-          <p class="hero-kicker">面向学校的课程选购平台</p>
-          <h1 id="heroTitle">把课程放上货架，<span>让选择更具体。</span></h1>
-          <p>按问题或学科逛课程，选中后放进手推车，最后导出流水单。</p>
-          <button class="primary-button" id="startBrowse" type="button">开始选课</button>
-        </div>
+        <p class="hero-kicker">面向学校的选课书架</p>
+        <h1 id="heroTitle">课程超市</h1>
+        <p class="hero-lead">按问题走进书架，把看中的课放入书篮，带走一张流水单。</p>
+        <button class="primary-button" id="startBrowse" type="button">开始选书</button>
       </section>
 
       <section class="market-facts" aria-label="课程超市概览">
-        <p>先说问题，再逛学科。每门课都有独立编号，方便后续沟通。</p>
+        <p>先问问题，再入书架。每门课都有稳定编号，方便后续商量。</p>
         <div class="fact"><strong id="courseTotal">0</strong><span>门课程</span></div>
         <div class="fact"><strong id="subjectTotal">0</strong><span>个学科</span></div>
         <div class="fact"><strong id="directionTotal">0</strong><span>个方向</span></div>
@@ -49,7 +46,7 @@
         <section class="guide-zone reveal" id="guide" aria-labelledby="guideTitle">
           <div class="section-heading">
             <h2 id="guideTitle">学校现在最想解决什么？</h2>
-            <p>选一个问题，货架会只留下相关课程。也可以跳过这一步，直接按学科选购。</p>
+            <p>选一个问题，书架会只留下相关课程。也可以跳过，直接按学科取阅。</p>
             <button class="text-button" id="clearFilter" type="button" hidden>清除已选条件</button>
           </div>
           <div class="guide-grid" id="problemGrid" aria-live="polite"></div>
@@ -57,26 +54,26 @@
 
         <section class="aisle-directory reveal" id="catalog" aria-labelledby="catalogTitle">
           <div class="section-heading">
-            <h2 id="catalogTitle">选择学科货架</h2>
-            <p>每个学科都有五层货栏，课程依据主题方向分布。</p>
+            <h2 id="catalogTitle">选择学科书架</h2>
+            <p>每个学科五层书栏，课程按主题方向分列。</p>
           </div>
-          <div class="subject-tabs" id="subjectGrid" aria-label="学科货架索引"></div>
+          <div class="subject-tabs" id="subjectGrid" aria-label="学科书架索引"></div>
         </section>
 
         <section class="shelf-department reveal" aria-labelledby="shelfTitle">
           <div class="department-sign">
             <div>
-              <span class="department-code" id="departmentCode">课程货架</span>
-              <h2 id="shelfTitle">语文货架</h2>
-              <p id="activeGuide">自由选购</p>
+              <span class="department-code" id="departmentCode">课程书架</span>
+              <h2 id="shelfTitle">语文书架</h2>
+              <p id="activeGuide">自由取阅</p>
             </div>
-            <div class="department-count"><strong id="resultCount">0</strong><span>门可选</span></div>
+            <div class="department-count"><strong id="resultCount">0</strong><span>门可取</span></div>
           </div>
 
           <div class="shelf-tools">
             <div class="search-shell" role="search">
-              <label for="searchInput">搜索课程</label>
-              <input id="searchInput" type="search" placeholder="阅读、AI、劳动、项目化..." autocomplete="off" />
+              <label for="searchInput">检索课程</label>
+              <input id="searchInput" type="search" placeholder="阅读、劳动、项目化..." autocomplete="off" />
               <kbd>⌘ K</kbd>
             </div>
             <div class="filter-row">
@@ -90,30 +87,34 @@
       </div>
 
       <section class="checkout-callout reveal">
-        <h2>选好了，就去看看手推车。</h2>
-        <p>你可以继续调整、写下想法，然后导出带课程编号的流水单。</p>
-        <button class="primary-button" id="openSelectionBottom" type="button">查看手推车</button>
+        <h2>选好了，就去看看书篮。</h2>
+        <p>可以继续调整、写下想法，然后导出带课程编号的流水单。</p>
+        <button class="primary-button" id="openSelectionBottom" type="button">查看书篮</button>
       </section>
     </main>
 
     <button class="cart-dock" id="cartDock" type="button">
-      <span>手推车</span>
+      <span>书篮</span>
       <strong id="dockCount">0</strong>
     </button>
 
-    <footer><strong>课程超市</strong><span id="updateTime">正在读取课程</span></footer>
+    <footer>
+      <strong>课程超市</strong>
+      <span>选课如选书，编号随身走</span>
+      <span id="updateTime">正在读取课程</span>
+    </footer>
 
     <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
     <aside class="selection-drawer" id="selectionDrawer" aria-labelledby="selectionTitle" aria-hidden="true">
       <div class="drawer-header">
-        <div><span>选课清单</span><h2 id="selectionTitle">我的手推车</h2></div>
-        <button class="icon-button" id="closeSelection" type="button" aria-label="关闭手推车">关闭</button>
+        <div><span>选课书篮</span><h2 id="selectionTitle">我的书篮</h2></div>
+        <button class="icon-button" id="closeSelection" type="button" aria-label="关闭书篮">关闭</button>
       </div>
       <div class="selection-summary" id="selectionSummary"></div>
       <div class="selection-list" id="selectionList"></div>
       <div class="drawer-actions">
         <button class="primary-button" id="makeReceipt" type="button">生成流水单</button>
-        <button class="secondary-button" id="continueShopping" type="button">继续选课</button>
+        <button class="secondary-button" id="continueShopping" type="button">继续选书</button>
       </div>
     </aside>
 
@@ -135,7 +136,7 @@
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <section class="print-sheet" id="printSheet" aria-hidden="true"></section>
 
-    <noscript>请开启浏览器的 JavaScript 功能，以使用课程货架和手推车。</noscript>
+    <noscript>请开启浏览器的 JavaScript，以使用课程书架和书篮。</noscript>
     <script src="./assets/courses.js"></script>
     <script src="./assets/app.js"></script>
   </body>
