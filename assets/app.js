@@ -132,7 +132,7 @@
   }
 
   function availableStages() {
-    const order = ['全部', '小学', '初中', '九年一贯', '高中'];
+    const order = ['全部', '小学', '初中', '初高中', '九年一贯', '高中'];
     const stages = new Set(coursesForProblem().filter((course) => course.subject === state.subject).map((course) => course.stage));
     return order.filter((stage) => stage === '全部' || stages.has(stage));
   }
@@ -296,8 +296,7 @@
       <p class="dialog-theme">${escapeHtml(course.subject)} / ${escapeHtml(course.theme)}</p>
       ${course.subtitle ? `<p class="dialog-subtitle">${escapeHtml(course.subtitle)}</p>` : ''}
       <p class="dialog-summary">${escapeHtml(course.summary)}</p>
-      <h3>主要做法</h3>
-      <ul class="practice-list">${course.practices.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+      ${course.practices.length ? `<h3>主要做法</h3><ul class="practice-list">${course.practices.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}
       <div class="dialog-meta">
         <span>${escapeHtml(course.stage)}</span>
         ${course.relatedSubjects.length > 1 ? `<span>关联学科：${escapeHtml(course.relatedSubjects.join('、'))}</span>` : ''}
@@ -393,7 +392,7 @@
     rows.forEach((row) => {
       lines.push(`${row.id}  ${row.subject}｜${row.theme}  ×1`);
       lines.push(`    ${row.title}`);
-      lines.push(`    主要做法：${row.summary}`);
+      lines.push(`    ${row.summary}`);
       if (row.note) lines.push(`    学校想法：${row.note}`);
       lines.push('');
     });
