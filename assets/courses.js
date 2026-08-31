@@ -4095,7 +4095,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "subject": "德育与班队",
       "stage": "初高中",
       "theme": "团队组织衔接",
-      "title": "铁中·青春先锋课",
+      "title": "青春先锋课",
       "subtitle": "",
       "directions": [
         "团队组织衔接"
@@ -4201,7 +4201,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "subject": "德育与班队",
       "stage": "初高中",
       "theme": "家国情怀与思政",
-      "title": "铁中·成长思政课",
+      "title": "成长思政课",
       "subtitle": "",
       "directions": [
         "家国情怀与思政"
@@ -4224,7 +4224,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "subject": "德育与班队",
       "stage": "初高中",
       "theme": "家国情怀与思政",
-      "title": "铁中·青春信仰课",
+      "title": "青春信仰课",
       "subtitle": "",
       "directions": [
         "家国情怀与思政"
@@ -4331,7 +4331,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "subject": "德育与班队",
       "stage": "初高中",
       "theme": "思辨议事与自治",
-      "title": "铁中·青春自序课",
+      "title": "青春自序课",
       "subtitle": "",
       "directions": [
         "思辨议事与自治"
@@ -4572,7 +4572,7 @@ window.COURSE_SUPERMARKET_DATA = {
       "directions": [
         "衔接与成长仪式"
       ],
-      "summary": "铁中志愿服务建档、学科研学任务单化、成长礼与十八岁成人礼三线的社会实践课程。",
+      "summary": "志愿服务建档、学科研学任务单化、成长礼与十八岁成人礼三线的社会实践课程。",
       "practices": [],
       "relatedSubjects": [
         "德育与班队"
