@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#efe6d4" />
-    <meta name="description" content="按问题和学科选择课程，放入书篮并导出带编号的选课流水单。" />
+    <meta name="description" content="按问题、学科或主题选课，放入书篮并导出带编号的选课流水单。" />
     <title>课程超市｜学校选课</title>
     <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="./assets/styles.css" />
+    <link rel="stylesheet" href="./assets/styles.css?v=20260831c" />
   </head>
   <body>
     <header class="site-header">
@@ -15,9 +15,10 @@
         <span class="seal" aria-hidden="true">选</span>
         <strong>课程超市</strong>
       </a>
-      <nav aria-label="主要导航">
-        <a href="#guide">问题导购</a>
-        <a href="#catalog">学科书架</a>
+      <nav class="mode-nav" aria-label="逛店方式">
+        <button type="button" data-mode="problem">问题导购</button>
+        <button type="button" data-mode="subject">学科书架</button>
+        <button type="button" data-mode="theme">领域主题</button>
       </nav>
       <button class="header-cart" id="openSelection" type="button">
         <span>书篮</span>
@@ -31,41 +32,70 @@
       <section class="hero" aria-labelledby="heroTitle">
         <p class="hero-kicker">面向学校的选课书架</p>
         <h1 id="heroTitle">课程超市</h1>
-        <p class="hero-lead">按问题走进书架，把看中的课放入书篮，带走一张流水单。</p>
-        <button class="primary-button" id="startBrowse" type="button">开始选书</button>
+        <p class="hero-lead">三条路走进书架。看中的课放入书篮，带走一张带编号的流水单。</p>
+        <div class="entry-doors" aria-label="选择逛店方式">
+          <button type="button" data-mode="problem">
+            <span>01</span>
+            <strong>问题导购</strong>
+            <p>学校现在卡在哪，先问再取书。</p>
+          </button>
+          <button type="button" data-mode="subject">
+            <span>02</span>
+            <strong>学科书架</strong>
+            <p>十二组货架，按学科一层层取阅。</p>
+          </button>
+          <button type="button" data-mode="theme">
+            <span>03</span>
+            <strong>领域主题</strong>
+            <p>食育、阅读、项目化，按主题穿过学科。</p>
+          </button>
+        </div>
       </section>
 
       <section class="market-facts" aria-label="课程超市概览">
-        <p>先问问题，再入书架。每门课都有稳定编号，方便后续商量。</p>
+        <p>问题、学科、主题是三条并列的入口。手机上课程一句话会完整展开，方便边看边选。</p>
         <div class="fact"><strong id="courseTotal">0</strong><span>门课程</span></div>
         <div class="fact"><strong id="subjectTotal">0</strong><span>个学科</span></div>
-        <div class="fact"><strong id="directionTotal">0</strong><span>个方向</span></div>
+        <div class="fact"><strong id="directionTotal">0</strong><span>个主题</span></div>
       </section>
 
       <div class="market-floor" id="browse">
-        <section class="guide-zone reveal" id="guide" aria-labelledby="guideTitle">
+        <section class="mode-panel reveal" id="guide" data-panel="problem" aria-labelledby="guideTitle">
           <div class="section-heading">
             <h2 id="guideTitle">学校现在最想解决什么？</h2>
-            <p>选一个问题，书架会只留下相关课程。也可以跳过，直接按学科取阅。</p>
+            <p>点一个问题，下面直接摊开相关课程，按学科排好。不必先猜该进哪组书架。</p>
             <button class="text-button" id="clearFilter" type="button" hidden>清除已选条件</button>
           </div>
           <div class="guide-grid" id="problemGrid" aria-live="polite"></div>
         </section>
 
-        <section class="aisle-directory reveal" id="catalog" aria-labelledby="catalogTitle">
+        <section class="mode-panel reveal" id="catalog" data-panel="subject" hidden aria-labelledby="catalogTitle">
           <div class="section-heading">
             <h2 id="catalogTitle">选择学科书架</h2>
-            <p>每个学科五层书栏，课程按主题方向分列。</p>
+            <p>每组书架五层书栏，课程按主题方向分列。适合已经明确要从哪一门课做起的学校。</p>
           </div>
-          <div class="subject-tabs" id="subjectGrid" aria-label="学科书架索引"></div>
+          <div class="aisle-index" id="subjectGrid" aria-label="学科书架索引"></div>
         </section>
 
-        <section class="shelf-department reveal" aria-labelledby="shelfTitle">
+        <section class="mode-panel reveal" id="themes" data-panel="theme" hidden aria-labelledby="themeTitle">
+          <div class="section-heading">
+            <h2 id="themeTitle">从哪个主题进入？</h2>
+            <p>主题穿过学科。想做食育、阅读或项目化，不必先决定它算劳动还是综合实践。</p>
+          </div>
+          <div class="theme-toolbar">
+            <label class="theme-search" for="themeSearch">检索主题
+              <input id="themeSearch" type="search" placeholder="阅读、食育、项目化..." autocomplete="off" />
+            </label>
+          </div>
+          <div class="theme-gallery" id="themeGrid" aria-live="polite"></div>
+        </section>
+
+        <section class="shelf-department reveal" id="results" aria-labelledby="shelfTitle">
           <div class="department-sign">
             <div>
               <span class="department-code" id="departmentCode">课程书架</span>
-              <h2 id="shelfTitle">语文书架</h2>
-              <p id="activeGuide">自由取阅</p>
+              <h2 id="shelfTitle">请选择入口</h2>
+              <p id="activeGuide">三条路都可以走进书架</p>
             </div>
             <div class="department-count"><strong id="resultCount">0</strong><span>门可取</span></div>
           </div>
@@ -78,7 +108,7 @@
             </div>
             <div class="filter-row">
               <div class="stage-filter" id="stageFilter" aria-label="按学段筛选"></div>
-              <label class="theme-select"><span>主题方向</span><select id="themeFilter" aria-label="按主题方向筛选"><option value="">全部方向</option></select></label>
+              <label class="theme-select" id="themeSelectWrap"><span>主题方向</span><select id="themeFilter" aria-label="按主题方向筛选"><option value="">全部方向</option></select></label>
             </div>
           </div>
 
@@ -138,6 +168,6 @@
 
     <noscript>请开启浏览器的 JavaScript，以使用课程书架和书篮。</noscript>
     <script src="./assets/courses.js"></script>
-    <script src="./assets/app.js"></script>
+    <script src="./assets/app.js?v=20260831c"></script>
   </body>
 </html>
