@@ -641,7 +641,6 @@ main { overflow: hidden; }
 
 .product-card {
   --pack-tone: #d9c49a;
-  --ink-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' fill='none' stroke='%2323180f' stroke-width='1.15'%3E%3Cpath d='M18 62c10-18 14-34 8-50M32 64c6-16 4-34-6-48M50 66c8-20 18-32 24-46'/%3E%3C/svg%3E");
   position: relative;
   display: flex;
   width: 196px;
@@ -663,29 +662,17 @@ main { overflow: hidden; }
   transition: transform 220ms cubic-bezier(.16, 1, .3, 1), box-shadow 220ms ease, border-color 180ms ease;
 }
 
-.product-card::after {
-  position: absolute;
-  right: 6px;
-  bottom: 36px;
-  width: 78px;
-  height: 78px;
-  opacity: .22;
-  background: var(--ink-mark) center / contain no-repeat;
-  content: "";
-  pointer-events: none;
-}
-
 .product-card:nth-child(3n + 2) { height: 218px; }
 .product-card:nth-child(5n) { width: 208px; min-width: 208px; }
 .product-card:hover { z-index: 2; transform: translateY(-8px); box-shadow: 0 18px 24px rgb(12 6 2 / .34); }
 .product-card:active { transform: translateY(-2px) scale(.985); }
 .product-card.pack-0 { --pack-tone: #d9c49a; }
-.product-card.pack-1 { --pack-tone: #d3bc90; --ink-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' fill='none' stroke='%2323180f' stroke-width='1.1'%3E%3Cpath d='M14 58c18-4 32 2 52-10M18 46c16 0 28 8 46-4'/%3E%3Ccircle cx='58' cy='28' r='7'/%3E%3Cpath d='M52 34c-8 6-10 14-6 22'/%3E%3C/svg%3E"); }
-.product-card.pack-2 { --pack-tone: #cbb48a; --ink-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' fill='none' stroke='%2323180f' stroke-width='1.1'%3E%3Cpath d='M10 58c18-22 28-22 60-6M16 66c22-8 40-8 54 2'/%3E%3Cpath d='M28 40c8-16 22-24 34-18'/%3E%3C/svg%3E"); }
-.product-card.pack-3 { --pack-tone: #e0c89c; --ink-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' fill='none' stroke='%2323180f' stroke-width='1.1'%3E%3Crect x='22' y='22' width='28' height='36' rx='1'/%3E%3Cpath d='M50 26h10v32H26'/%3E%3Cpath d='M28 32h16M28 40h16M28 48h12'/%3E%3C/svg%3E"); }
-.product-card.pack-4 { --pack-tone: #d6ba8c; --ink-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' fill='none' stroke='%2323180f' stroke-width='1.15'%3E%3Cpath d='M18 62 40 18l22 44M28 48h24'/%3E%3C/svg%3E"); }
-.product-card.pack-5 { --pack-tone: #c9ae80; --ink-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' fill='none' stroke='%2323180f' stroke-width='1.1'%3E%3Cpath d='M22 58c8-20 4-32-2-44M38 60c4-22 14-34 8-48M54 62c6-18 16-28 18-42'/%3E%3C/svg%3E"); }
-.product-card.pack-6 { --pack-tone: #decdab; --ink-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' fill='none' stroke='%2323180f' stroke-width='1.1'%3E%3Cpath d='M20 22c18 8 22 28 8 42M28 20l8 48M44 24c12 10 10 30-4 42'/%3E%3C/svg%3E"); }
+.product-card.pack-1 { --pack-tone: #d3bc90; }
+.product-card.pack-2 { --pack-tone: #cbb48a; }
+.product-card.pack-3 { --pack-tone: #e0c89c; }
+.product-card.pack-4 { --pack-tone: #d6ba8c; }
+.product-card.pack-5 { --pack-tone: #c9ae80; }
+.product-card.pack-6 { --pack-tone: #decdab; }
 .product-card.selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent), 0 16px 22px rgb(12 6 2 / .32); }
 
 .product-top { display: flex; align-items: center; justify-content: space-between; }
