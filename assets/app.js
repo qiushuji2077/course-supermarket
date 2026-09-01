@@ -10,10 +10,12 @@
   const STORAGE_KEY = 'course-supermarket-selection-v1';
   const SHELF_COUNT = 5;
   const PREVIEW_PER_GROUP = 8;
+  const FEATURED_LIMIT = 10;
 
   const themeIndex = buildThemeIndex();
   const state = {
     mode: 'problem',
+    entered: false,
     problem: '',
     subject: data.subjects[0]?.name || '',
     themeCluster: '',
@@ -21,6 +23,7 @@
     stage: '全部',
     theme: '',
     query: '',
+    showAllProblemResults: false,
     expandedAisles: new Set(),
     selection: loadSelection()
   };
@@ -42,14 +45,21 @@
     departmentCode: document.querySelector('#departmentCode'),
     activeGuide: document.querySelector('#activeGuide'),
     resultCount: document.querySelector('#resultCount'),
+    barResultCount: document.querySelector('#barResultCount'),
+    barCartCount: document.querySelector('#barCartCount'),
     stageFilter: document.querySelector('#stageFilter'),
     themeFilter: document.querySelector('#themeFilter'),
+    shelfTools: document.querySelector('#shelfTools'),
     shelfUnit: document.querySelector('#shelfUnit'),
     selectionCount: document.querySelector('#selectionCount'),
     dockCount: document.querySelector('#dockCount'),
     openSelection: document.querySelector('#openSelection'),
     openSelectionBottom: document.querySelector('#openSelectionBottom'),
+    openSelectionBar: document.querySelector('#openSelectionBar'),
+    openFilters: document.querySelector('#openFilters'),
+    jumpResults: document.querySelector('#jumpResults'),
     cartDock: document.querySelector('#cartDock'),
+    actionBar: document.querySelector('#actionBar'),
     selectionDrawer: document.querySelector('#selectionDrawer'),
     drawerBackdrop: document.querySelector('#drawerBackdrop'),
     closeSelection: document.querySelector('#closeSelection'),
@@ -115,10 +125,22 @@
   }
 
   function initMeta() {
-    els.courseTotal.textContent = data.meta.courseCount;
-    els.directionTotal.textContent = data.meta.directionCount;
-    els.subjectTotal.textContent = data.meta.subjectCount;
+    const courseCount = data.meta.courseCount;
+    const subjectCount = data.meta.subjectCount;
+    const directionCount = data.meta.directionCount;
+    els.courseTotal.textContent = courseCount;
+    els.directionTotal.textContent = directionCount;
+    els.subjectTotal.textContent = subjectCount;
+    document.querySelectorAll('[data-meta="courseCount"]').forEach((node) => { node.textContent = courseCount; });
+    document.querySelectorAll('[data-meta="subjectCount"]').forEach((node) => { node.textContent = subjectCount; });
+    document.querySelectorAll('[data-meta="directionCount"]').forEach((node) => { node.textContent = directionCount; });
     els.updateTime.textContent = `内容更新于 ${data.meta.generatedAt}`;
+  }
+
+  function enterBrowse() {
+    if (state.entered) return;
+    state.entered = true;
+    document.body.classList.remove('is-landing');
   }
 
   function problemDefinition() {
@@ -145,7 +167,9 @@
     if (mode !== 'theme') state.themeCluster = '';
     if (mode !== 'subject') state.theme = '';
     state.stage = '全部';
+    state.showAllProblemResults = false;
     state.expandedAisles = new Set();
+    if (scroll) enterBrowse();
     render();
     if (scroll) {
       const target = document.querySelector(`[data-panel="${mode}"]`) || els.browse;
@@ -158,7 +182,8 @@
       const active = button.dataset.mode === state.mode;
       button.classList.toggle('active', active);
       if (button.parentElement?.classList.contains('mode-nav')) {
-        button.setAttribute('aria-current', active ? 'page' : 'false');
+        if (active) button.setAttribute('aria-current', 'page');
+        else button.removeAttribute('aria-current');
       }
     });
     document.querySelectorAll('[data-panel]').forEach((panel) => {
@@ -171,7 +196,7 @@
   function renderProblems() {
     els.problemGrid.innerHTML = data.problems.map((item, index) => `
       <button class="guide-card ${state.problem === item.id ? 'active' : ''}" style="--i:${index}" type="button" data-problem="${escapeHtml(item.id)}">
-        <span class="guide-count">${item.count} 门相关课程</span>
+        <span class="guide-count">${item.count} 门相关</span>
         <h3>${escapeHtml(item.question)}</h3>
         <p>${escapeHtml(item.hint)}</p>
       </button>
@@ -284,6 +309,41 @@
     return `pack-${[...course.id].reduce((sum, char) => sum + char.charCodeAt(0), 0) % 7}`;
   }
 
+  function recommendScore(course, problemId = state.problem) {
+    const practices = course.practices || [];
+    const summary = course.summary || '';
+    const completeness = Math.min(practices.length, 6) * 8
+      + Math.min(Math.round(summary.length / 18), 8)
+      + (course.subtitle ? 4 : 0)
+      + (course.directions?.length > 1 ? 2 : 0);
+    const landability = (course.problems || []).includes('easy-start') ? 18 : 0;
+    const typicality = Math.max(0, 10 - (course.problems || []).length);
+    const focused = problemId && (course.problems || []).includes(problemId) && (course.problems || []).length <= 3 ? 6 : 0;
+    return completeness + landability + typicality + focused;
+  }
+
+  function pickRecommended(courses, limit = FEATURED_LIMIT) {
+    const ranked = [...courses].sort((a, b) => {
+      const diff = recommendScore(b) - recommendScore(a);
+      if (diff) return diff;
+      return a.id.localeCompare(b.id);
+    });
+    const picked = [];
+    const seen = new Set();
+    ranked.forEach((course) => {
+      if (picked.length >= limit) return;
+      if (seen.has(course.subject)) return;
+      picked.push(course);
+      seen.add(course.subject);
+    });
+    ranked.forEach((course) => {
+      if (picked.length >= limit) return;
+      if (picked.includes(course)) return;
+      picked.push(course);
+    });
+    return picked;
+  }
+
   function productCard(course, index, variant = '') {
     const selected = Boolean(state.selection[course.id]);
     return `
@@ -297,7 +357,7 @@
         <p class="product-summary">${escapeHtml(course.summary)}</p>
         <div class="product-bottom">
           <span class="barcode" aria-hidden="true"></span>
-          <button class="put-button ${selected ? 'selected' : ''}" type="button" data-action="select">${selected ? '已入篮' : '放入书篮 >'}</button>
+          <button class="put-button ${selected ? 'selected' : ''}" type="button" data-action="select">${selected ? '已入篮' : '放入书篮'}</button>
         </div>
       </article>
     `;
@@ -314,6 +374,23 @@
       .filter((item) => item.courses.length);
   }
 
+  function renderFeaturedPicks(courses) {
+    const featured = pickRecommended(courses);
+    const rest = courses.length - featured.length;
+    els.shelfUnit.innerHTML = `
+      <div class="guide-picks">
+        <div class="guide-picks-head">
+          <h3>先看这 ${featured.length} 门</h3>
+          <p>按匹配度、做法完整度和是否容易落地排过序，不一次摊开全部 ${courses.length} 门。</p>
+        </div>
+        <div class="aisle-cards catalog-list">
+          ${featured.map((course, index) => productCard(course, index, 'as-open as-catalog')).join('')}
+        </div>
+        ${rest > 0 ? `<button class="aisle-more" type="button" data-show-all="true">查看全部 ${courses.length} 门</button>` : ''}
+      </div>
+    `;
+  }
+
   function renderGuidedAisle(courses) {
     const groups = groupBySubject(courses);
     if (!groups.length) {
@@ -321,6 +398,7 @@
       return;
     }
     els.shelfUnit.innerHTML = `
+      ${state.mode === 'problem' ? `<div class="guide-picks-toolbar"><button class="aisle-more" type="button" data-show-all="false">只看推荐 ${Math.min(FEATURED_LIMIT, courses.length)} 门</button></div>` : ''}
       <div class="aisle-jump" aria-label="按学科跳转">
         ${groups.map((group) => `<button type="button" data-jump="${escapeHtml(group.name)}">${escapeHtml(group.name)} ${group.courses.length}</button>`).join('')}
       </div>
@@ -360,11 +438,16 @@
     `).join('');
   }
 
+  function setResultCount(count) {
+    els.resultCount.textContent = count;
+    if (els.barResultCount) els.barResultCount.textContent = count;
+  }
+
   function renderPrompt(title, text) {
     els.shelfTitle.textContent = title;
     els.departmentCode.textContent = '等待取阅';
     els.activeGuide.textContent = text;
-    els.resultCount.textContent = '0';
+    setResultCount(0);
     els.shelfUnit.innerHTML = `<div class="empty-state"><strong>${escapeHtml(title)}</strong><p>${escapeHtml(text)}</p></div>`;
   }
 
@@ -373,7 +456,7 @@
     const theme = themeDefinition();
 
     if (state.mode === 'problem' && !state.problem) {
-      renderPrompt('先选一个问题', '点上面的问题卡片，相关课程会按学科摊开。也可以改走学科书架或领域主题。');
+      renderPrompt('先选一个问题', '点上面的问题卡片，下面会先给出最值得看的课程。也可以改走学科书架或领域主题。');
       return;
     }
     if (state.mode === 'theme' && !state.themeCluster) {
@@ -382,7 +465,7 @@
     }
 
     const courses = matchingCourses();
-    els.resultCount.textContent = courses.length;
+    setResultCount(courses.length);
 
     if (state.mode === 'subject') {
       els.shelfTitle.textContent = `${state.subject}书架`;
@@ -403,7 +486,11 @@
     els.shelfTitle.textContent = problem.short;
     els.departmentCode.textContent = '问题导购';
     els.activeGuide.textContent = problem.question;
-    renderGuidedAisle(courses);
+    if (!state.showAllProblemResults && courses.length > FEATURED_LIMIT) {
+      renderFeaturedPicks(courses);
+    } else {
+      renderGuidedAisle(courses);
+    }
   }
 
   function renderFilters() {
@@ -427,7 +514,9 @@
     state.problem = state.problem === problemId ? '' : problemId;
     state.stage = '全部';
     state.theme = '';
+    state.showAllProblemResults = false;
     state.expandedAisles = new Set();
+    enterBrowse();
     render();
     document.querySelector('#results').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
@@ -437,6 +526,7 @@
     state.stage = '全部';
     state.theme = '';
     state.expandedAisles = new Set();
+    enterBrowse();
     render();
     document.querySelector('#results').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
@@ -445,6 +535,7 @@
     state.themeCluster = state.themeCluster === name ? '' : name;
     state.stage = '全部';
     state.expandedAisles = new Set();
+    enterBrowse();
     render();
     if (state.themeCluster) document.querySelector('#results').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
@@ -456,6 +547,7 @@
     state.theme = '';
     state.query = '';
     state.themeQuery = '';
+    state.showAllProblemResults = false;
     state.expandedAisles = new Set();
     els.searchInput.value = '';
     if (els.themeSearch) els.themeSearch.value = '';
@@ -467,6 +559,15 @@
     return product ? data.courses.find((course) => course.id === product.dataset.courseId) : null;
   }
 
+  function flashCart() {
+    [els.cartDock, els.openSelectionBar].forEach((node) => {
+      if (!node) return;
+      node.classList.remove('bump');
+      void node.offsetWidth;
+      node.classList.add('bump');
+    });
+  }
+
   function toggleSelection(course) {
     if (state.selection[course.id]) {
       delete state.selection[course.id];
@@ -474,8 +575,7 @@
     } else {
       state.selection[course.id] = { note: '' };
       showToast(`${course.id} 已放入书篮`);
-      els.cartDock.classList.remove('bump');
-      requestAnimationFrame(() => els.cartDock.classList.add('bump'));
+      flashCart();
     }
     saveSelection();
     renderDepartment();
@@ -510,6 +610,7 @@
     const count = Object.keys(state.selection).length;
     els.selectionCount.textContent = count;
     els.dockCount.textContent = count;
+    if (els.barCartCount) els.barCartCount.textContent = count;
   }
 
   function renderSelection() {
@@ -668,6 +769,23 @@
     items.forEach((item) => observer.observe(item));
   }
 
+  function initHeaderScroll() {
+    let lastY = 0;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (!state.entered && y > 120) enterBrowse();
+      if (!state.entered) {
+        lastY = y;
+        return;
+      }
+      const hide = y > 72 && y > lastY + 4;
+      const show = y < lastY - 4 || y < 48;
+      if (hide) document.body.classList.add('header-away');
+      if (show) document.body.classList.remove('header-away');
+      lastY = y;
+    }, { passive: true });
+  }
+
   document.addEventListener('click', (event) => {
     const modeButton = event.target.closest('[data-mode]');
     if (modeButton && !modeButton.closest('.selection-drawer')) {
@@ -709,6 +827,13 @@
       group?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return;
     }
+    const showAll = event.target.closest('[data-show-all]');
+    if (showAll) {
+      state.showAllProblemResults = showAll.dataset.showAll === 'true';
+      renderDepartment();
+      document.querySelector('#results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
     const expand = event.target.closest('[data-expand]');
     if (expand) {
       state.expandedAisles.add(expand.dataset.expand);
@@ -726,7 +851,18 @@
     const course = courseFromEvent(event);
     if (course) { event.preventDefault(); openDialog(course); }
   });
-  [els.openSelection, els.openSelectionBottom, els.cartDock].forEach((button) => button.addEventListener('click', openSelection));
+  [els.openSelection, els.openSelectionBottom, els.cartDock, els.openSelectionBar].forEach((button) => {
+    button?.addEventListener('click', openSelection);
+  });
+  els.openFilters?.addEventListener('click', () => {
+    enterBrowse();
+    els.shelfTools?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    els.shelfTools?.classList.add('pulse');
+    setTimeout(() => els.shelfTools?.classList.remove('pulse'), 900);
+  });
+  els.jumpResults?.addEventListener('click', () => {
+    document.querySelector('#results')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
   els.closeSelection.addEventListener('click', closeSelection);
   els.continueShopping.addEventListener('click', closeSelection);
   els.drawerBackdrop.addEventListener('click', closeSelection);
@@ -757,7 +893,14 @@
     if (event.key === 'Escape' && els.selectionDrawer.classList.contains('open')) closeSelection();
   });
 
+  document.querySelector('.brand')?.addEventListener('click', () => {
+    state.entered = false;
+    document.body.classList.add('is-landing');
+    document.body.classList.remove('header-away');
+  });
+
   initMeta();
   render();
   initRevealObserver();
+  initHeaderScroll();
 })();

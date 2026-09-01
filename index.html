@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#efe6d4" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#f4efe4" />
     <meta name="description" content="按问题、学科或主题选课，放入书篮并导出带编号的选课流水单。" />
     <title>课程超市｜学校选课</title>
-    <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="./assets/styles.css?v=20260831d" />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./assets/styles.css?v=20260901a" />
   </head>
-  <body>
+  <body class="is-landing">
     <header class="site-header">
       <a class="brand" href="#top">
         <span class="seal" aria-hidden="true">选</span>
@@ -26,11 +27,8 @@
       </button>
     </header>
 
-    <aside class="side-verse" aria-hidden="true">以文养心　以文化人</aside>
-
     <main id="top">
       <section class="hero" aria-labelledby="heroTitle">
-        <p class="hero-kicker">面向学校的选课书架</p>
         <h1 id="heroTitle">课程超市</h1>
         <p class="hero-lead">三条路走进书架。看中的课放入书篮，带走一张带编号的流水单。</p>
         <div class="entry-doors" aria-label="选择逛店方式">
@@ -50,20 +48,21 @@
             <p>食育、阅读、项目化，按主题穿过学科。</p>
           </button>
         </div>
+        <p class="hero-meta"><span id="courseTotal">280</span> 门课程 · <span id="subjectTotal">12</span> 个学科 · <span id="directionTotal">72</span> 个主题</p>
       </section>
 
       <section class="market-facts" aria-label="课程超市概览">
-        <p>问题、学科、主题是三条并列的入口。手机上课程一句话会完整展开，方便边看边选。</p>
-        <div class="fact"><strong id="courseTotal">0</strong><span>门课程</span></div>
-        <div class="fact"><strong id="subjectTotal">0</strong><span>个学科</span></div>
-        <div class="fact"><strong id="directionTotal">0</strong><span>个主题</span></div>
+        <p>选课如选书。问题、学科、主题是三条并列的入口；看中的课放入书篮，最后带走一张流水单。</p>
+        <div class="fact"><strong data-meta="courseCount">280</strong><span>门课程</span></div>
+        <div class="fact"><strong data-meta="subjectCount">12</strong><span>个学科</span></div>
+        <div class="fact"><strong data-meta="directionCount">72</strong><span>个主题</span></div>
       </section>
 
       <div class="market-floor" id="browse">
         <section class="mode-panel reveal" id="guide" data-panel="problem" aria-labelledby="guideTitle">
           <div class="section-heading">
             <h2 id="guideTitle">学校现在最想解决什么？</h2>
-            <p>点一个问题，下面直接摊开相关课程，按学科排好。不必先猜该进哪组书架。</p>
+            <p>点一个问题，下面先给出最值得看的课程。不必先猜该进哪组书架。</p>
             <button class="text-button" id="clearFilter" type="button" hidden>清除已选条件</button>
           </div>
           <div class="guide-grid" id="problemGrid" aria-live="polite"></div>
@@ -100,7 +99,7 @@
             <div class="department-count"><strong id="resultCount">0</strong><span>门可取</span></div>
           </div>
 
-          <div class="shelf-tools">
+          <div class="shelf-tools" id="shelfTools">
             <div class="search-shell" role="search">
               <label for="searchInput">检索课程</label>
               <input id="searchInput" type="search" placeholder="阅读、劳动、项目化..." autocomplete="off" />
@@ -123,9 +122,20 @@
       </section>
     </main>
 
+    <nav class="action-bar" id="actionBar" aria-label="手机操作条">
+      <button type="button" id="openFilters">筛选</button>
+      <button type="button" id="jumpResults"><strong id="barResultCount">0</strong><span>门</span></button>
+      <button type="button" id="openSelectionBar">
+        <span>书篮</span>
+        <strong id="barCartCount">0</strong>
+        <i class="seal-flash" aria-hidden="true">选</i>
+      </button>
+    </nav>
+
     <button class="cart-dock" id="cartDock" type="button">
       <span>书篮</span>
       <strong id="dockCount">0</strong>
+      <i class="seal-flash" aria-hidden="true">选</i>
     </button>
 
     <footer>
@@ -167,7 +177,7 @@
     <section class="print-sheet" id="printSheet" aria-hidden="true"></section>
 
     <noscript>请开启浏览器的 JavaScript，以使用课程书架和书篮。</noscript>
-    <script src="./assets/courses.js?v=20260831d"></script>
-    <script src="./assets/app.js?v=20260831d"></script>
+    <script src="./assets/courses.js?v=20260901a"></script>
+    <script src="./assets/app.js?v=20260901a"></script>
   </body>
 </html>
