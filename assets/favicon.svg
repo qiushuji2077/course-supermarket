@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="	">
-  <rect width="64" height="64" fill="#a32b24"/>
-  <text x="32" y="46" text-anchor="middle" fill="#f6ece0" font-family="Songti SC, STSong, Noto Serif SC, serif" font-size="38">	</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="课程超市">
+  <rect width="64" height="64" fill="#c45c26"/>
+  <circle cx="32" cy="32" r="22" fill="#f4efe4"/>
+  <circle cx="32" cy="32" r="22" fill="none" stroke="#c45c26" stroke-width="1.5"/>
+  <text x="32" y="40" text-anchor="middle" fill="#2a2118" font-family="Songti SC, STSong, Noto Serif SC, serif" font-size="26">选</text>
 </svg>
