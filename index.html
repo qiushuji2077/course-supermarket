@@ -7,8 +7,15 @@
     <meta name="theme-color" content="#f4efe4" />
     <meta name="description" content="按问题、学科或主题选课，放入书篮并导出带编号的选课流水单。" />
     <title>课程超市｜学校选课</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="课程超市" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./assets/styles.css?v=20260902a" />
+    <link rel="icon" href="./assets/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" sizes="180x180" />
+    <link rel="stylesheet" href="./assets/styles.css?v=20260902b" />
   </head>
   <body class="is-landing">
     <header class="site-header">
@@ -177,7 +184,22 @@
     <section class="print-sheet" id="printSheet" aria-hidden="true"></section>
 
     <noscript>请开启浏览器的 JavaScript，以使用课程书架和书篮。</noscript>
-    <script src="./assets/courses.js?v=20260902a"></script>
-    <script src="./assets/app.js?v=20260902a"></script>
+    <script src="./assets/courses.js?v=20260902b"></script>
+    <script src="./assets/app.js?v=20260902b"></script>
+    <script>
+      (function () {
+        if (!('serviceWorker' in navigator)) return;
+        var hadController = Boolean(navigator.serviceWorker.controller);
+        navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' });
+        navigator.serviceWorker.addEventListener('controllerchange', function () {
+          if (hadController) location.reload();
+        });
+        document.addEventListener('visibilitychange', function () {
+          if (document.visibilityState === 'visible') {
+            navigator.serviceWorker.getRegistration().then(function (reg) { return reg && reg.update(); });
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
