@@ -1,0 +1,35 @@
+name: Course review checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - 'feature/**'
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: |
+          for file in assets/*.js sw.js; do node --check "$file"; done
+      - name: Run regression tests
+        run: |
+          if [ -d tests ]; then node --test tests/*.test.cjs; fi
+      - name: Package public preview only
+        run: |
+          mkdir -p review-preview
+          cp index.html sw.js manifest.webmanifest review-preview/
+          cp -R assets review-preview/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: course-supermarket-review
+          path: review-preview/
+          retention-days: 7
