@@ -1,60 +1,59 @@
-/* 课程超市 PWA：每次打开网络优先拉货架。 */
-const SHELF_VERSION = '20260902b';
-const PRECACHE = 'cs-' + SHELF_VERSION;
+/* Scope-isolated cache; installation succeeds only with a complete public shell. */
+const SHELF_VERSION = '20260910a';
+const CACHE_PREFIX = 'course-supermarket:' + self.registration.scope + ':';
+const PRECACHE = CACHE_PREFIX + SHELF_VERSION;
+const SHELL = [
+  './', './index.html', './manifest.webmanifest',
+  './assets/styles.css?v=20260906a', './assets/courses.js?v=20260906a',
+  './assets/catalog-core.js?v=20260910a', './assets/app.js?v=20260910a',
+  './assets/review.js?v=20260910a', './assets/review.css?v=20260910a',
+  './assets/favicon.svg', './assets/favicon-32.png', './assets/apple-touch-icon.png',
+  './assets/icon-192.png', './assets/icon-512.png'
+];
+const shellURLs = new Set(SHELL.map((path) => new URL(path, self.registration.scope).href));
 
-self.addEventListener('install', () => {
-  self.skipWaiting();
+self.addEventListener('install', (event) => {
+  event.waitUntil((async () => {
+    const cache = await caches.open(PRECACHE);
+    await cache.addAll(SHELL);
+    await self.skipWaiting();
+  })());
 });
-
 self.addEventListener('activate', (event) => {
   event.waitUntil((async () => {
     const keys = await caches.keys();
-    await Promise.all(keys.filter((key) => key !== PRECACHE).map((key) => caches.delete(key)));
+    await Promise.all(keys.filter((key) => key.startsWith(CACHE_PREFIX) && key !== PRECACHE).map((key) => caches.delete(key)));
     await self.clients.claim();
   })());
 });
 
-function isShelfRequest(request, url) {
-  if (request.mode === 'navigate') return true;
-  const path = url.pathname;
-  if (path.endsWith('/') || /\/index\.html$/.test(path)) return true;
-  if (/\/assets\/courses\.js$/.test(path) || path.endsWith('courses.js')) return true;
-  if (path.endsWith('/sw.js') || path.endsWith('manifest.webmanifest')) return true;
-  return false;
-}
-
-async function networkFirst(request) {
+async function serve(request) {
+  const cache = await caches.open(PRECACHE);
+  const url = new URL(request.url);
+  const networkFirst = request.mode === 'navigate' || url.pathname.endsWith('/courses.js') || url.pathname.endsWith('/index.html');
+  const cached = await cache.match(request);
+  if (cached && !networkFirst) return cached;
   try {
-    const fresh = await fetch(request, { cache: 'no-store' });
-    if (fresh && fresh.ok) {
-      const cache = await caches.open(PRECACHE);
-      cache.put(request, fresh.clone());
+    const response = await fetch(request, { cache: 'no-store' });
+    if (response.ok) {
+      try { await cache.put(request, response.clone()); } catch { /* Full cache must not interrupt a network response. */ }
+      return response;
     }
-    return fresh;
-  } catch (err) {
-    const cached = await caches.match(request);
     if (cached) return cached;
-    throw err;
+    return response;
+  } catch {
+    if (cached) return cached;
+    if (request.mode === 'navigate') {
+      const shell = await cache.match(new URL('./index.html', self.registration.scope).href);
+      if (shell) return shell;
+    }
+    return Response.error();
   }
 }
-
-async function staleWhileRevalidate(request) {
-  const cache = await caches.open(PRECACHE);
-  const cached = await cache.match(request);
-  const network = fetch(request).then((response) => {
-    if (response && response.ok) cache.put(request, response.clone());
-    return response;
-  }).catch(() => cached);
-  return cached || network;
-}
-
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
-  if (url.origin !== self.location.origin) return;
-  if (isShelfRequest(event.request, url)) {
-    event.respondWith(networkFirst(event.request));
-    return;
-  }
-  event.respondWith(staleWhileRevalidate(event.request));
+  if (url.origin !== self.location.origin || !url.href.startsWith(self.registration.scope)) return;
+  if (event.request.mode !== 'navigate' && !shellURLs.has(url.href) && !url.pathname.endsWith('/courses.js')) return;
+  event.respondWith(serve(event.request));
 });
