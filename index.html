@@ -16,6 +16,7 @@
     <link rel="icon" href="./assets/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" sizes="180x180" />
     <link rel="stylesheet" href="./assets/styles.css?v=20260906a" />
+    <link rel="stylesheet" href="./assets/review.css?v=20260910a" />
   </head>
   <body class="is-landing">
     <header class="site-header">
@@ -37,7 +38,7 @@
     <main id="top">
       <section class="hero" aria-labelledby="heroTitle">
         <h1 id="heroTitle">课程超市</h1>
-        <p class="hero-lead">三条路走进书架。看中的课放入书篮，带走一张带编号的流水单。</p>
+        <p class="hero-lead">三条路走进书架。看中的课放入书篮，比较、共议，带走带编号的选课材料。</p>
         <div class="entry-doors" aria-label="选择逛店方式">
           <button type="button" data-mode="problem">
             <span>01</span>
@@ -55,12 +56,12 @@
             <p>食育、阅读、项目化，按主题穿过学科。</p>
           </button>
         </div>
-        <p class="hero-meta"><span id="courseTotal">280</span> 门课程 · <span id="subjectTotal">12</span> 个学科 · <span id="directionTotal">72</span> 个主题</p>
+        <p class="hero-meta"><span id="courseTotal">…</span> 门课程 · <span id="subjectTotal">12</span> 个学科 · <span id="directionTotal">72</span> 个主题</p>
       </section>
 
       <section class="market-facts" aria-label="课程超市概览">
         <p>选课如选书。问题、学科、主题是三条并列的入口；看中的课放入书篮，最后带走一张流水单。</p>
-        <div class="fact"><strong data-meta="courseCount">280</strong><span>门课程</span></div>
+        <div class="fact"><strong data-meta="courseCount">…</strong><span>门课程</span></div>
         <div class="fact"><strong data-meta="subjectCount">12</strong><span>个学科</span></div>
         <div class="fact"><strong data-meta="directionCount">72</strong><span>个主题</span></div>
       </section>
@@ -69,8 +70,7 @@
         <section class="mode-panel reveal" id="guide" data-panel="problem" aria-labelledby="guideTitle">
           <div class="section-heading">
             <h2 id="guideTitle">学校现在最想解决什么？</h2>
-            <p>点一个问题，下面先给出最值得看的课程。不必先猜该进哪组书架。</p>
-            <button class="text-button" id="clearFilter" type="button" hidden>清除已选条件</button>
+            <p>点一个问题，下面先给出相关课程。不必先猜该进哪组书架。</p>
           </div>
           <div class="guide-grid" id="problemGrid" aria-live="polite"></div>
         </section>
@@ -109,10 +109,11 @@
           <div class="shelf-tools" id="shelfTools">
             <div class="search-shell" role="search">
               <label for="searchInput">检索课程</label>
-              <input id="searchInput" type="search" placeholder="阅读、劳动、项目化..." autocomplete="off" />
+              <input id="searchInput" type="search" maxlength="200" placeholder="课程编号或关键词，多个词用空格隔开" autocomplete="off" />
               <kbd>⌘ K</kbd>
             </div>
             <div class="filter-row">
+              <button class="text-button" id="clearFilter" type="button" hidden>清除已选条件</button>
               <div class="stage-filter" id="stageFilter" aria-label="按学段筛选"></div>
               <label class="theme-select" id="themeSelectWrap"><span>主题方向</span><select id="themeFilter" aria-label="按主题方向筛选"><option value="">全部方向</option></select></label>
             </div>
@@ -124,7 +125,7 @@
 
       <section class="checkout-callout reveal">
         <h2>选好了，就去看看书篮。</h2>
-        <p>可以继续调整、写下想法，然后导出带课程编号的流水单。</p>
+        <p>并排比较几门课，写下适合本校的理由，再带走流水单或选课研讨单。</p>
         <button class="primary-button" id="openSelectionBottom" type="button">查看书篮</button>
       </section>
     </main>
@@ -152,7 +153,7 @@
     </footer>
 
     <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
-    <aside class="selection-drawer" id="selectionDrawer" aria-labelledby="selectionTitle" aria-hidden="true">
+    <aside class="selection-drawer" id="selectionDrawer" role="dialog" aria-modal="true" inert aria-labelledby="selectionTitle" aria-hidden="true">
       <div class="drawer-header">
         <div><span>选课书篮</span><h2 id="selectionTitle">我的书篮</h2></div>
         <button class="icon-button" id="closeSelection" type="button" aria-label="关闭书篮">关闭</button>
@@ -165,12 +166,12 @@
       </div>
     </aside>
 
-    <dialog class="course-dialog" id="courseDialog">
+    <dialog class="course-dialog" id="courseDialog" aria-label="课程详情">
       <button class="icon-button dialog-close" id="closeDialog" type="button" aria-label="关闭课程详情">关闭</button>
       <div id="dialogContent"></div>
     </dialog>
 
-    <dialog class="receipt-dialog" id="receiptDialog">
+    <dialog class="receipt-dialog" id="receiptDialog" aria-label="选课流水单">
       <button class="icon-button receipt-close" id="closeReceipt" type="button" aria-label="关闭流水单">关闭</button>
       <div class="receipt-paper" id="receiptContent"></div>
       <div class="receipt-actions">
@@ -185,18 +186,17 @@
 
     <noscript>请开启浏览器的 JavaScript，以使用课程书架和书篮。</noscript>
     <script src="./assets/courses.js?v=20260906a"></script>
-    <script src="./assets/app.js?v=20260906a"></script>
+    <script src="./assets/catalog-core.js?v=20260910a"></script>
+    <script src="./assets/app.js?v=20260910a"></script>
+    <script src="./assets/review.js?v=20260910a"></script>
     <script>
       (function () {
         if (!('serviceWorker' in navigator)) return;
-        var hadController = Boolean(navigator.serviceWorker.controller);
-        navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' });
-        navigator.serviceWorker.addEventListener('controllerchange', function () {
-          if (hadController) location.reload();
-        });
+        // Do not force-reload a page while someone is writing school notes.
+        navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).catch(function () {});
         document.addEventListener('visibilitychange', function () {
           if (document.visibilityState === 'visible') {
-            navigator.serviceWorker.getRegistration().then(function (reg) { return reg && reg.update(); });
+            navigator.serviceWorker.getRegistration().then(function (reg) { return reg && reg.update(); }).catch(function () {});
           }
         });
       })();

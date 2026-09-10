@@ -7,7 +7,15 @@
     return;
   }
 
+  const core = window.CourseCatalogCore;
+  if (!core) {
+    document.querySelector('#updateTime').textContent = '选课组件未能读取，请刷新后重试。';
+    return;
+  }
   const STORAGE_KEY = 'course-supermarket-selection-v1';
+  const initialSelection = core.loadSelection(() => localStorage, STORAGE_KEY, data.courses);
+  let storageAvailable = initialSelection.available;
+  const courseSearchIndex = core.searchIndex(data.courses);
   const SHELF_COUNT = 5;
   const PREVIEW_PER_GROUP = 8;
   const FEATURED_LIMIT = 10;
@@ -25,7 +33,7 @@
     query: '',
     showAllProblemResults: false,
     expandedAisles: new Set(),
-    selection: loadSelection()
+    selection: initialSelection.selection
   };
 
   const els = {
@@ -104,19 +112,10 @@
       .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'zh-CN'));
   }
 
-  function loadSelection() {
-    try {
-      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-      const validIds = new Set(data.courses.map((course) => course.id));
-      return Object.fromEntries(Object.entries(saved).filter(([id]) => validIds.has(id)));
-    } catch {
-      return {};
-    }
-  }
-
   function saveSelection() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state.selection));
+    storageAvailable = core.saveSelection(() => localStorage, STORAGE_KEY, state.selection);
     updateSelectionCount();
+    window.CourseReview?.sync();
   }
 
   function selectedCourses() {
@@ -250,32 +249,18 @@
     `;
   }
 
-  function matchingCourses({ ignoreSubject = false, ignoreThemeFilter = false } = {}) {
-    return data.courses.filter((course) => {
-      if (state.problem && !course.problems.includes(state.problem)) return false;
-      if (state.mode === 'subject' && !ignoreSubject && course.subject !== state.subject) return false;
-      if (state.mode === 'theme' && state.themeCluster && course.theme !== state.themeCluster) return false;
-      if (state.stage !== '全部' && course.stage !== state.stage) return false;
-      if (state.mode === 'subject' && !ignoreThemeFilter && state.theme && course.theme !== state.theme) return false;
-      if (state.query) {
-        const haystack = [course.id, course.subject, course.theme, course.title, course.subtitle, course.summary, ...course.practices, ...course.directions].join(' ').toLowerCase();
-        if (!haystack.includes(state.query.toLowerCase())) return false;
-      }
-      return true;
-    });
+  function matchingCourses(options = {}) {
+    return core.matchingCourses(data.courses, state, { ...options, index: courseSearchIndex });
   }
 
   function availableStages() {
-    const order = ['全部', '小学', '初中', '初高中', '九年一贯', '高中'];
-    const pool = matchingCourses({ ignoreThemeFilter: true });
-    const stages = new Set(pool.map((course) => course.stage));
-    return order.filter((stage) => stage === '全部' || stages.has(stage));
+    return core.availableStages(data.courses, state, courseSearchIndex);
   }
 
   function renderStageFilter() {
     if (!availableStages().includes(state.stage)) state.stage = '全部';
     els.stageFilter.innerHTML = availableStages().map((stage) => `
-      <button type="button" class="${state.stage === stage ? 'active' : ''}" data-stage="${stage}">${stage}</button>
+      <button type="button" class="${state.stage === stage ? 'active' : ''}" aria-pressed="${state.stage === stage}" data-stage="${escapeHtml(stage)}">${escapeHtml(stage)}</button>
     `).join('');
   }
 
@@ -316,10 +301,8 @@
       + Math.min(Math.round(summary.length / 18), 8)
       + (course.subtitle ? 4 : 0)
       + (course.directions?.length > 1 ? 2 : 0);
-    const landability = (course.problems || []).includes('easy-start') ? 18 : 0;
-    const typicality = Math.max(0, 10 - (course.problems || []).length);
-    const focused = problemId && (course.problems || []).includes(problemId) && (course.problems || []).length <= 3 ? 6 : 0;
-    return completeness + landability + typicality + focused;
+    // This is a browsing order based on published detail, never a quality score.
+    return completeness;
   }
 
   function pickRecommended(courses, limit = FEATURED_LIMIT) {
@@ -381,7 +364,7 @@
       <div class="guide-picks">
         <div class="guide-picks-head">
           <h3>先看这 ${featured.length} 门</h3>
-          <p>按匹配度、做法完整度和是否容易落地排过序，不一次摊开全部 ${courses.length} 门。</p>
+          <p>优先呈现做法信息较完整的条目，并兼顾学科分布。浏览顺序仅供参考，适用性请结合学校实际共议。</p>
         </div>
         <div class="aisle-cards catalog-list">
           ${featured.map((course, index) => productCard(course, index, 'as-open as-catalog')).join('')}
@@ -398,7 +381,7 @@
       return;
     }
     els.shelfUnit.innerHTML = `
-      ${state.mode === 'problem' ? `<div class="guide-picks-toolbar"><button class="aisle-more" type="button" data-show-all="false">只看推荐 ${Math.min(FEATURED_LIMIT, courses.length)} 门</button></div>` : ''}
+      ${state.mode === 'problem' ? `<div class="guide-picks-toolbar"><button class="aisle-more" type="button" data-show-all="false">先看 ${Math.min(FEATURED_LIMIT, courses.length)} 门</button></div>` : ''}
       <div class="aisle-jump" aria-label="按学科跳转">
         ${groups.map((group) => `<button type="button" data-jump="${escapeHtml(group.name)}">${escapeHtml(group.name)} ${group.courses.length}</button>`).join('')}
       </div>
@@ -455,17 +438,25 @@
     const problem = problemDefinition();
     const theme = themeDefinition();
 
-    if (state.mode === 'problem' && !state.problem) {
-      renderPrompt('先选一个问题', '点上面的问题卡片，下面会先给出最值得看的课程。也可以改走学科书架或领域主题。');
+    if (state.mode === 'problem' && !state.problem && !state.query) {
+      renderPrompt('先选一个问题', '点上面的问题卡片，下面会先给出相关课程。也可以改走学科书架或领域主题。');
       return;
     }
-    if (state.mode === 'theme' && !state.themeCluster) {
+    if (state.mode === 'theme' && !state.themeCluster && !state.query) {
       renderPrompt('先选一个主题', '点上面的主题进入。主题会穿过学科，适合学校已经有一个想做的方向。');
       return;
     }
 
     const courses = matchingCourses();
     setResultCount(courses.length);
+
+    if (state.query && ((state.mode === 'problem' && !state.problem) || (state.mode === 'theme' && !state.themeCluster))) {
+      els.shelfTitle.textContent = '全库检索';
+      els.departmentCode.textContent = '检索结果';
+      els.activeGuide.textContent = `关键词：${state.query} · 可继续按学段筛选`;
+      renderGuidedAisle(courses);
+      return;
+    }
 
     if (state.mode === 'subject') {
       els.shelfTitle.textContent = `${state.subject}书架`;
@@ -495,17 +486,17 @@
 
   function renderFilters() {
     const anyFilter = Boolean(state.problem || state.themeCluster || state.stage !== '全部' || state.theme || state.query);
-    els.clearFilter.hidden = !(state.mode === 'problem' && anyFilter);
+    els.clearFilter.hidden = !anyFilter;
     renderStageFilter();
     renderThemeFilter();
   }
 
   function render() {
     syncModeButtons();
+    renderFilters();
     renderProblems();
     renderSubjects();
     renderThemes();
-    renderFilters();
     renderDepartment();
     updateSelectionCount();
   }
@@ -630,26 +621,64 @@
         </div>
         <p class="selection-blurb">${escapeHtml(course.summary)}</p>
         <label for="note-${course.id}">学校的想法</label>
-        <textarea id="note-${course.id}" data-note placeholder="例如：想先在三年级试做；可结合本地资源。">${escapeHtml(state.selection[course.id]?.note || '')}</textarea>
+        <textarea id="note-${course.id}" data-note maxlength="${core.NOTE_LIMIT}" placeholder="例如：想先在三年级试做；可结合本地资源。">${escapeHtml(state.selection[course.id]?.note || '')}</textarea>
       </article>
     `).join('') : '<div class="selection-empty"><strong>书篮还是空的</strong><span>先去逛书架，看到有感觉的就放进来。</span></div>';
     els.makeReceipt.disabled = courses.length === 0;
+    window.CourseReview?.refresh();
+  }
+
+  let drawerOpener = null;
+  let drawerCloseTimer;
+  const inertSnapshots = new Map();
+
+  function setPageInert(active) {
+    if (active) {
+      [...document.body.children].forEach((node) => {
+        if (node === els.selectionDrawer || node === els.drawerBackdrop || node === els.toast || node.matches('dialog, script, noscript')) return;
+        inertSnapshots.set(node, node.inert);
+        node.inert = true;
+      });
+    } else {
+      inertSnapshots.forEach((wasInert, node) => { node.inert = wasInert; });
+      inertSnapshots.clear();
+    }
   }
 
   function openSelection() {
+    if (els.selectionDrawer.classList.contains('open')) return;
+    clearTimeout(drawerCloseTimer);
+    drawerOpener = document.activeElement;
     renderSelection();
     els.drawerBackdrop.hidden = false;
+    els.selectionDrawer.inert = false;
     els.selectionDrawer.setAttribute('aria-hidden', 'false');
-    requestAnimationFrame(() => els.selectionDrawer.classList.add('open'));
+    els.selectionDrawer.classList.add('open');
+    els.closeSelection.focus({ preventScroll: true });
+    setPageInert(true);
     document.body.style.overflow = 'hidden';
   }
 
-  function closeSelection() {
+  function closeSelection({ restoreFocus = true } = {}) {
     els.selectionDrawer.classList.remove('open');
+    setPageInert(false);
+    if (restoreFocus && drawerOpener?.isConnected) drawerOpener.focus({ preventScroll: true });
+    else if (els.selectionDrawer.contains(document.activeElement)) document.activeElement.blur();
+    els.selectionDrawer.inert = true;
     els.selectionDrawer.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    setTimeout(() => { els.drawerBackdrop.hidden = true; }, 230);
+    clearTimeout(drawerCloseTimer);
+    drawerCloseTimer = setTimeout(() => { els.drawerBackdrop.hidden = true; }, 230);
   }
+
+  els.selectionDrawer.addEventListener('keydown', (event) => {
+    if (event.key !== 'Tab') return;
+    const items = [...els.selectionDrawer.querySelectorAll('button:not(:disabled), textarea, input:not(:disabled), [tabindex="0"]')].filter((node) => node.getClientRects().length);
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+  });
 
   function receiptRows() {
     return selectedCourses().map((course) => ({
@@ -710,8 +739,8 @@
 
   function openReceipt() {
     els.receiptContent.innerHTML = receiptMarkup();
-    closeSelection();
-    setTimeout(() => els.receiptDialog.showModal(), 240);
+    closeSelection({ restoreFocus: false });
+    if (!els.receiptDialog.open) els.receiptDialog.showModal();
   }
 
   function downloadReceipt() {
@@ -721,7 +750,7 @@
     link.href = url;
     link.download = `课程超市选课流水单_${new Date().toISOString().slice(0, 10)}.txt`;
     link.click();
-    URL.revokeObjectURL(url);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
     showToast('流水单已下载');
   }
 
@@ -815,10 +844,11 @@
     state.stage = button.dataset.stage;
     if (state.mode === 'subject') state.theme = '';
     renderFilters();
+    renderSubjects();
     renderDepartment();
   });
   els.themeFilter.addEventListener('change', () => { state.theme = els.themeFilter.value; renderDepartment(); });
-  els.searchInput.addEventListener('input', () => { state.query = els.searchInput.value.trim(); renderFilters(); renderDepartment(); });
+  els.searchInput.addEventListener('input', () => { state.query = els.searchInput.value.trim(); enterBrowse(); renderFilters(); renderSubjects(); renderDepartment(); });
   els.clearFilter.addEventListener('click', clearFilters);
   els.shelfUnit.addEventListener('click', (event) => {
     const jump = event.target.closest('[data-jump]');
@@ -875,7 +905,7 @@
     if (!event.target.matches('[data-note]')) return;
     const courseId = event.target.closest('[data-course-id]')?.dataset.courseId;
     if (!courseId || !state.selection[courseId]) return;
-    state.selection[courseId].note = event.target.value;
+    state.selection[courseId].note = event.target.value.slice(0, core.NOTE_LIMIT);
     saveSelection();
   });
   els.makeReceipt.addEventListener('click', openReceipt);
@@ -889,7 +919,7 @@
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
   }));
   document.addEventListener('keydown', (event) => {
-    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); els.searchInput.focus(); }
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k' && !document.querySelector('dialog[open]') && !els.selectionDrawer.classList.contains('open')) { event.preventDefault(); enterBrowse(); els.searchInput.focus(); }
     if (event.key === 'Escape' && els.selectionDrawer.classList.contains('open')) closeSelection();
   });
 
@@ -897,6 +927,26 @@
     state.entered = false;
     document.body.classList.add('is-landing');
     document.body.classList.remove('header-away');
+  });
+
+  // Small explicit integration surface for the local-only review workbench.
+  window.CourseSupermarket = Object.freeze({
+    data, selectedCourses, showToast, openSelection, closeSelection,
+    getSelection: () => core.sanitizeSelection(state.selection, data.courses),
+    storageAvailable: () => storageAvailable,
+    setNote(id, note) {
+      if (!Object.hasOwn(state.selection, id)) return;
+      state.selection[id].note = String(note).slice(0, core.NOTE_LIMIT);
+      saveSelection();
+    },
+    importSelection(incoming) {
+      const result = core.mergeSelection(state.selection, incoming, data.courses);
+      state.selection = result.selection;
+      saveSelection();
+      renderDepartment();
+      renderSelection();
+      return result;
+    }
   });
 
   initMeta();

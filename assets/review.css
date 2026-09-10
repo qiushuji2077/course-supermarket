@@ -1,0 +1,48 @@
+/* Extends the existing paper-and-bookshelf palette, without decorative icons. */
+.review-tools { margin: 0 0 24px; padding: 0 0 22px; border-bottom: 1px solid var(--line); }
+.review-eyebrow { margin: 0 0 10px; color: var(--accent); font-size: 11px; letter-spacing: .12em; }
+.review-tools h3 { margin: 0; font: 600 22px/1.5 var(--serif); }
+.review-help, .review-privacy, .review-storage { color: var(--ink-soft); font-size: 12px; line-height: 1.8; }
+.review-privacy { margin-bottom: 0; }
+.review-tool-actions, .review-backup-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.review-tool-actions > button { flex: 1 1 180px; }
+.review-backup-actions { margin-top: 6px; }
+.review-backup-actions .text-button { padding: 0 8px; font-size: 12px; }
+.review-storage { padding: 10px 12px; background: var(--surface-2); }
+.review-storage.is-warning { color: var(--accent-dark); border-left: 3px solid var(--accent); }
+.selection-item .compare-choice { display: flex; min-height: 44px; margin: 0 0 12px; gap: 8px; align-items: center; color: var(--accent-dark); font-size: 13px; cursor: pointer; }
+.compare-choice input { width: 18px; height: 18px; accent-color: var(--accent); }
+.review-dialog { width: min(1240px, calc(100% - 24px)); max-height: 92dvh; padding: clamp(18px, 3vw, 36px); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 0; box-shadow: var(--shadow); }
+.review-dialog::backdrop { background: rgb(28 18 10 / .66); backdrop-filter: blur(6px); }
+.review-dialog-head { display: flex; gap: 24px; justify-content: space-between; align-items: flex-start; }
+.review-dialog-head h2 { max-width: 800px; margin: 0; font: 600 clamp(24px, 3vw, 36px)/1.45 var(--serif); }
+.review-dialog-head > button { flex: 0 0 auto; }
+.review-description, .review-footnote { color: var(--ink-soft); font-size: 13px; line-height: 1.85; }
+.review-swipe { display: none; color: var(--ink-soft); font-size: 12px; }
+@media (max-width: 800px) { .review-swipe { display: block; } }
+.review-table-wrap { max-width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; border: 1px solid var(--line); }
+.review-table { width: 100%; min-width: 700px; border-collapse: collapse; table-layout: fixed; font-size: 13px; line-height: 1.85; }
+.review-table th, .review-table td { padding: 18px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.review-table tr > :first-child { width: 112px; background: var(--surface-2); font-size: 12px; }
+.review-table thead th { background: var(--page-deep); }
+.review-table th:last-child, .review-table td:last-child { border-right: 0; }
+.review-table tr:last-child > * { border-bottom: 0; }
+.review-table h3 { margin: 6px 0 0; font: 600 22px/1.5 var(--serif); }
+.review-id { color: var(--accent); font-size: 11px; font-family: ui-monospace, monospace; }
+.review-table ul { padding-left: 18px; margin: 0; }
+.review-table li + li { margin-top: 10px; }
+.review-table textarea { width: 100%; min-height: 140px; padding: 12px; resize: vertical; color: var(--ink); background: var(--page); border: 1px solid var(--line); font: inherit; }
+.filter-row { flex-wrap: wrap; }
+.filter-row .stage-filter { max-width: 100%; }
+#clearFilter { padding: 0 12px; min-height: 38px; font-size: 12px; order: 3; }
+@media (max-width: 600px) {
+  .review-dialog-head { display: block; }
+  .review-dialog-head > button { margin-top: 16px; }
+  .review-dialog .primary-button { width: 100%; padding: 12px; white-space: normal; line-height: 1.6; }
+  .review-table th, .review-table td { padding: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+@media print { .review-tools, .review-dialog { display: none !important; } }
