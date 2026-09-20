@@ -1,7 +1,7 @@
 window.COURSE_SUPERMARKET_DATA = {
   "meta": {
-    "generatedAt": "2026-09-20 10:12",
-    "courseCount": 349,
+    "generatedAt": "2026-09-20 10:14",
+    "courseCount": 348,
     "subjectCount": 12,
     "directionCount": 72
   },
@@ -24,7 +24,7 @@ window.COURSE_SUPERMARKET_DATA = {
     {
       "name": "科学",
       "code": "KX",
-      "count": 42
+      "count": 41
     },
     {
       "name": "信息科技与人工智能",
@@ -8032,25 +8032,6 @@ window.COURSE_SUPERMARKET_DATA = {
       "summary": "小学，年段原文未写。本课准备用1课时，科学老师主备、美术老师协同。先认岩石和菊石结构，再做化石推理，最后把观察和推理做成一份演化卷轴折页。",
       "practices": [
         "1课时。科学老师主备、美术老师协同。学生先识别沉积岩、观察菊石外壳等结构，再完成化石推理，最后用绘画或黏土制作演化卷轴立体折页。交付为一份演化卷轴折页。"
-      ],
-      "relatedSubjects": [
-        "科学"
-      ],
-      "problems": []
-    },
-    {
-      "id": "KX-042",
-      "subject": "科学",
-      "stage": "小学",
-      "theme": "科学探究机制",
-      "title": "水结冰了",
-      "subtitle": "",
-      "directions": [
-        "科学探究机制"
-      ],
-      "summary": "小学三年级。教科版三上「水」单元第4课，教师杨鹏勇上。先预测水什么时候结冰、体积怎么变，再分组做实验记数据，对照原来的想法修改结论，并用韦恩图和KWL表反思。课时原文未写。",
-      "practices": [
-        "教科版三上「水」单元第4课。课时原文未写。教师杨鹏勇上。学生先预测结冰温度和体积变化，再分组实验记录数据，用CER说明结论，最后填韦恩图和KWL表反思。交付为韦恩图、KWL表及口头说明。"
       ],
       "relatedSubjects": [
         "科学"
