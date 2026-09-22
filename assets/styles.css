@@ -30,6 +30,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { color-scheme: light; scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 20px); }
 
 body {
@@ -513,6 +514,7 @@ main { overflow: hidden; }
 .guide-picks-head p { margin: 8px 0 0; color: #c4b39a; font-size: 13px; line-height: 1.7; }
 .guide-picks-toolbar { margin-bottom: 14px; }
 .shelf-tools.pulse { box-shadow: inset 0 0 0 2px var(--accent); }
+.shelf-clear { justify-self: start; }
 .aisle-cards .product-card,
 .product-card.as-open {
   width: auto;
@@ -850,7 +852,7 @@ footer strong { color: var(--ink); font-family: var(--serif); font-size: 16px; f
 .drawer-header { display: flex; align-items: flex-start; justify-content: space-between; }
 .drawer-header > div > span { display: block; margin-bottom: 10px; color: var(--accent); font-size: 11px; letter-spacing: .16em; }
 .drawer-header h2 { font-size: clamp(32px, 5vw, 48px); }
-.icon-button { min-height: 40px; padding: 0 12px; color: var(--ink-soft); background: transparent; border: 1px solid var(--line); border-radius: 0; cursor: pointer; font-size: 11px; font-weight: 640; }
+.icon-button { min-height: 44px; min-width: 44px; padding: 0 12px; color: var(--ink-soft); background: transparent; border: 1px solid var(--line); border-radius: 0; cursor: pointer; font-size: 11px; font-weight: 640; }
 .icon-button:hover { color: var(--accent); border-color: var(--accent); }
 .selection-summary { margin: 26px 0; padding: 16px 0; color: var(--ink-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 13px; line-height: 1.7; }
 .selection-list { display: grid; gap: 12px; }
@@ -1006,7 +1008,7 @@ footer strong { color: var(--ink); font-family: var(--serif); font-size: 16px; f
     grid-template-columns: 1fr auto;
     transition: transform 220ms cubic-bezier(.16, 1, .3, 1);
   }
-  body.header-away .site-header { transform: translateY(-100%); }
+  body.header-away .site-header { transform: none; }
   body.is-landing .mode-nav { display: none; }
   body:not(.is-landing) .brand,
   body:not(.is-landing) .header-cart { display: none; }
@@ -1056,13 +1058,14 @@ footer strong { color: var(--ink); font-family: var(--serif); font-size: 16px; f
   .department-count { padding-left: 0; border-left: 0; text-align: left; }
   .department-count strong { font-size: 32px; }
   .shelf-tools { padding: 12px; }
+  .shelf-clear { min-height: 44px; scroll-margin-bottom: 88px; }
   .search-shell { grid-template-columns: 1fr auto; }
   .search-shell label { display: none; }
   .search-shell input { border-left: 0; font-size: 15px; }
   .search-shell kbd { display: none; }
   .filter-row { align-items: stretch; flex-direction: column; }
-  .stage-filter { width: 100%; }
-  .stage-filter button { font-size: 13px; }
+  .stage-filter { width: 100%; flex-wrap: wrap; overflow: visible; }
+  .stage-filter button { min-height: 44px; font-size: 13px; }
   .theme-select { justify-content: space-between; font-size: 12px; }
   .theme-select select { min-width: 0; max-width: 65%; }
   .shelf-unit { padding-right: 12px; padding-left: 12px; }
@@ -1123,25 +1126,32 @@ footer strong { color: var(--ink); font-family: var(--serif); font-size: 16px; f
     color: #d8c8b0;
     font-size: 12px;
   }
-  .product-card h3 {
+  .shelf-track .product-card,
+  .shelf-track .product-card:nth-child(3n + 2),
+  .shelf-track .product-card:nth-child(5n) {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+  .product-card h3,
+  .product-card.as-open h3 {
     grid-column: 1;
     font-size: 16px;
     line-height: 1.35;
     color: #f7efe2;
     -webkit-line-clamp: 1;
   }
-  .product-summary {
+  .product-summary,
+  .product-card.as-open .product-summary {
+    display: -webkit-box;
     grid-column: 1;
     margin: 0;
+    overflow: hidden;
     color: #c4b39a;
     font-size: 14px;
     line-height: 1.5;
     -webkit-line-clamp: 1;
-  }
-  .product-card.as-open h3,
-  .product-card.as-open .product-summary {
-    display: -webkit-box;
-    overflow: hidden;
+    -webkit-box-orient: vertical;
   }
   .product-bottom {
     grid-column: 2;

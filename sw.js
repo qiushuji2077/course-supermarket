@@ -19,6 +19,7 @@ function isShelfRequest(request, url) {
   const path = url.pathname;
   if (path.endsWith('/') || /\/index\.html$/.test(path)) return true;
   if (/\/assets\/courses\.js$/.test(path) || path.endsWith('courses.js')) return true;
+  if (/\/assets\/app\.js$/.test(path) || /\/assets\/styles\.css$/.test(path)) return true;
   if (path.endsWith('/sw.js') || path.endsWith('manifest.webmanifest')) return true;
   return false;
 }

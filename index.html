@@ -15,7 +15,7 @@
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="./assets/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" sizes="180x180" />
-    <link rel="stylesheet" href="./assets/styles.css?v=20260922f" />
+    <link rel="stylesheet" href="./assets/styles.css?v=20260922ui" />
   </head>
   <body class="is-landing">
     <header class="site-header">
@@ -70,7 +70,6 @@
           <div class="section-heading">
             <h2 id="guideTitle">学校现在最想解决什么？</h2>
             <p>点一个问题，下面先给出最值得看的课程。不必先猜该进哪组书架。</p>
-            <button class="text-button" id="clearFilter" type="button" hidden>清除已选条件</button>
           </div>
           <div class="guide-grid" id="problemGrid" aria-live="polite"></div>
         </section>
@@ -116,6 +115,7 @@
               <div class="stage-filter" id="stageFilter" aria-label="按学段筛选"></div>
               <label class="theme-select" id="themeSelectWrap"><span>主题方向</span><select id="themeFilter" aria-label="按主题方向筛选"><option value="">全部方向</option></select></label>
             </div>
+            <button class="text-button shelf-clear" id="clearFilter" type="button" hidden>清除已选条件</button>
           </div>
 
           <div class="shelf-unit" id="shelfUnit" aria-live="polite"></div>
@@ -185,7 +185,7 @@
 
     <noscript>请开启浏览器的 JavaScript，以使用课程书架和书篮。</noscript>
     <script src="./assets/courses.js?v=20260922f"></script>
-    <script src="./assets/app.js?v=20260922f"></script>
+    <script src="./assets/app.js?v=20260922ui"></script>
     <script>
       (function () {
         if (!('serviceWorker' in navigator)) return;

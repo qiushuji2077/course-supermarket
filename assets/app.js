@@ -250,12 +250,12 @@
     `;
   }
 
-  function matchingCourses({ ignoreSubject = false, ignoreThemeFilter = false } = {}) {
+  function matchingCourses({ ignoreSubject = false, ignoreThemeFilter = false, ignoreStage = false } = {}) {
     return data.courses.filter((course) => {
       if (state.problem && !course.problems.includes(state.problem)) return false;
       if (state.mode === 'subject' && !ignoreSubject && course.subject !== state.subject) return false;
       if (state.mode === 'theme' && state.themeCluster && course.theme !== state.themeCluster) return false;
-      if (state.stage !== '全部' && course.stage !== state.stage) return false;
+      if (!ignoreStage && state.stage !== '全部' && course.stage !== state.stage) return false;
       if (state.mode === 'subject' && !ignoreThemeFilter && state.theme && course.theme !== state.theme) return false;
       if (state.query) {
         const haystack = [course.id, course.subject, course.theme, course.title, course.subtitle, course.summary, ...course.practices, ...course.directions].join(' ').toLowerCase();
@@ -267,7 +267,7 @@
 
   function availableStages() {
     const order = ['全部', '小学', '小学/初中', '初中', '初高中', '九年一贯', '高中'];
-    const pool = matchingCourses({ ignoreThemeFilter: true });
+    const pool = matchingCourses({ ignoreThemeFilter: true, ignoreStage: true });
     const stages = new Set(pool.map((course) => course.stage));
     return order.filter((stage) => stage === '全部' || stages.has(stage));
   }
@@ -398,7 +398,7 @@
       return;
     }
     els.shelfUnit.innerHTML = `
-      ${state.mode === 'problem' ? `<div class="guide-picks-toolbar"><button class="aisle-more" type="button" data-show-all="false">只看推荐 ${Math.min(FEATURED_LIMIT, courses.length)} 门</button></div>` : ''}
+      ${state.mode === 'problem' && state.showAllProblemResults && courses.length > FEATURED_LIMIT ? `<div class="guide-picks-toolbar"><button class="aisle-more" type="button" data-show-all="false">只看推荐 ${FEATURED_LIMIT} 门</button></div>` : ''}
       <div class="aisle-jump" aria-label="按学科跳转">
         ${groups.map((group) => `<button type="button" data-jump="${escapeHtml(group.name)}">${escapeHtml(group.name)} ${group.courses.length}</button>`).join('')}
       </div>
@@ -508,7 +508,7 @@
 
   function renderFilters() {
     const anyFilter = Boolean(state.problem || state.themeCluster || state.stage !== '全部' || state.theme || state.query);
-    els.clearFilter.hidden = !(state.mode === 'problem' && anyFilter);
+    els.clearFilter.hidden = !anyFilter;
     renderStageFilter();
     renderThemeFilter();
   }
