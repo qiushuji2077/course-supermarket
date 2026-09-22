@@ -61,7 +61,6 @@
     cartDock: document.querySelector('#cartDock'),
     actionBar: document.querySelector('#actionBar'),
     selectionDrawer: document.querySelector('#selectionDrawer'),
-    drawerBackdrop: document.querySelector('#drawerBackdrop'),
     closeSelection: document.querySelector('#closeSelection'),
     continueShopping: document.querySelector('#continueShopping'),
     selectionSummary: document.querySelector('#selectionSummary'),
@@ -108,15 +107,23 @@
     try {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
       const validIds = new Set(data.courses.map((course) => course.id));
-      return Object.fromEntries(Object.entries(saved).filter(([id]) => validIds.has(id)));
+      return Object.fromEntries(Object.entries(saved)
+        .filter(([id]) => validIds.has(id))
+        .map(([id, value]) => [id, { note: typeof value?.note === 'string' ? value.note : '' }]));
     } catch {
       return {};
     }
   }
 
   function saveSelection() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state.selection));
     updateSelectionCount();
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state.selection));
+      return true;
+    } catch {
+      showToast('浏览器无法保存书篮，当前选择仍可导出；刷新后可能丢失。', 6000);
+      return false;
+    }
   }
 
   function selectedCourses() {
@@ -125,9 +132,9 @@
   }
 
   function initMeta() {
-    const courseCount = data.meta.courseCount;
-    const subjectCount = data.meta.subjectCount;
-    const directionCount = data.meta.directionCount;
+    const courseCount = data.courses.length;
+    const subjectCount = new Set(data.courses.map((course) => course.subject)).size;
+    const directionCount = themeIndex.length;
     els.courseTotal.textContent = courseCount;
     els.directionTotal.textContent = directionCount;
     els.subjectTotal.textContent = subjectCount;
@@ -196,7 +203,7 @@
   function renderProblems() {
     els.problemGrid.innerHTML = data.problems.map((item, index) => `
       <button class="guide-card ${state.problem === item.id ? 'active' : ''}" style="--i:${index}" type="button" data-problem="${escapeHtml(item.id)}">
-        <span class="guide-count">${item.count} 门相关</span>
+        <span class="guide-count">${coursesForProblem(item.id).length} 门相关</span>
         <h3>${escapeHtml(item.question)}</h3>
         <p>${escapeHtml(item.hint)}</p>
       </button>
@@ -309,38 +316,33 @@
     return `pack-${[...course.id].reduce((sum, char) => sum + char.charCodeAt(0), 0) % 7}`;
   }
 
-  function recommendScore(course, problemId = state.problem) {
-    const practices = course.practices || [];
-    const summary = course.summary || '';
-    const completeness = Math.min(practices.length, 6) * 8
-      + Math.min(Math.round(summary.length / 18), 8)
-      + (course.subtitle ? 4 : 0)
-      + (course.directions?.length > 1 ? 2 : 0);
-    const landability = (course.problems || []).includes('easy-start') ? 18 : 0;
-    const typicality = Math.max(0, 10 - (course.problems || []).length);
-    const focused = problemId && (course.problems || []).includes(problemId) && (course.problems || []).length <= 3 ? 6 : 0;
-    return completeness + landability + typicality + focused;
+  function referenceMatchScore(course) {
+    const query = state.query.toLowerCase();
+    if (!query) return 0;
+    if (course.id.toLowerCase() === query) return 3;
+    const matches = (value) => String(value || '').toLowerCase().includes(query);
+    if ([course.title, course.theme].some(matches)) return 2;
+    if ([course.subject, course.subtitle, ...(course.directions || [])].some(matches)) return 1;
+    return 0;
   }
 
-  function pickRecommended(courses, limit = FEATURED_LIMIT) {
-    const ranked = [...courses].sort((a, b) => {
-      const diff = recommendScore(b) - recommendScore(a);
-      if (diff) return diff;
-      return a.id.localeCompare(b.id);
-    });
+  function pickReferenceCourses(courses, limit = FEATURED_LIMIT) {
+    // The candidate pool already matches the active filters. Prefer direct search
+    // matches, then cover different themes and subjects without scoring quality.
+    const remaining = courses.map((course) => ({ course, match: referenceMatchScore(course) }));
     const picked = [];
-    const seen = new Set();
-    ranked.forEach((course) => {
-      if (picked.length >= limit) return;
-      if (seen.has(course.subject)) return;
+    const themes = new Set();
+    const subjects = new Set();
+    while (picked.length < limit && remaining.length) {
+      remaining.sort((a, b) => b.match - a.match
+        || Number(themes.has(a.course.theme)) - Number(themes.has(b.course.theme))
+        || Number(subjects.has(a.course.subject)) - Number(subjects.has(b.course.subject))
+        || a.course.id.localeCompare(b.course.id));
+      const { course } = remaining.shift();
       picked.push(course);
-      seen.add(course.subject);
-    });
-    ranked.forEach((course) => {
-      if (picked.length >= limit) return;
-      if (picked.includes(course)) return;
-      picked.push(course);
-    });
+      themes.add(course.theme);
+      subjects.add(course.subject);
+    }
     return picked;
   }
 
@@ -357,7 +359,7 @@
         <p class="product-summary">${escapeHtml(course.summary)}</p>
         <div class="product-bottom">
           <span class="barcode" aria-hidden="true"></span>
-          <button class="put-button ${selected ? 'selected' : ''}" type="button" data-action="select">${selected ? '已入篮' : '放入书篮'}</button>
+          <button class="put-button ${selected ? 'selected' : ''}" type="button" data-action="select" aria-pressed="${selected}">${selected ? '已入篮' : '放入书篮'}</button>
         </div>
       </article>
     `;
@@ -375,13 +377,13 @@
   }
 
   function renderFeaturedPicks(courses) {
-    const featured = pickRecommended(courses);
+    const featured = pickReferenceCourses(courses);
     const rest = courses.length - featured.length;
     els.shelfUnit.innerHTML = `
       <div class="guide-picks">
         <div class="guide-picks-head">
-          <h3>先看这 ${featured.length} 门</h3>
-          <p>按匹配度、做法完整度和是否容易落地排过序，不一次摊开全部 ${courses.length} 门。</p>
+          <h3>方向参考 · ${featured.length} 门</h3>
+          <p>从符合当前条件的 ${courses.length} 门课程中，${state.query ? '优先呈现与检索词直接相关的课程，并兼顾不同主题与学科。' : '选取不同主题与学科的课程作为方向参考。'}可展开全部课程继续比较。</p>
         </div>
         <div class="aisle-cards catalog-list">
           ${featured.map((course, index) => productCard(course, index, 'as-open as-catalog')).join('')}
@@ -398,7 +400,7 @@
       return;
     }
     els.shelfUnit.innerHTML = `
-      ${state.mode === 'problem' && state.showAllProblemResults && courses.length > FEATURED_LIMIT ? `<div class="guide-picks-toolbar"><button class="aisle-more" type="button" data-show-all="false">只看推荐 ${FEATURED_LIMIT} 门</button></div>` : ''}
+      ${state.mode === 'problem' && state.showAllProblemResults && courses.length > FEATURED_LIMIT ? `<div class="guide-picks-toolbar"><button class="aisle-more" type="button" data-show-all="false">返回方向参考 ${FEATURED_LIMIT} 门</button></div>` : ''}
       <div class="aisle-jump" aria-label="按学科跳转">
         ${groups.map((group) => `<button type="button" data-jump="${escapeHtml(group.name)}">${escapeHtml(group.name)} ${group.courses.length}</button>`).join('')}
       </div>
@@ -457,7 +459,7 @@
     const hasLookup = Boolean(state.query) || state.stage !== '全部';
 
     if (state.mode === 'problem' && !state.problem && !hasLookup) {
-      renderPrompt('先选一个问题', '点上面的问题卡片，下面会先给出最值得看的课程。也可以改走学科书架或领域主题。');
+      renderPrompt('先选一个问题', '点上面的问题卡片，下面会展示相关课程作为方向参考。也可以改走学科书架或领域主题。');
       return;
     }
     if (state.mode === 'theme' && !state.themeCluster && !hasLookup) {
@@ -511,12 +513,12 @@
     els.clearFilter.hidden = !anyFilter;
     renderStageFilter();
     renderThemeFilter();
+    renderSubjects();
   }
 
   function render() {
     syncModeButtons();
     renderProblems();
-    renderSubjects();
     renderThemes();
     renderFilters();
     renderDepartment();
@@ -591,16 +593,42 @@
       flashCart();
     }
     saveSelection();
-    renderDepartment();
-    if (els.selectionDrawer.classList.contains('open')) renderSelection();
-    if (els.courseDialog.open) renderDialog(course);
+    const selected = Boolean(state.selection[course.id]);
+    els.shelfUnit.querySelectorAll('.product-card').forEach((card) => {
+      if (card.dataset.courseId !== course.id) return;
+      card.classList.toggle('selected', selected);
+      const button = card.querySelector('[data-action="select"]');
+      button.classList.toggle('selected', selected);
+      button.setAttribute('aria-pressed', String(selected));
+      button.textContent = selected ? '已入篮' : '放入书篮';
+    });
+    if (els.selectionDrawer.open) {
+      const item = [...els.selectionList.children].find((node) => node.dataset.courseId === course.id);
+      if (!selected && item) {
+        const restoreFocus = item.contains(document.activeElement);
+        const nextControl = item.nextElementSibling?.querySelector('[data-action="remove"]')
+          || item.previousElementSibling?.querySelector('[data-action="remove"]') || els.closeSelection;
+        item.remove();
+        if (!selectedCourses().length) renderSelection();
+        else renderSelectionSummary();
+        if (restoreFocus) nextControl.focus({ preventScroll: true });
+      } else {
+        renderSelection();
+      }
+    }
+    if (els.courseDialog.open && els.dialogContent.dataset.courseId === course.id) {
+      const button = els.dialogContent.querySelector('#dialogSelect');
+      button.textContent = selected ? '放回书架' : '放入书篮';
+      button.setAttribute('aria-pressed', String(selected));
+    }
   }
 
   function renderDialog(course) {
     const selected = Boolean(state.selection[course.id]);
+    els.dialogContent.dataset.courseId = course.id;
     els.dialogContent.innerHTML = `
       <span class="dialog-code">课程编号 ${course.id}</span>
-      <h2>${escapeHtml(course.title)}</h2>
+      <h2 id="courseDialogTitle">${escapeHtml(course.title)}</h2>
       <p class="dialog-theme">${escapeHtml(course.subject)} / ${escapeHtml(course.theme)}</p>
       ${course.subtitle ? `<p class="dialog-subtitle">${escapeHtml(course.subtitle)}</p>` : ''}
       <p class="dialog-summary">${escapeHtml(course.summary)}</p>
@@ -609,7 +637,7 @@
         <span>${escapeHtml(course.stage)}</span>
         ${course.relatedSubjects.length > 1 ? `<span>关联学科：${escapeHtml(course.relatedSubjects.join('、'))}</span>` : ''}
       </div>
-      <button class="primary-button" id="dialogSelect" type="button">${selected ? '放回书架' : '放入书篮'}</button>
+      <button class="primary-button" id="dialogSelect" type="button" aria-pressed="${selected}">${selected ? '放回书架' : '放入书篮'}</button>
     `;
     els.dialogContent.querySelector('#dialogSelect').addEventListener('click', () => toggleSelection(course));
   }
@@ -617,6 +645,7 @@
   function openDialog(course) {
     renderDialog(course);
     els.courseDialog.showModal();
+    syncModalScrollLock();
   }
 
   function updateSelectionCount() {
@@ -626,12 +655,17 @@
     if (els.barCartCount) els.barCartCount.textContent = count;
   }
 
-  function renderSelection() {
-    const courses = selectedCourses();
+  function renderSelectionSummary(courses = selectedCourses()) {
     const subjects = new Set(courses.map((course) => course.subject));
     els.selectionSummary.textContent = courses.length
       ? `书篮里有 ${courses.length} 门课程，来自 ${subjects.size} 个学科。可以写下学校的第一反应，然后导出流水单。`
       : '书篮还是空的。关掉这里，去书架上把有感觉的课程放进来。';
+    els.makeReceipt.disabled = courses.length === 0;
+  }
+
+  function renderSelection() {
+    const courses = selectedCourses();
+    renderSelectionSummary(courses);
     els.selectionList.innerHTML = courses.length ? courses.map((course) => `
       <article class="selection-item" data-course-id="${course.id}">
         <div class="selection-item-top">
@@ -646,22 +680,22 @@
         <textarea id="note-${course.id}" data-note placeholder="例如：想先在三年级试做；可结合本地资源。">${escapeHtml(state.selection[course.id]?.note || '')}</textarea>
       </article>
     `).join('') : '<div class="selection-empty"><strong>书篮还是空的</strong><span>先去逛书架，看到有感觉的就放进来。</span></div>';
-    els.makeReceipt.disabled = courses.length === 0;
+  }
+
+  function syncModalScrollLock() {
+    document.body.classList.toggle('has-modal', Boolean(document.querySelector('dialog[open]')));
   }
 
   function openSelection() {
+    if (els.selectionDrawer.open) return;
     renderSelection();
-    els.drawerBackdrop.hidden = false;
-    els.selectionDrawer.setAttribute('aria-hidden', 'false');
-    requestAnimationFrame(() => els.selectionDrawer.classList.add('open'));
-    document.body.style.overflow = 'hidden';
+    els.selectionDrawer.showModal();
+    els.closeSelection.focus({ preventScroll: true });
+    syncModalScrollLock();
   }
 
   function closeSelection() {
-    els.selectionDrawer.classList.remove('open');
-    els.selectionDrawer.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    setTimeout(() => { els.drawerBackdrop.hidden = true; }, 230);
+    els.selectionDrawer.close();
   }
 
   function receiptRows() {
@@ -724,7 +758,8 @@
   function openReceipt() {
     els.receiptContent.innerHTML = receiptMarkup();
     closeSelection();
-    setTimeout(() => els.receiptDialog.showModal(), 240);
+    els.receiptDialog.showModal();
+    syncModalScrollLock();
   }
 
   function downloadReceipt() {
@@ -758,11 +793,13 @@
   }
 
   let toastTimer;
-  function showToast(message) {
+  function showToast(message, duration = 1800) {
     clearTimeout(toastTimer);
+    const surface = document.querySelector('dialog[open]') || document.body;
+    if (els.toast.parentElement !== surface) surface.append(els.toast);
     els.toast.textContent = message;
     els.toast.classList.add('show');
-    toastTimer = setTimeout(() => els.toast.classList.remove('show'), 1800);
+    toastTimer = setTimeout(() => els.toast.classList.remove('show'), duration);
   }
 
   function initRevealObserver() {
@@ -878,7 +915,6 @@
   });
   els.closeSelection.addEventListener('click', closeSelection);
   els.continueShopping.addEventListener('click', closeSelection);
-  els.drawerBackdrop.addEventListener('click', closeSelection);
   els.selectionList.addEventListener('click', (event) => {
     if (event.target.dataset.action !== 'remove') return;
     const course = courseFromEvent(event);
@@ -897,13 +933,19 @@
   els.downloadReceipt.addEventListener('click', downloadReceipt);
   els.copyReceipt.addEventListener('click', copyReceipt);
   els.printReceipt.addEventListener('click', printReceipt);
-  [els.courseDialog, els.receiptDialog].forEach((dialog) => dialog.addEventListener('click', (event) => {
-    const rect = dialog.getBoundingClientRect();
-    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
-  }));
+  [els.selectionDrawer, els.courseDialog, els.receiptDialog].forEach((dialog) => {
+    dialog.addEventListener('close', syncModalScrollLock);
+    dialog.addEventListener('click', (event) => {
+      if (event.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+    });
+  });
   document.addEventListener('keydown', (event) => {
-    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); els.searchInput.focus(); }
-    if (event.key === 'Escape' && els.selectionDrawer.classList.contains('open')) closeSelection();
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k' && !document.querySelector('dialog[open]')) {
+      event.preventDefault();
+      els.searchInput.focus();
+    }
   });
 
   document.querySelector('.brand')?.addEventListener('click', () => {
