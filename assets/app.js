@@ -316,38 +316,33 @@
     return `pack-${[...course.id].reduce((sum, char) => sum + char.charCodeAt(0), 0) % 7}`;
   }
 
-  function recommendScore(course, problemId = state.problem) {
-    const practices = course.practices || [];
-    const summary = course.summary || '';
-    const completeness = Math.min(practices.length, 6) * 8
-      + Math.min(Math.round(summary.length / 18), 8)
-      + (course.subtitle ? 4 : 0)
-      + (course.directions?.length > 1 ? 2 : 0);
-    const landability = (course.problems || []).includes('easy-start') ? 18 : 0;
-    const typicality = Math.max(0, 10 - (course.problems || []).length);
-    const focused = problemId && (course.problems || []).includes(problemId) && (course.problems || []).length <= 3 ? 6 : 0;
-    return completeness + landability + typicality + focused;
+  function referenceMatchScore(course) {
+    const query = state.query.toLowerCase();
+    if (!query) return 0;
+    if (course.id.toLowerCase() === query) return 3;
+    const matches = (value) => String(value || '').toLowerCase().includes(query);
+    if ([course.title, course.theme].some(matches)) return 2;
+    if ([course.subject, course.subtitle, ...(course.directions || [])].some(matches)) return 1;
+    return 0;
   }
 
-  function pickRecommended(courses, limit = FEATURED_LIMIT) {
-    const ranked = [...courses].sort((a, b) => {
-      const diff = recommendScore(b) - recommendScore(a);
-      if (diff) return diff;
-      return a.id.localeCompare(b.id);
-    });
+  function pickReferenceCourses(courses, limit = FEATURED_LIMIT) {
+    // The candidate pool already matches the active filters. Prefer direct search
+    // matches, then cover different themes and subjects without scoring quality.
+    const remaining = courses.map((course) => ({ course, match: referenceMatchScore(course) }));
     const picked = [];
-    const seen = new Set();
-    ranked.forEach((course) => {
-      if (picked.length >= limit) return;
-      if (seen.has(course.subject)) return;
+    const themes = new Set();
+    const subjects = new Set();
+    while (picked.length < limit && remaining.length) {
+      remaining.sort((a, b) => b.match - a.match
+        || Number(themes.has(a.course.theme)) - Number(themes.has(b.course.theme))
+        || Number(subjects.has(a.course.subject)) - Number(subjects.has(b.course.subject))
+        || a.course.id.localeCompare(b.course.id));
+      const { course } = remaining.shift();
       picked.push(course);
-      seen.add(course.subject);
-    });
-    ranked.forEach((course) => {
-      if (picked.length >= limit) return;
-      if (picked.includes(course)) return;
-      picked.push(course);
-    });
+      themes.add(course.theme);
+      subjects.add(course.subject);
+    }
     return picked;
   }
 
@@ -382,13 +377,13 @@
   }
 
   function renderFeaturedPicks(courses) {
-    const featured = pickRecommended(courses);
+    const featured = pickReferenceCourses(courses);
     const rest = courses.length - featured.length;
     els.shelfUnit.innerHTML = `
       <div class="guide-picks">
         <div class="guide-picks-head">
-          <h3>先看这 ${featured.length} 门</h3>
-          <p>按匹配度、做法完整度和是否容易落地排过序，不一次摊开全部 ${courses.length} 门。</p>
+          <h3>方向参考 · ${featured.length} 门</h3>
+          <p>从符合当前条件的 ${courses.length} 门课程中，${state.query ? '优先呈现与检索词直接相关的课程，并兼顾不同主题与学科。' : '选取不同主题与学科的课程作为方向参考。'}可展开全部课程继续比较。</p>
         </div>
         <div class="aisle-cards catalog-list">
           ${featured.map((course, index) => productCard(course, index, 'as-open as-catalog')).join('')}
@@ -405,7 +400,7 @@
       return;
     }
     els.shelfUnit.innerHTML = `
-      ${state.mode === 'problem' && state.showAllProblemResults && courses.length > FEATURED_LIMIT ? `<div class="guide-picks-toolbar"><button class="aisle-more" type="button" data-show-all="false">只看推荐 ${FEATURED_LIMIT} 门</button></div>` : ''}
+      ${state.mode === 'problem' && state.showAllProblemResults && courses.length > FEATURED_LIMIT ? `<div class="guide-picks-toolbar"><button class="aisle-more" type="button" data-show-all="false">返回方向参考 ${FEATURED_LIMIT} 门</button></div>` : ''}
       <div class="aisle-jump" aria-label="按学科跳转">
         ${groups.map((group) => `<button type="button" data-jump="${escapeHtml(group.name)}">${escapeHtml(group.name)} ${group.courses.length}</button>`).join('')}
       </div>
@@ -464,7 +459,7 @@
     const hasLookup = Boolean(state.query) || state.stage !== '全部';
 
     if (state.mode === 'problem' && !state.problem && !hasLookup) {
-      renderPrompt('先选一个问题', '点上面的问题卡片，下面会先给出最值得看的课程。也可以改走学科书架或领域主题。');
+      renderPrompt('先选一个问题', '点上面的问题卡片，下面会展示相关课程作为方向参考。也可以改走学科书架或领域主题。');
       return;
     }
     if (state.mode === 'theme' && !state.themeCluster && !hasLookup) {
