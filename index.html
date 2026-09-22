@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-release="20260922f">
+<html lang="zh-CN" data-release="20260922f-uiqa1">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,7 +15,7 @@
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="./assets/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png" sizes="180x180" />
-    <link rel="stylesheet" href="./assets/styles.css?v=20260922ui" />
+    <link rel="stylesheet" href="./assets/styles.css?v=20260922uiqa1" />
   </head>
   <body class="is-landing">
     <header class="site-header">
@@ -55,14 +55,14 @@
             <p>食育、阅读、项目化，按主题穿过学科。</p>
           </button>
         </div>
-        <p class="hero-meta"><span id="courseTotal">494</span> 门课程 · <span id="subjectTotal">12</span> 个学科 · <span id="directionTotal">128</span> 个主题</p>
+        <p class="hero-meta"><span id="courseTotal">—</span> 门课程 · <span id="subjectTotal">—</span> 个学科 · <span id="directionTotal">—</span> 个主题</p>
       </section>
 
       <section class="market-facts" aria-label="课程超市概览">
         <p>选课如选书。问题、学科、主题是三条并列的入口；看中的课放入书篮，最后带走一张流水单。</p>
-        <div class="fact"><strong data-meta="courseCount">494</strong><span>门课程</span></div>
-        <div class="fact"><strong data-meta="subjectCount">12</strong><span>个学科</span></div>
-        <div class="fact"><strong data-meta="directionCount">128</strong><span>个主题</span></div>
+        <div class="fact"><strong data-meta="courseCount">—</strong><span>门课程</span></div>
+        <div class="fact"><strong data-meta="subjectCount">—</strong><span>个学科</span></div>
+        <div class="fact"><strong data-meta="directionCount">—</strong><span>个主题</span></div>
       </section>
 
       <div class="market-floor" id="browse">
@@ -151,8 +151,7 @@
       <span id="updateTime">正在读取课程</span>
     </footer>
 
-    <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
-    <aside class="selection-drawer" id="selectionDrawer" aria-labelledby="selectionTitle" aria-hidden="true">
+    <dialog class="selection-drawer" id="selectionDrawer" aria-labelledby="selectionTitle">
       <div class="drawer-header">
         <div><span>选课书篮</span><h2 id="selectionTitle">我的书篮</h2></div>
         <button class="icon-button" id="closeSelection" type="button" aria-label="关闭书篮">关闭</button>
@@ -163,14 +162,14 @@
         <button class="primary-button" id="makeReceipt" type="button">生成流水单</button>
         <button class="secondary-button" id="continueShopping" type="button">继续选书</button>
       </div>
-    </aside>
+    </dialog>
 
-    <dialog class="course-dialog" id="courseDialog">
+    <dialog class="course-dialog" id="courseDialog" aria-labelledby="courseDialogTitle">
       <button class="icon-button dialog-close" id="closeDialog" type="button" aria-label="关闭课程详情">关闭</button>
       <div id="dialogContent"></div>
     </dialog>
 
-    <dialog class="receipt-dialog" id="receiptDialog">
+    <dialog class="receipt-dialog" id="receiptDialog" aria-label="选课流水单">
       <button class="icon-button receipt-close" id="closeReceipt" type="button" aria-label="关闭流水单">关闭</button>
       <div class="receipt-paper" id="receiptContent"></div>
       <div class="receipt-actions">
@@ -185,7 +184,7 @@
 
     <noscript>请开启浏览器的 JavaScript，以使用课程书架和书篮。</noscript>
     <script src="./assets/courses.js?v=20260922f"></script>
-    <script src="./assets/app.js?v=20260922ui"></script>
+    <script src="./assets/app.js?v=20260922uiqa1"></script>
     <script>
       (function () {
         if (!('serviceWorker' in navigator)) return;

@@ -1,5 +1,5 @@
 /* 课程超市 PWA：每次打开网络优先拉货架。 */
-const SHELF_VERSION = '20260922f';
+const SHELF_VERSION = '20260922f-uiqa1';
 const PRECACHE = 'cs-' + SHELF_VERSION;
 
 self.addEventListener('install', () => {
