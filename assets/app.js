@@ -265,7 +265,7 @@
       if (!ignoreStage && state.stage !== '全部' && course.stage !== state.stage) return false;
       if (state.mode === 'subject' && !ignoreThemeFilter && state.theme && course.theme !== state.theme) return false;
       if (state.query) {
-        const haystack = [course.id, course.subject, course.theme, course.title, course.subtitle, course.summary, ...course.practices, ...course.directions].join(' ').toLowerCase();
+        const haystack = [course.id, course.subject, ...(course.relatedSubjects || []), course.theme, course.title, course.subtitle, course.summary, ...course.practices, ...course.directions].join(' ').toLowerCase();
         if (!haystack.includes(state.query.toLowerCase())) return false;
       }
       return true;
@@ -322,7 +322,7 @@
     if (course.id.toLowerCase() === query) return 3;
     const matches = (value) => String(value || '').toLowerCase().includes(query);
     if ([course.title, course.theme].some(matches)) return 2;
-    if ([course.subject, course.subtitle, ...(course.directions || [])].some(matches)) return 1;
+    if ([course.subject, ...(course.relatedSubjects || []), course.subtitle, ...(course.directions || [])].some(matches)) return 1;
     return 0;
   }
 
