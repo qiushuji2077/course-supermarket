@@ -266,7 +266,7 @@
   }
 
   function availableStages() {
-    const order = ['全部', '小学', '初中', '初高中', '九年一贯', '高中'];
+    const order = ['全部', '小学', '小学/初中', '初中', '初高中', '九年一贯', '高中'];
     const pool = matchingCourses({ ignoreThemeFilter: true });
     const stages = new Set(pool.map((course) => course.stage));
     return order.filter((stage) => stage === '全部' || stages.has(stage));
@@ -454,12 +454,13 @@
   function renderDepartment() {
     const problem = problemDefinition();
     const theme = themeDefinition();
+    const hasLookup = Boolean(state.query) || state.stage !== '全部';
 
-    if (state.mode === 'problem' && !state.problem) {
+    if (state.mode === 'problem' && !state.problem && !hasLookup) {
       renderPrompt('先选一个问题', '点上面的问题卡片，下面会先给出最值得看的课程。也可以改走学科书架或领域主题。');
       return;
     }
-    if (state.mode === 'theme' && !state.themeCluster) {
+    if (state.mode === 'theme' && !state.themeCluster && !hasLookup) {
       renderPrompt('先选一个主题', '点上面的主题进入。主题会穿过学科，适合学校已经有一个想做的方向。');
       return;
     }
@@ -471,21 +472,33 @@
       els.shelfTitle.textContent = `${state.subject}书架`;
       els.departmentCode.textContent = '学科书架';
       els.activeGuide.textContent = problem ? `当前问题：${problem.short}` : '按学科取阅';
+    } else if (state.mode === 'theme') {
+      els.shelfTitle.textContent = theme ? theme.name : '检索结果';
+      els.departmentCode.textContent = '领域主题';
+      els.activeGuide.textContent = theme
+        ? `${theme.subjects.join('、')} · ${theme.count} 门在这个主题里`
+        : (state.query ? `正在检索「${state.query}」` : `学段：${state.stage}`);
+    } else {
+      els.shelfTitle.textContent = problem ? problem.short : '检索结果';
+      els.departmentCode.textContent = '问题导购';
+      els.activeGuide.textContent = problem ? problem.question : (state.query ? `正在检索「${state.query}」` : `学段：${state.stage}`);
+    }
+
+    if (!courses.length) {
+      els.shelfUnit.innerHTML = '<div class="empty-state"><strong>这批条件里没有课程</strong><p>换一个问题、主题、学段或检索词，或者清除已选条件。</p></div>';
+      return;
+    }
+
+    if (state.mode === 'subject') {
       renderSubjectShelves(courses);
       return;
     }
 
     if (state.mode === 'theme') {
-      els.shelfTitle.textContent = theme.name;
-      els.departmentCode.textContent = '领域主题';
-      els.activeGuide.textContent = `${theme.subjects.join('、')} · ${theme.count} 门在这个主题里`;
       renderGuidedAisle(courses);
       return;
     }
 
-    els.shelfTitle.textContent = problem.short;
-    els.departmentCode.textContent = '问题导购';
-    els.activeGuide.textContent = problem.question;
     if (!state.showAllProblemResults && courses.length > FEATURED_LIMIT) {
       renderFeaturedPicks(courses);
     } else {
