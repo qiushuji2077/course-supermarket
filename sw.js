@@ -1,5 +1,5 @@
 /* 课程超市 PWA：每次打开网络优先拉货架。 */
-const SHELF_VERSION = '20260922-quality2';
+const SHELF_VERSION = '20260924-design-v2';
 const PRECACHE = 'cs-' + SHELF_VERSION;
 
 self.addEventListener('install', () => {
@@ -18,8 +18,9 @@ function isShelfRequest(request, url) {
   if (request.mode === 'navigate') return true;
   const path = url.pathname;
   if (path.endsWith('/') || /\/index\.html$/.test(path)) return true;
-  if (/\/assets\/courses\.js$/.test(path) || path.endsWith('courses.js')) return true;
-  if (/\/assets\/app\.js$/.test(path) || /\/assets\/styles\.css$/.test(path)) return true;
+  if (/\/assets\/design-(catalog|support)\.js$/.test(path)) return true;
+  if (/\/assets\/design-responsive\.css$/.test(path)) return true;
+  if (/\/assets\/vendor\/react(-dom)?\.js$/.test(path)) return true;
   if (path.endsWith('/sw.js') || path.endsWith('manifest.webmanifest')) return true;
   return false;
 }

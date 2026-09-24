@@ -18,9 +18,11 @@ jobs:
       - name: 确认站点文件存在
         run: |
           test -f index.html
-          test -f assets/app.js
-          test -f assets/courses.js
-          test -f assets/styles.css
+          test -f assets/design-catalog.js
+          test -f assets/design-support.js
+          test -f assets/design-responsive.css
+          test -f assets/vendor/react.js
+          test -f assets/vendor/react-dom.js
       - name: 拒绝内部文件进入公开仓库
         run: |
           if [ -f generate.rb ] || [ -f "课程超市-内部编号.yml" ]; then
@@ -29,8 +31,18 @@ jobs:
           fi
       - name: 扫描明显的内部字段
         run: |
-          if grep -E '特色度|实施度|"主推"|"在库"|验证:' assets/courses.js; then
+          if grep -Eq '特色度|实施度|"主推"|"在库"|验证:' assets/design-catalog.js; then
             echo "公开数据里出现了内部字段。"
             exit 1
           fi
+          node - <<'JS'
+          const fs = require('fs');
+          const vm = require('vm');
+          const context = { window: {} };
+          vm.runInNewContext(fs.readFileSync('assets/design-catalog.js', 'utf8'), context);
+          const courses = context.window.COURSE_MARKET_CATALOG;
+          if (!Array.isArray(courses) || courses.length !== 612 || new Set(courses.map(c => c[2])).size !== courses.length) {
+            throw new Error('公开课程数量或编号有误');
+          }
+          JS
           echo "PR 检查通过。合并后才会发布到 GitHub Pages。"
