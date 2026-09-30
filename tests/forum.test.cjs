@@ -66,11 +66,16 @@ test('service-worker update completes new cache before activation and preserves 
  const sw=fs.readFileSync('sw.js','utf8');
  async function check(fail){
   const events={},log=[],requests=[];
-  const context={URL,Request,fetch:async()=>{},caches:{open:async()=>({addAll:async(rs)=>{requests.push(...rs.map(r=>r.url));log.push('cache');if(fail)throw Error('network failed');}}),keys:async()=>['cs-old','other-app','cs-20260930-forum-v1'],delete:async(k)=>log.push('delete:'+k)},self:{location:{href:'https://example.test/site/sw.js',origin:'https://example.test'},addEventListener:(k,v)=>events[k]=v,skipWaiting:async()=>log.push('takeover'),clients:{claim:async()=>log.push('claim')}}};
-  vm.runInNewContext(sw,context);let pending;events.install({waitUntil:p=>pending=p});if(fail){await assert.rejects(pending,/network failed/);assert.ok(!log.includes('takeover'));return;}await pending;assert.deepEqual(log,['cache','takeover']);assert.ok(requests.includes('https://example.test/site/assets/forum-catalog.js?v=20260930-forum-v1'));events.activate({waitUntil:p=>pending=p});await pending;assert.ok(log.includes('delete:cs-old'));assert.ok(!log.includes('delete:other-app'));assert.ok(!log.includes('delete:cs-20260930-forum-v1'));
+  const context={URL,Request,fetch:async()=>{},caches:{open:async()=>({addAll:async(rs)=>{requests.push(...rs.map(r=>r.url));log.push('cache');if(fail)throw Error('network failed');}}),keys:async()=>['cs-old','other-app','cs-20260930-forum-v2'],delete:async(k)=>log.push('delete:'+k)},self:{location:{href:'https://example.test/site/sw.js',origin:'https://example.test'},addEventListener:(k,v)=>events[k]=v,skipWaiting:async()=>log.push('takeover'),clients:{claim:async()=>log.push('claim')}}};
+  vm.runInNewContext(sw,context);let pending;events.install({waitUntil:p=>pending=p});if(fail){await assert.rejects(pending,/network failed/);assert.ok(!log.includes('takeover'));return;}await pending;assert.deepEqual(log,['cache','takeover']);assert.ok(requests.includes('https://example.test/site/assets/forum-catalog.js?v=20260930-forum-v1'));events.activate({waitUntil:p=>pending=p});await pending;assert.ok(log.includes('delete:cs-old'));assert.ok(!log.includes('delete:other-app'));assert.ok(!log.includes('delete:cs-20260930-forum-v2'));
  }
  await check(false);await check(true);
 });
 test('all static assets referenced by the page exist',()=>{
  for(const m of html.matchAll(/(?:src|href)="\.\/([^"?]+)(?:\?[^"]*)?"/g))assert.ok(fs.existsSync(m[1]),m[1]);
+});
+
+test('printed selection preserves the evidence boundary for every expanded course',()=>{
+ const a=app();a.setState({cart:Object.keys(forum.enrichments)});for(const row of a.renderVals().receiptRows){assert.match(row.noteText,/未经试教的教学推演/);assert.ok(!row.noteText.includes('参照原做法实施'));}
+ a.setState({cart:['YW-001']});assert.equal(a.renderVals().receiptRows[0].noteText,'参照原做法实施');
 });

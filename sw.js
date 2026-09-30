@@ -1,5 +1,5 @@
 /* 课程超市 PWA：每次打开网络优先拉货架。 */
-const SHELF_VERSION = '20260930-forum-v1';
+const SHELF_VERSION = '20260930-forum-v2';
 const PRECACHE = 'cs-' + SHELF_VERSION;
 
 // 完整缓存更新文件后再接管，避免离线用户缺少本次资料。
