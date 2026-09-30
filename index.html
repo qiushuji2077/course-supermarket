@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-release="20260930-forum-v1">
+<html lang="zh-CN" data-release="20260930-forum-v2">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -749,7 +749,7 @@ class Component extends DCLogic {
     var receiptRows = cartItems.map(function (c, i) {
       var fn = fusedNames(c.id);
       return { idx: i + 1, code: c.code, name: c.name, subject: c.subject, type: c.type, stageText: c.stageText,
-        gradeText: c.gradeText, noteText: (c.note || '').trim() || '参照原做法实施',
+        gradeText: c.gradeText, noteText: ((c.note || '').trim() || (c.hasEnrichment ? '开课前请复核本校目标、课时、材料与实施条件' : '参照原做法实施')) + (c.hasEnrichment ? '\n本次补全含未经试教的教学推演，不是已验证的原校完整教案。' : ''),
         fusedTag: fn.length ? ' · 纳入融合：' + fn.join('、') : '' };
     });
     var dash = '________';
