@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-release="20260924-design-v2">
+<html lang="zh-CN" data-release="20260930-forum-v1">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,11 +7,12 @@
 <meta name="description" content="浏览六层课程场馆，挑选课程、规划融合课程并生成可打印回执。">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="./assets/design-responsive.css?v=20260924b">
+<link rel="stylesheet" href="./assets/design-responsive.css?v=20260930-forum-v1">
 <title>课程超市</title>
 <script src="./assets/vendor/react.js"></script>
 <script src="./assets/vendor/react-dom.js"></script>
 <script src="./assets/design-catalog.js?v=20260924"></script>
+<script src="./assets/forum-catalog.js?v=20260930-forum-v1"></script>
 <script src="./assets/design-support.js"></script>
 </head>
 <body>
@@ -77,11 +78,11 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 <div style="display: flex; flex-direction: column; gap: 18px;">
 <span style="font-size: 13px; letter-spacing: 0.3em; color: #C9C2B3;">学校课程选购平台</span>
 <h1 style="margin: 0; font-family: 'Noto Serif SC', serif; font-weight: 900; font-size: 64px; line-height: 1.1; letter-spacing: 0.04em;">逛货架，挑课程<br>带回自己的学校</h1>
-<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #D9D3C6; max-width: 580px;">六层场馆、十二个学科专柜，陈列来自各地学校的整套课程与课例做法。学校逐层浏览，把合适的课程放入购物车并写下本校想法，再将几门课程组合为融合课程，在本机生成可打印的开课回执。</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #D9D3C6; max-width: 580px;">六层场馆、十二个学科专柜，陈列课程案例摘要与课例做法；原分类不代表已提供整套教学资源。学校逐层浏览，把合适的课程放入购物车并写下本校想法，再将几门课程组合为融合课程，在本机生成可打印的开课回执。</p>
 </div>
 <div class="hero-stats" style="display: flex; gap: 40px;">
-<div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Noto Serif SC', serif; font-size: 36px; font-weight: 900;">{{courseTotal}}</span><span style="font-size: 13px; color: #C9C2B3;">件在架商品</span></div>
-<div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Noto Serif SC', serif; font-size: 36px; font-weight: 900;">{{kitTotal}}</span><span style="font-size: 13px; color: #C9C2B3;">套整套课程</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Noto Serif SC', serif; font-size: 36px; font-weight: 900;">{{courseTotal}}</span><span style="font-size: 13px; color: #C9C2B3;">条案例摘要</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Noto Serif SC', serif; font-size: 36px; font-weight: 900;">{{kitTotal}}</span><span style="font-size: 13px; color: #C9C2B3;">条原标“整套”</span></div>
 <div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Noto Serif SC', serif; font-size: 36px; font-weight: 900;">{{practiceTotal}}</span><span style="font-size: 13px; color: #C9C2B3;">个课例做法</span></div>
 <div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: 'Noto Serif SC', serif; font-size: 36px; font-weight: 900;">{{counterTotal}}</span><span style="font-size: 13px; color: #C9C2B3;">个学科专柜</span></div>
 </div>
@@ -103,6 +104,14 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 </button>
 </sc-for>
 </div>
+</div>
+
+<div class="forum-update" style="padding: 20px; background: #FFFDF8; border: 1px solid #1F5B4A; border-radius: 14px;">
+<h2 style="margin: 0 0 10px; font-size: 21px;">课程资料补全 · 2026年9月30日</h2>
+<sc-if value="{{forumUnavailable}}"><p role="alert">更新资料未能加载，请联网刷新后重试。当前显示原有案例货架。</p></sc-if>
+<p style="line-height: 1.8;">本次整理24个资料板块，为{{enrichmentCount}}项课程补充分步教学建议，其中{{additionCount}}项新增入架；另保留{{referenceCount}}项教师研修、课程体系或活动实践参考，不计入学生课程货架。已查证内容与原创推演分开呈现；建议方案尚未经试教。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px;"><button onClick="{{showForumOnly}}" style="padding: 12px 16px; background: #1F5B4A; color: white; border: 0; border-radius: 8px;">查看本次补全（{{enrichmentCount}}项）</button><button onClick="{{showAllCourses}}" style="padding: 12px 16px; background: transparent; border: 1px solid #C9C0AE; border-radius: 8px;">全部案例</button></div>
+<details style="margin-top: 16px;"><summary style="cursor: pointer; font-weight: 700;">展开24个板块索引</summary><div class="forum-index"><sc-for list="{{forumSections}}" as="section"><article><h3>{{section.title}}</h3><p>{{section.summary}}</p><sc-for list="{{section.practices}}" as="practice"><p>{{practice}}</p></sc-for><sc-if value="{{section.hasCourses}}"><button onClick="{{section.pick}}">查看对应课程（{{section.count}}项）</button></sc-if><sc-for list="{{section.referenceItems}}" as="reference"><button onClick="{{reference.open}}" style="margin: 6px 6px 0 0;">实践参考：{{reference.title}}</button></sc-for></article></sc-for></div></details>
 </div>
 
 <div class="filters" style="display: flex; flex-direction: column; gap: 12px; background: #FFFDF8; border: 1px solid #DDD5C6; border-radius: 14px; padding: 14px 16px;">
@@ -131,7 +140,7 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 <div style="flex-grow: 1;"></div>
 <div class="course-search" style="display: flex; align-items: center; gap: 8px; height: 44px; width: 320px; padding: 0 14px; box-sizing: border-box; border: 1px solid #C9C0AE; border-radius: 10px; background: #FFFFFF;">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B625D" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
-<input type="search" aria-label="搜索课程" value="{{q}}" onChange="{{onQ}}" placeholder="搜索课程名称或关键词，如 非遗、测量" style="border: none; outline: none; flex-grow: 1; font-size: 14px; background: transparent; color: #1E2522;">
+<input type="search" aria-label="搜索课程" value="{{q}}" onChange="{{onQ}}" placeholder="搜索编号、名称或做法关键词" style="border: none; outline: none; flex-grow: 1; font-size: 14px; background: transparent; color: #1E2522;">
 </div>
 </div>
 </div>
@@ -157,6 +166,7 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 </div>
 <div style="padding: 16px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1;">
 <h3 style="margin: 0; font-size: 17px; font-weight: 700; line-height: 1.45;">{{item.name}}</h3>
+<sc-if value="{{item.hasEnrichment}}"><span style="font-size: 12px; color: #1F5B4A; font-weight: 700;">{{item.updateLabel}}</span></sc-if>
 <div style="display: flex; flex-wrap: wrap; gap: 6px;">
 <span style="font-size: 12px; padding: 3px 8px; border-radius: 6px; background: #EFE9DD; color: #3F4642;">{{item.stageText}}</span>
 <sc-if value="{{item.hasGrade}}" hint-placeholder-val="{{ true }}">
@@ -476,6 +486,7 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px;">
 <h3 style="margin: 0; font-size: 16px;">做法要点</h3>
+<sc-if value="{{detail.enrichment.isNew}}"><p style="margin: 0; color: #5B625D; font-size: 13px; line-height: 1.8;">本条简介与做法是基于原始线索形成的教学推演摘要，未经试教；下方单列源资料和查证范围。</p></sc-if>
 <sc-for list="{{detail.stepList}}" as="s" hint-placeholder-count="3">
 <div style="display: flex; gap: 14px; align-items: flex-start;">
 <span style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 999px; background: {{detail.deep}}; color: #FFFFFF; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center;">{{s.n}}</span>
@@ -483,8 +494,29 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 </div>
 </sc-for>
 </div>
+<sc-if value="{{detail.hasEnrichment}}">
+<section class="forum-detail" style="display: flex; flex-direction: column; gap: 18px; border-top: 2px solid #1F5B4A; padding-top: 20px;">
+<h3 style="margin: 0; font-size: 20px;">本次补全 · 查证与教学推演</h3>
+<p style="margin: 0; padding: 12px; background: #E6EFEA; line-height: 1.8; font-size: 14px;">{{detail.enrichment.evidenceBoundary}}</p>
+<div><h4>源资料明确内容</h4><p>{{detail.enrichment.originalBrief}}</p></div>
+<div><h4>网络查证结果与参考依据</h4>
+<sc-if value="{{detail.enrichment.hasVerified}}"><ul><sc-for list="{{detail.enrichment.verifiedPractice}}" as="fact"><li>{{fact}}</li></sc-for></ul></sc-if>
+<sc-if value="{{detail.enrichment.noVerified}}"><p>暂未找到足以补全实际课堂过程的公开证据；以下方案为教学推演。</p></sc-if>
+</div>
+<div style="padding: 14px; background: #F4EFE6; border-radius: 10px;"><h4 style="margin-top: 0;">教学推演 · 未经试教</h4><sc-if value="{{detail.isReference}}"><p><strong>对象边界：</strong>{{detail.referenceBoundary}} 以下学生迁移方案仅作参考，不改变原资料的对象分类。</p></sc-if><p>以下目标、课时、材料、活动与评价是供教师调整的建议方案，不是原学校已实施的完整教案。</p>
+<p><strong>适用年级：</strong>{{detail.enrichment.plan.suitableGrades}}<br><strong>建议时长：</strong>{{detail.enrichment.plan.duration}}<br><strong>先备经验：</strong>{{detail.enrichment.plan.prerequisites}}</p>
+<h4>学习目标</h4><ul><sc-for list="{{detail.enrichment.plan.objectives}}" as="goal"><li>{{goal}}</li></sc-for></ul>
+<h4>学生任务与交付</h4><ul><sc-for list="{{detail.enrichment.plan.studentTasks}}" as="task"><li>{{task}}</li></sc-for></ul>
+<h4>材料与准备</h4><ul><sc-for list="{{detail.enrichment.plan.materials}}" as="material"><li>{{material}}</li></sc-for></ul>
+<h4>实施步骤</h4><sc-for list="{{detail.enrichment.plan.steps}}" as="activity"><div style="margin-bottom: 14px;"><strong>{{activity.title}} · {{activity.minutes}}</strong><p style="margin: 6px 0;">{{activity.activity}}</p></div></sc-for>
+<h4>学习证据与评价</h4><ul><sc-for list="{{detail.enrichment.plan.assessment}}" as="evidence"><li>{{evidence}}</li></sc-for></ul>
+<h4>安全与实施边界</h4><ul><sc-for list="{{detail.enrichment.plan.safety}}" as="warning"><li>{{warning}}</li></sc-for></ul>
+<h4>调整建议</h4><ul><sc-for list="{{detail.enrichment.plan.adaptation}}" as="adjustment"><li>{{adjustment}}</li></sc-for></ul>
+</div>
+</section>
+</sc-if>
 <div style="display: flex; gap: 12px;">
-<button onClick="{{detail.toggle}}" style="height: 50px; flex-grow: 1; border-radius: 10px; border: 1px solid {{detail.btnBd}}; background: {{detail.btnBg}}; color: {{detail.btnFg}}; font-size: 16px; font-weight: 500;">{{detail.cartLabel}}</button>
+<sc-if value="{{detail.canSelect}}"><button onClick="{{detail.toggle}}" style="height: 50px; flex-grow: 1; border-radius: 10px; border: 1px solid {{detail.btnBd}}; background: {{detail.btnBg}}; color: {{detail.btnFg}}; font-size: 16px; font-weight: 500;">{{detail.cartLabel}}</button></sc-if>
 <button onClick="{{closeDetail}}" style="height: 50px; padding: 0 28px; border-radius: 10px; border: 1px solid #C9C0AE; background: transparent; color: #1E2522; font-size: 15px;">继续逛</button>
 </div>
 </div>
@@ -498,7 +530,7 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 class Component extends DCLogic {
   st() {
     var d = {
-      screen: 'browse', floor: 'all', counter: 'all', stage: 'all', kind: 'all', q: '', limit: 0,
+      screen: 'browse', floor: 'all', counter: 'all', stage: 'all', kind: 'all', q: '', limit: 0, updatedOnly: false, forumSection: 'all',
       cart: [], notes: {}, detail: null,
       fuseSel: {}, fuseName: '', fuseIdea: '', fusions: [], fusionSeq: 0,
       school: { name: '', contact: '', phone: '', term: '', vision: '' },
@@ -546,14 +578,15 @@ class Component extends DCLogic {
       { id: 'f6', code: '6F', name: '成长馆', tint: '#DCEAD2', deep: '#3B6526' }
     ];
     // [楼层, 专柜, 货架号, 名称, 学段键, 学段, 年级, 规格k/p, 简介, 做法]
-    var raw = window.COURSE_MARKET_CATALOG;
+    var forum = window.COURSE_MARKET_FORUM || { additions: [], enrichments: {}, sections: [] };
+    var raw = window.COURSE_MARKET_CATALOG.concat(forum.additions || []);
     var courses = raw.map(function (r, i) {
       return { id: r[2], floor: r[0], subject: r[1], code: r[2], name: r[3], stageKeys: r[4], stageLabel: r[5],
         grade: r[6], kind: r[7], intro: r[8], steps: r[9] };
     });
     var counters = [];
     courses.forEach(function (c) { if (counters.indexOf(c.subject) < 0) counters.push(c.subject); });
-    this._db = { floors: floors, courses: courses, counters: counters };
+    this._db = { floors: floors, courses: courses, counters: counters, forum: forum };
     return this._db;
   }
 
@@ -570,6 +603,7 @@ class Component extends DCLogic {
     var KIND = { k: '整套课程', p: '课例做法' };
 
     var top = function () { try { window.scrollTo(0, 0); } catch (e) {} };
+    var focusShelf = function () { try { var index = document.querySelector('.forum-update details'); if (index) index.open = false; var filters = document.querySelector('.filters'); if (filters) filters.scrollIntoView({ block: 'start', behavior: 'smooth' }); } catch (e) {} };
     var go = function (screen) { return function () { self.setState({ screen: screen, detail: null }); top(); }; };
     var toggleCart = function (id) {
       return function () {
@@ -587,7 +621,7 @@ class Component extends DCLogic {
       var f = fmap[c.floor]; var on = !!inCart[c.id];
       return Object.assign({}, c, {
         floorName: f.name, floorCode: f.code, tint: f.tint, deep: f.deep, counter: c.subject + '专柜',
-        type: KIND[c.kind], stageText: c.stageLabel, hasGrade: !!c.grade && c.grade !== c.stageLabel,
+        type: KIND[c.kind], updateLabel: D.forum.enrichments[c.id] && D.forum.enrichments[c.id].isNew ? '新增 · 教学推演（未经试教）' : '本次补全 · 查证与教学推演分栏', hasEnrichment: !!D.forum.enrichments[c.id], enrichment: D.forum.enrichments[c.id] || {}, canSelect: true, isReference: false, stageText: c.stageLabel, hasGrade: !!c.grade && c.grade !== c.stageLabel,
         gradeText: c.grade || c.stageLabel,
         inCart: on, cartLabel: on ? '✓ 已加入' : '加入购物车',
         btnBg: on ? f.deep : '#1E2522', btnFg: '#FFFFFF', btnBd: on ? f.deep : '#1E2522',
@@ -632,18 +666,23 @@ class Component extends DCLogic {
       return Object.assign({ label: p[1] }, pill(s.kind === p[0]), { pick: function () { self.setState({ kind: p[0], limit: 0 }); } });
     });
 
-    var q = (s.q || '').trim();
+    var q = (s.q || '').trim().toLowerCase();
     var matched = inFloor.filter(function (c) {
       if (s.counter !== 'all' && c.subject !== s.counter) return false;
       if (s.stage !== 'all' && c.stageKeys.indexOf(s.stage) < 0) return false;
       if (s.kind !== 'all' && c.kind !== s.kind) return false;
-      if (q && (c.name + c.subject + c.intro + c.grade).indexOf(q) < 0) return false;
+      if (s.updatedOnly && !D.forum.enrichments[c.id]) return false;
+      if (s.forumSection !== 'all') {
+        var section = (D.forum.sections || []).find(function (x) { return x.id === s.forumSection; });
+        if (!section || section.courseIds.indexOf(c.id) < 0) return false;
+      }
+      if (q && [c.code, c.name, c.subject, c.intro, c.grade].concat(c.steps).join(' ').toLowerCase().indexOf(q) < 0) return false;
       return true;
     });
     var visible = matched.slice(0, limit).map(deco);
     var rest = matched.length - visible.length;
     var shelfTitle = (s.floor === 'all' ? '全部楼层' : fmap[s.floor].code + ' ' + fmap[s.floor].name)
-      + (s.counter === 'all' ? '' : ' · ' + s.counter + '专柜');
+      + (s.counter === 'all' ? '' : ' · ' + s.counter + '专柜') + (s.updatedOnly ? ' · 本次补全' : '');
 
     // 步骤
     var stepDefs = [['browse', '逛货架'], ['cart', '购物车'], ['checkout', '融合与回执'], ['receipt', '回执单']];
@@ -723,18 +762,29 @@ class Component extends DCLogic {
 
     // 详情
     var dc = s.detail && byId[s.detail] ? deco(byId[s.detail]) : null;
+    var reference = s.detail && (D.forum.references || {})[s.detail];
+    if (!dc && reference) {
+      dc = { id: s.detail, name: reference.title, code: s.detail, subject: '实践参考', counter: '教师研修与实践参考', floorName: '资料索引', floorCode: '参考',
+        tint: '#DCEAD2', deep: '#3B6526', stageText: '实践参考', gradeText: reference.audienceBoundary, referenceBoundary: reference.audienceBoundary,
+        type: '参考资料，不计入学生货架', intro: reference.enrichment.originalBrief, steps: [], hasEnrichment: true,
+        enrichment: reference.enrichment, canSelect: false, isReference: true, toggle: function () {} };
+    }
     var detail = dc ? Object.assign(dc, { stepList: dc.steps.map(function (t, i) { return { n: i + 1, text: t }; }) })
       : { name: '', code: '', subject: '', counter: '', floorName: '', floorCode: '', tint: '#FFFDF8', deep: '#1E2522', stageText: '', gradeText: '', type: '', intro: '', stepList: [], cartLabel: '', btnBg: '#1E2522', btnFg: '#FFFFFF', btnBd: '#1E2522', toggle: function () {} };
 
     var reset = function () {
-      self.setState({ screen: 'browse', floor: 'all', counter: 'all', stage: 'all', kind: 'all', q: '', limit: 0, cart: [], notes: {}, detail: null,
+      self.setState({ screen: 'browse', floor: 'all', counter: 'all', stage: 'all', kind: 'all', q: '', limit: 0, updatedOnly: false, forumSection: 'all', cart: [], notes: {}, detail: null,
         fuseSel: {}, fuseName: '', fuseIdea: '', fusions: [],
         school: { name: '', contact: '', phone: '', term: '', vision: '' }, orderNo: '', orderDate: '' });
       top();
     };
 
     return {
-      accent: accent,
+      accent: accent, forumUnavailable: !window.COURSE_MARKET_FORUM,
+      enrichmentCount: Object.keys(D.forum.enrichments).length, additionCount: (D.forum.additions || []).length, referenceCount: Object.keys(D.forum.references || {}).length,
+      updatedOnly: s.updatedOnly, showForumOnly: function () { self.setState({ screen: 'browse', updatedOnly: true, forumSection: 'all', floor: 'all', counter: 'all', stage: 'all', kind: 'all', q: '', limit: 0 }); focusShelf(); },
+      showAllCourses: function () { self.setState({ updatedOnly: false, forumSection: 'all', floor: 'all', counter: 'all', stage: 'all', kind: 'all', q: '', limit: 0 }); },
+      forumSections: (D.forum.sections || []).map(function (section) { return Object.assign({}, section, { hasCourses: section.courseIds.length > 0, count: section.courseIds.length, referenceItems: (section.referenceIds || []).map(function (id) { var ref = D.forum.references[id]; return { title: ref.title, open: function () { self.setState({ detail: id }); } }; }), pick: function () { self.setState({ updatedOnly: true, forumSection: section.id, floor: 'all', counter: 'all', stage: 'all', kind: 'all', q: '', limit: 0 }); focusShelf(); } }); }),
       isBrowse: s.screen === 'browse', isCart: s.screen === 'cart', isCheckout: s.screen === 'checkout', isReceipt: s.screen === 'receipt' && !!s.orderNo,
       steps: steps, goBrowse: go('browse'), goCart: go('cart'), goCheckout: go('checkout'),
       courseTotal: D.courses.length, counterTotal: D.counters.length,

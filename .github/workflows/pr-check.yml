@@ -19,6 +19,7 @@ jobs:
         run: |
           test -f index.html
           test -f assets/design-catalog.js
+          test -f assets/forum-catalog.js
           test -f assets/design-support.js
           test -f assets/design-responsive.css
           test -f assets/vendor/react.js
@@ -46,3 +47,6 @@ jobs:
           }
           JS
           echo "PR 检查通过。合并后才会发布到 GitHub Pages。"
+
+      - name: 检查资料扩展与交互
+        run: node --test tests/*.test.cjs
