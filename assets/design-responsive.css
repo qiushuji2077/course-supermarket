@@ -97,3 +97,16 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   .receipt-paper { width: auto !important; max-width: none !important; overflow: visible; padding: 0 !important; }
   .receipt-paper table { min-width: 0; }
 }
+
+.forum-detail { overflow-wrap: anywhere; }
+.forum-detail p, .forum-detail li { font-size: 14px; line-height: 1.85; }
+.forum-detail ul { padding-left: 22px; }
+.forum-detail h4 { font-size: 15px; margin-bottom: 8px; }
+.forum-index { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin-top: 16px; }
+.forum-index article { border-top: 1px solid #DDD5C6; padding: 12px 0; min-width: 0; }
+.forum-index h3 { font-size: 15px; }
+.forum-index p { font-size: 13px; line-height: 1.8; }
+.forum-index button { border: 1px solid #C9C0AE; border-radius: 6px; background: #F4EFE6; padding: 10px; }
+@media (max-width: 560px) { .forum-index { grid-template-columns: 1fr; } .forum-update { padding: 16px !important; } }
+
+.filters { scroll-margin-top: 160px; }
