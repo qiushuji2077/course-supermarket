@@ -47,8 +47,10 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   .cart-layout > :first-child, .checkout-layout > :first-child { width: 100%; }
   .cart-summary, .checkout-form { position: static !important; width: 100% !important; }
   .receipt-toolbar { width: 100% !important; flex-wrap: wrap; }
-  .receipt-paper { width: 100% !important; overflow-x: auto; padding: 28px !important; }
-  .receipt-paper table { min-width: 590px; }
+  .receipt-paper { width: 100% !important; padding: 28px !important; }
+  /* 只有课程表横向滑动，回执抬头和学校信息保持不动。 */
+  .receipt-scroll { overflow-x: auto; }
+  .receipt-scroll table { min-width: 590px; }
   .detail-overlay { padding: 16px !important; }
   .detail-dialog { width: 100% !important; max-height: calc(100dvh - 32px) !important; }
 }
@@ -86,16 +88,27 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   .receipt-toolbar { gap: 8px !important; }
   .receipt-toolbar > span { flex-basis: 100%; }
   .receipt-toolbar button { flex: 1; padding: 0 8px !important; font-size: 12px !important; }
-  .receipt-paper { padding: 20px 16px !important; }
+  .receipt-paper { padding: 20px 16px !important; overflow-wrap: anywhere; }
   .receipt-paper h1 { font-size: 25px !important; }
+  /* 学校信息表在手机上改为“标签 + 内容”逐行排列，不必横向滑动。 */
+  .receipt-info, .receipt-info tbody { display: block; }
+  .receipt-info tr { display: grid; grid-template-columns: 96px minmax(0, 1fr); }
+  .receipt-info th { width: auto !important; }
+  .receipt-info th, .receipt-info td { margin: 0 0 -1px -1px; overflow-wrap: anywhere; }
   .detail-dialog > :first-child, .detail-dialog > :nth-child(2) { padding: 20px !important; }
   .detail-meta { grid-template-columns: 1fr !important; }
+  .detail-actions { width: 100%; flex-wrap: wrap; }
+  .detail-actions button { flex: 1 1 auto; }
+  .shelf-count { width: 100%; justify-content: space-between; }
+  .step-nav button { height: 44px !important; }
+  .forum-update summary { line-height: 44px; }
 }
 
 @media print {
   .print-root { min-height: 0 !important; }
   .receipt-paper { width: auto !important; max-width: none !important; overflow: visible; padding: 0 !important; }
-  .receipt-paper table { min-width: 0; }
+  .receipt-scroll { overflow: visible; }
+  .receipt-scroll table { min-width: 0; }
 }
 
 .forum-detail { overflow-wrap: anywhere; }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-release="20260930-forum-v2">
+<html lang="zh-CN" data-release="20261119-polish-v1">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +7,9 @@
 <meta name="description" content="浏览六层课程场馆，挑选课程、规划融合课程并生成可打印回执。">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="./assets/design-responsive.css?v=20260930-forum-v1">
+<link rel="alternate icon" href="./assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<link rel="stylesheet" href="./assets/design-responsive.css?v=20261119-polish-v1">
 <title>课程超市</title>
 <script src="./assets/vendor/react.js"></script>
 <script src="./assets/vendor/react-dom.js"></script>
@@ -140,18 +142,21 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 <div style="flex-grow: 1;"></div>
 <div class="course-search" style="display: flex; align-items: center; gap: 8px; height: 44px; width: 320px; padding: 0 14px; box-sizing: border-box; border: 1px solid #C9C0AE; border-radius: 10px; background: #FFFFFF;">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B625D" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
-<input type="search" aria-label="搜索课程" value="{{q}}" onChange="{{onQ}}" placeholder="搜索编号、名称或做法关键词" style="border: none; outline: none; flex-grow: 1; font-size: 14px; background: transparent; color: #1E2522;">
+<input type="search" aria-label="搜索课程" value="{{q}}" onChange="{{onQ}}" placeholder="搜索编号、名称或做法，可用空格分隔多个词" style="border: none; outline: none; flex-grow: 1; font-size: 14px; background: transparent; color: #1E2522;">
 </div>
 </div>
 </div>
 
 <div style="display: flex; justify-content: space-between; align-items: baseline;">
 <h2 style="margin: 0; font-family: 'Noto Serif SC', serif; font-size: 28px;">{{shelfTitle}}</h2>
-<span style="font-size: 14px; color: #5B625D;">共 {{matchCount}} 件，已展示 {{visibleCount}} 件</span>
+<div class="shelf-count" style="display: flex; align-items: center; gap: 12px;">
+<sc-if value="{{hasFilters}}" hint-placeholder-val="{{ false }}"><button onClick="{{showAllCourses}}" style="height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9C0AE; background: #FFFDF8; color: #1E2522; font-size: 13px;">清除筛选</button></sc-if>
+<span role="status" style="font-size: 14px; color: #5B625D;">共 {{matchCount}} 件，已展示 {{visibleCount}} 件</span>
+</div>
 </div>
 
 <sc-if value="{{noResult}}" hint-placeholder-val="{{ false }}">
-<div style="padding: 64px; text-align: center; background: #FFFDF8; border: 1px dashed #C9C0AE; border-radius: 14px; color: #5B625D; font-size: 15px;">这一层暂时没有符合条件的课程，换个学段或关键词试试。</div>
+<div style="padding: 64px; text-align: center; background: #FFFDF8; border: 1px dashed #C9C0AE; border-radius: 14px; color: #5B625D; font-size: 15px; display: flex; flex-direction: column; align-items: center; gap: 16px;"><span>没有符合当前条件的课程，换个学段或关键词试试；多个关键词请用空格分开。</span><button onClick="{{showAllCourses}}" style="height: 44px; padding: 0 22px; border-radius: 10px; border: 1px solid #1E2522; background: transparent; color: #1E2522; font-size: 14px;">清除筛选，查看全部课程</button></div>
 </sc-if>
 
 <div class="course-grid" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px;">
@@ -351,6 +356,7 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 <span style="font-size: 15px; color: #1F5B4A; font-weight: 700; flex-grow: 1;">回执已生成，可打印或存为 PDF</span>
 <button onClick="{{goCheckout}}" style="height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #1E2522; background: transparent; color: #1E2522; font-size: 14px;">返回修改</button>
 <button onClick="{{reset}}" style="height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #1E2522; background: transparent; color: #1E2522; font-size: 14px;">重新选课</button>
+<button onClick="{{copyReceipt}}" style="height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #1E2522; background: transparent; color: #1E2522; font-size: 14px;"><span aria-live="polite">{{copyReceiptLabel}}</span></button>
 <button onClick="{{printIt}}" style="height: 44px; padding: 0 22px; border-radius: 10px; border: none; background: {{accent}}; color: #FFFFFF; font-size: 15px; font-weight: 500; display: flex; align-items: center; gap: 8px;">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"></path><rect x="3" y="9" width="18" height="8" rx="2"></rect><path d="M6 14h12v7H6z"></path></svg>
 <span>打印回执</span>
@@ -369,7 +375,7 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 </div>
 </div>
 
-<table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+<table class="receipt-info" style="width: 100%; border-collapse: collapse; font-size: 14px;">
 <tbody>
 <tr>
 <th style="width: 110px; text-align: left; padding: 9px 12px; background: #F4EFE6; border: 1px solid #BDB4A2; font-weight: 500;">学校名称</th>
@@ -392,6 +398,7 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 
 <div style="display: flex; flex-direction: column; gap: 10px;">
 <h2 style="margin: 0; font-size: 17px; font-weight: 700;">一、拟开设课程</h2>
+<div class="receipt-scroll" role="region" aria-label="拟开设课程表，可左右滑动" tabindex="0">
 <table style="width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.6;">
 <thead>
 <tr style="background: #F4EFE6;">
@@ -416,6 +423,7 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 </sc-for>
 </tbody>
 </table>
+</div>
 </div>
 
 <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -456,14 +464,14 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 <span>{{orderNo}}</span>
 </div>
 </div>
-<span class="no-print" style="font-size: 13px; color: #5B625D;">可通过浏览器的打印功能将回执保存为 PDF。</span>
+<span class="no-print" style="font-size: 13px; color: #5B625D;">可通过浏览器的打印功能将回执保存为 PDF；“复制回执文字”只复制到本机剪贴板，不会发送给任何人。</span>
 </section>
 </sc-if>
 </main>
 
 <!-- 课程详情 -->
 <sc-if value="{{detailOpen}}" hint-placeholder-val="{{ false }}">
-<div class="no-print detail-overlay" style="position: fixed; inset: 0; z-index: 50; background: rgba(30,37,34,0.5); display: flex; align-items: center; justify-content: center; padding: 32px; box-sizing: border-box;">
+<div class="no-print detail-overlay" onClick="{{overlayClick}}" style="position: fixed; inset: 0; z-index: 50; background: rgba(30,37,34,0.5); display: flex; align-items: center; justify-content: center; padding: 32px; box-sizing: border-box;">
 <div class="detail-dialog" role="dialog" aria-modal="true" aria-label="课程详情" style="width: 680px; max-height: 88vh; overflow: auto; background: #FFFDF8; border-radius: 18px; display: flex; flex-direction: column;">
 <div style="background: {{detail.tint}}; padding: 26px 30px; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
 <div style="display: flex; flex-direction: column; gap: 8px;">
@@ -515,8 +523,9 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 </div>
 </section>
 </sc-if>
-<div style="display: flex; gap: 12px;">
+<div class="detail-actions" style="display: flex; gap: 12px;">
 <sc-if value="{{detail.canSelect}}"><button onClick="{{detail.toggle}}" style="height: 50px; flex-grow: 1; border-radius: 10px; border: 1px solid {{detail.btnBd}}; background: {{detail.btnBg}}; color: {{detail.btnFg}}; font-size: 16px; font-weight: 500;">{{detail.cartLabel}}</button></sc-if>
+<button onClick="{{copyLink}}" style="height: 50px; padding: 0 18px; border-radius: 10px; border: 1px solid #C9C0AE; background: transparent; color: #1E2522; font-size: 15px;"><span aria-live="polite">{{copyLinkLabel}}</span></button>
 <button onClick="{{closeDetail}}" style="height: 50px; padding: 0 28px; border-radius: 10px; border: 1px solid #C9C0AE; background: transparent; color: #1E2522; font-size: 15px;">继续逛</button>
 </div>
 </div>
@@ -534,7 +543,7 @@ class Component extends DCLogic {
       cart: [], notes: {}, detail: null,
       fuseSel: {}, fuseName: '', fuseIdea: '', fusions: [], fusionSeq: 0,
       school: { name: '', contact: '', phone: '', term: '', vision: '' },
-      orderNo: '', orderDate: ''
+      orderNo: '', orderDate: '', copied: ''
     };
     if (!this._savedLoaded) {
       this._savedLoaded = true;
@@ -565,6 +574,127 @@ class Component extends DCLogic {
       }));
     } catch (e) {}
     return super.setState(next);
+  }
+
+  // 学期选项随日期更新：8 月起以当年秋季学期开头，其余月份以当年春季学期开头。
+  termOptions(d) {
+    var y = d.getFullYear(); var next = y + 1;
+    return d.getMonth() + 1 >= 8
+      ? [y + '年秋季学期', next + '年春季学期', y + '-' + next + '学年']
+      : [y + '年春季学期', y + '年秋季学期', y + '-' + next + '学年'];
+  }
+
+  // 地址栏 # 记录当前步骤或课程，浏览器“返回”才不会直接离开网站。
+  routeOf(s) {
+    if (s.detail) return '#course=' + encodeURIComponent(s.detail);
+    return s.screen === 'browse' ? '' : '#' + s.screen;
+  }
+
+  stateOfHash(hash) {
+    var D = this.db(); var h = String(hash || '').replace(/^#/, '');
+    if (h.indexOf('course=') === 0) {
+      var id = ''; try { id = decodeURIComponent(h.slice(7)); } catch (e) {}
+      var known = D.courses.some(function (c) { return c.id === id; }) || Object.prototype.hasOwnProperty.call(D.forum.references || {}, id);
+      return { screen: 'browse', detail: known ? id : null };
+    }
+    if (h === 'cart' || h === 'checkout') return { screen: h, detail: null };
+    if (h === 'receipt') return { screen: this.st().orderNo ? 'receipt' : 'checkout', detail: null };
+    return { screen: 'browse', detail: null };
+  }
+
+  closeDetail() {
+    var w = typeof window !== 'undefined' ? window : {};
+    if (w.history && w.history.state && w.history.state.cs && w.location && /^#course=/.test(w.location.hash)) { w.history.back(); return; }
+    this._replaceNext = true;
+    this.setState({ detail: null });
+  }
+
+  copyText(text, tag) {
+    var self = this;
+    var mark = function (v) {
+      self.setState({ copied: v });
+      setTimeout(function () { if (self.st().copied === v) self.setState({ copied: '' }); }, 2400);
+    };
+    var fallback = function () {
+      var ok = false;
+      try {
+        var prev = document.activeElement;
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.top = '0'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        if (prev && prev.focus) prev.focus();
+      } catch (e) {}
+      mark(ok ? tag : tag + '-fail');
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { mark(tag); }, fallback);
+        return;
+      }
+    } catch (e) {}
+    fallback();
+  }
+
+  componentDidMount() {
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+    var self = this;
+    this._onRoute = function () { self._fromHash = true; self.setState(self.stateOfHash(window.location.hash)); };
+    this._onKey = function (e) {
+      if (!self.st().detail) return;
+      var dialog = document.querySelector('.detail-dialog');
+      if (!dialog) return;
+      if (e.key === 'Escape') { e.preventDefault(); self.closeDetail(); return; }
+      if (e.key !== 'Tab') return;
+      var f = dialog.querySelectorAll('button, [href], input, textarea');
+      if (!f.length) return;
+      var first = f[0]; var last = f[f.length - 1]; var cur = document.activeElement;
+      if (!dialog.contains(cur)) { e.preventDefault(); first.focus(); }
+      else if (e.shiftKey && cur === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && cur === last) { e.preventDefault(); first.focus(); }
+    };
+    window.addEventListener('popstate', this._onRoute);
+    window.addEventListener('hashchange', this._onRoute);
+    document.addEventListener('keydown', this._onKey);
+    if (window.location.hash) this._onRoute();
+  }
+
+  componentWillUnmount() {
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+    window.removeEventListener('popstate', this._onRoute);
+    window.removeEventListener('hashchange', this._onRoute);
+    document.removeEventListener('keydown', this._onKey);
+    document.body.style.overflow = '';
+  }
+
+  componentDidUpdate() {
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+    var s = this.st();
+    try {
+      var want = this.routeOf(s);
+      if (want !== (window.location.hash || '') && window.history && window.history.pushState) {
+        var url = window.location.pathname + window.location.search + want;
+        if (this._fromHash || this._replaceNext) window.history.replaceState(window.history.state, '', url);
+        else window.history.pushState({ cs: ((window.history.state || {}).cs || 0) + 1 }, '', url);
+      }
+    } catch (e) {}
+    this._fromHash = false; this._replaceNext = false;
+
+    // 详情弹窗：锁定背景滚动，焦点移入弹窗，关闭后回到原按钮。
+    var dialog = s.detail ? document.querySelector('.detail-dialog') : null;
+    document.body.style.overflow = dialog ? 'hidden' : '';
+    if (dialog && this._dialogFor !== s.detail) {
+      if (!this._dialogFor) this._opener = document.activeElement;
+      this._dialogFor = s.detail;
+      dialog.scrollTop = 0;
+      var close = dialog.querySelector('button');
+      if (close) close.focus();
+    } else if (!dialog && this._dialogFor) {
+      this._dialogFor = null;
+      var opener = this._opener; this._opener = null;
+      if (opener && opener.focus && document.contains(opener)) opener.focus();
+    }
   }
 
   db() {
@@ -666,7 +796,8 @@ class Component extends DCLogic {
       return Object.assign({ label: p[1] }, pill(s.kind === p[0]), { pick: function () { self.setState({ kind: p[0], limit: 0 }); } });
     });
 
-    var q = (s.q || '').trim().toLowerCase();
+    var tokens = (s.q || '').trim().toLowerCase().split(/\s+/).filter(Boolean);
+    var hasFilters = s.floor !== 'all' || s.counter !== 'all' || s.stage !== 'all' || s.kind !== 'all' || tokens.length > 0 || !!s.updatedOnly || s.forumSection !== 'all';
     var matched = inFloor.filter(function (c) {
       if (s.counter !== 'all' && c.subject !== s.counter) return false;
       if (s.stage !== 'all' && c.stageKeys.indexOf(s.stage) < 0) return false;
@@ -676,7 +807,10 @@ class Component extends DCLogic {
         var section = (D.forum.sections || []).find(function (x) { return x.id === s.forumSection; });
         if (!section || section.courseIds.indexOf(c.id) < 0) return false;
       }
-      if (q && [c.code, c.name, c.subject, c.intro, c.grade].concat(c.steps).join(' ').toLowerCase().indexOf(q) < 0) return false;
+      if (tokens.length) {
+        var hay = [c.code, c.name, c.subject, c.intro, c.grade].concat(c.steps).join(' ').toLowerCase();
+        if (tokens.some(function (t) { return hay.indexOf(t) < 0; })) return false;
+      }
       return true;
     });
     var visible = matched.slice(0, limit).map(deco);
@@ -730,7 +864,7 @@ class Component extends DCLogic {
     var setSchool = function (key) {
       return function (e) { var v = e.target.value; var sc = Object.assign({}, self.st().school); sc[key] = v; self.setState({ school: sc }); };
     };
-    var terms = ['2026年秋季学期', '2027年春季学期', '2026-2027学年'].map(function (t) {
+    var terms = this.termOptions(new Date()).map(function (t) {
       var on = s.school.term === t;
       return Object.assign({ label: t, on: on }, pill(on), {
         pick: function () { var sc = Object.assign({}, self.st().school); sc.term = on ? '' : t; self.setState({ school: sc }); } });
@@ -758,6 +892,21 @@ class Component extends DCLogic {
       phone: (s.school.phone || '').trim() || dash,
       term: s.school.term || dash,
       vision: (s.school.vision || '').trim() || '（未填写）'
+    };
+
+    var receiptText = function () {
+      var lines = ['课程选购回执单（课程超市）', '回执编号：' + s.orderNo, '生成日期：' + s.orderDate, '',
+        '学校名称：' + (s.school.name || '').trim(), '联系人：' + rc.contact, '联系电话：' + rc.phone, '计划实施：' + rc.term,
+        '选购规模：' + cartItems.length + ' 门课程 · ' + fusions.length + ' 组融合', '', '一、拟开设课程'];
+      receiptRows.forEach(function (r) {
+        lines.push(r.idx + '. [' + r.code + '] ' + r.name + '（' + r.subject + ' · ' + r.type + ' · ' + r.gradeText + r.fusedTag + '）');
+        lines.push('   学校想法与调整：' + r.noteText.replace(/\n/g, '\n   '));
+      });
+      lines.push('', '二、融合课程');
+      if (!fusions.length) lines.push('本次未设置融合课程。');
+      fusions.forEach(function (f) { lines.push('融合 ' + f.idx + '｜' + f.name, '   融合来源：' + f.sourcesText, '   融合思路：' + f.ideaText); });
+      lines.push('', '三、学校整体设想', rc.vision, '', '本回执由课程超市在浏览器本机生成，未向任何服务器发送。');
+      return lines.join('\n');
     };
 
     // 详情
@@ -805,10 +954,16 @@ class Component extends DCLogic {
       school: s.school, terms: terms,
       onSchoolName: setSchool('name'), onSchoolContact: setSchool('contact'), onSchoolPhone: setSchool('phone'), onSchoolVision: setSchool('vision'),
       cannotSubmit: !canSubmit, submitHint: submitHint, submit: submit,
-      orderNo: s.orderNo, orderDate: s.orderDate, receiptRows: receiptRows, rc: rc,
+      orderNo: s.orderNo, orderDate: s.orderDate, receiptRows: receiptRows, rc: rc, receiptText: s.orderNo ? receiptText() : '',
+      copyReceipt: function () { self.copyText(receiptText(), 'receipt'); },
+      copyReceiptLabel: s.copied === 'receipt' ? '✓ 已复制' : (s.copied === 'receipt-fail' ? '复制失败，请手动选取' : '复制回执文字'),
+      copyLink: function () { var l = window.location; self.copyText(l.origin + l.pathname + l.search + '#course=' + encodeURIComponent(detail.id), 'link'); },
+      copyLinkLabel: s.copied === 'link' ? '✓ 已复制' : (s.copied === 'link-fail' ? '复制失败' : '复制链接'),
+      hasFilters: hasFilters,
+      overlayClick: function (e) { if (e && e.target === e.currentTarget) self.closeDetail(); },
       printIt: function () { try { window.print(); } catch (e) {} },
       reset: reset,
-      detailOpen: !!dc, detail: detail, closeDetail: function () { self.setState({ detail: null }); }
+      detailOpen: !!dc, detail: detail, closeDetail: function () { self.closeDetail(); }
     };
   }
 }
