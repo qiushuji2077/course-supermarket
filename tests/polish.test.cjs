@@ -46,6 +46,7 @@ test('address hash maps to steps and course details without trusting unknown val
  assert.deepEqual({...a.stateOfHash('#course='+ref)},{screen:'browse',detail:ref});
  assert.deepEqual({...a.stateOfHash('#course=NOPE-999')},{screen:'browse',detail:null});
  assert.deepEqual({...a.stateOfHash('#course=%E0%A4%A')},{screen:'browse',detail:null});
+ for(const id of ['toString','constructor','__proto__','hasOwnProperty']){a.setState(a.stateOfHash('#course='+id));assert.equal(a.st().detail,null,id);assert.equal(a.renderVals().detailOpen,false);}
  assert.deepEqual({...a.stateOfHash('#checkout')},{screen:'checkout',detail:null});
  assert.deepEqual({...a.stateOfHash('#receipt')},{screen:'checkout',detail:null});
  assert.deepEqual({...a.stateOfHash('#anything')},{screen:'browse',detail:null});

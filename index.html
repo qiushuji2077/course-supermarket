@@ -375,7 +375,7 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 </div>
 </div>
 
-<table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+<table class="receipt-info" style="width: 100%; border-collapse: collapse; font-size: 14px;">
 <tbody>
 <tr>
 <th style="width: 110px; text-align: left; padding: 9px 12px; background: #F4EFE6; border: 1px solid #BDB4A2; font-weight: 500;">学校名称</th>
@@ -592,7 +592,7 @@ class Component extends DCLogic {
     var D = this.db(); var h = String(hash || '').replace(/^#/, '');
     if (h.indexOf('course=') === 0) {
       var id = ''; try { id = decodeURIComponent(h.slice(7)); } catch (e) {}
-      var known = D.courses.some(function (c) { return c.id === id; }) || !!(D.forum.references || {})[id];
+      var known = D.courses.some(function (c) { return c.id === id; }) || Object.prototype.hasOwnProperty.call(D.forum.references || {}, id);
       return { screen: 'browse', detail: known ? id : null };
     }
     if (h === 'cart' || h === 'checkout') return { screen: h, detail: null };
