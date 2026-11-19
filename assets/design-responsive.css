@@ -88,6 +88,11 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   .receipt-toolbar button { flex: 1; padding: 0 8px !important; font-size: 12px !important; }
   .receipt-paper { padding: 20px 16px !important; }
   .receipt-paper h1 { font-size: 25px !important; }
+  /* 学校信息表在手机上改为“标签 + 内容”逐行排列，不必横向滑动。 */
+  .receipt-paper table.receipt-info, .receipt-info tbody { display: block; min-width: 0; }
+  .receipt-info tr { display: grid; grid-template-columns: 96px minmax(0, 1fr); }
+  .receipt-info th { width: auto !important; }
+  .receipt-info th, .receipt-info td { margin: 0 0 -1px -1px; overflow-wrap: anywhere; }
   .detail-dialog > :first-child, .detail-dialog > :nth-child(2) { padding: 20px !important; }
   .detail-meta { grid-template-columns: 1fr !important; }
   .detail-actions { width: 100%; flex-wrap: wrap; }
