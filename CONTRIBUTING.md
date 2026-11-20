@@ -6,6 +6,7 @@
 
 - `index.html`：页面与选课、融合、回执交互。
 - `assets/design-catalog.js`：本版公开课程数据。
+- `assets/suggestion-catalog.js`：年级、课时与材料建议层，全部标为“建议 · 未经原校确认”，不改写原始课程字段。
 - `assets/design-responsive.css`：小屏幕适配。
 - `assets/design-support.js`、`assets/vendor/`：页面运行脚本。
 - `sw.js`、`manifest.webmanifest`：主屏幕和离线缓存。

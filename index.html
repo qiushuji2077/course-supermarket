@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-release="20261120-plan-v2">
+<html lang="zh-CN" data-release="20261120-suggest-v2">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,12 +9,13 @@
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="./assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
-<link rel="stylesheet" href="./assets/design-responsive.css?v=20261120-plan-v2">
+<link rel="stylesheet" href="./assets/design-responsive.css?v=20261120-suggest-v2">
 <title>课程超市</title>
 <script src="./assets/vendor/react.js"></script>
 <script src="./assets/vendor/react-dom.js"></script>
 <script src="./assets/design-catalog.js?v=20260924"></script>
 <script src="./assets/forum-catalog.js?v=20260930-forum-v1"></script>
+<script src="./assets/suggestion-catalog.js?v=20261120-suggest-v2"></script>
 <script src="./assets/design-support.js"></script>
 </head>
 <body>
@@ -178,6 +179,9 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 <span style="font-size: 12px; padding: 3px 8px; border-radius: 6px; background: #EFE9DD; color: #3F4642;">{{item.stageText}}</span>
 <sc-if value="{{item.hasGrade}}" hint-placeholder-val="{{ true }}">
 <span style="font-size: 12px; padding: 3px 8px; border-radius: 6px; background: #EFE9DD; color: #3F4642;">{{item.grade}}</span>
+</sc-if>
+<sc-if value="{{item.hasSuggestion}}">
+<span class="suggest-chip" title="{{item.suggestLabel}}" style="font-size: 12px; padding: 2px 8px; border-radius: 6px; border: 1px dashed #A99E88; background: transparent; color: #5B625D;">建议：{{item.suggestGrade}}</span>
 </sc-if>
 </div>
 <p class="clamp3" style="margin: 0; font-size: 14px; line-height: 1.7; color: #4A514D;">{{item.intro}}</p>
@@ -490,6 +494,15 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 <div style="padding: 12px 14px; border-radius: 10px; background: #F4EFE6; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 12px; color: #5B625D;">商品规格</span><span style="font-size: 15px; font-weight: 700;">{{detail.type}}</span></div>
 <div style="padding: 12px 14px; border-radius: 10px; background: #F4EFE6; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 12px; color: #5B625D;">适用年级</span><span style="font-size: 15px; font-weight: 700;">{{detail.gradeText}}</span></div>
 </div>
+<sc-if value="{{detail.hasSuggestion}}">
+<section class="suggest-box" aria-label="年级、课时与材料建议" style="padding: 14px 16px; border-radius: 10px; border: 1px dashed #A99E88; background: #FFFDF8; display: flex; flex-direction: column; gap: 8px;">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;"><strong style="font-size: 14px;">年级、课时与材料建议</strong><span style="font-size: 12px; padding: 2px 8px; border-radius: 999px; background: #EFE9DD; color: #5B625D;">{{detail.suggestLabel}}</span></div>
+<div style="font-size: 14px; line-height: 1.7;"><span style="color: #5B625D;">建议年级：</span>{{detail.suggestGrade}}</div>
+<div style="font-size: 14px; line-height: 1.7;"><span style="color: #5B625D;">建议课时：</span>{{detail.suggestHours}}</div>
+<div style="font-size: 14px; line-height: 1.7;"><span style="color: #5B625D;">建议材料：</span>{{detail.suggestMaterials}}</div>
+<p style="margin: 0; font-size: 12px; line-height: 1.6; color: #5B625D;">{{detail.suggestNote}}</p>
+</section>
+</sc-if>
 <div style="display: flex; flex-direction: column; gap: 8px;">
 <h3 style="margin: 0; font-size: 16px;">课程简介</h3>
 <p style="margin: 0; font-size: 15px; line-height: 1.8; color: #3F4642;">{{detail.intro}}</p>
@@ -750,7 +763,10 @@ class Component extends DCLogic {
     });
     var counters = [];
     courses.forEach(function (c) { if (counters.indexOf(c.subject) < 0) counters.push(c.subject); });
-    this._db = { floors: floors, courses: courses, counters: counters, forum: forum };
+    // 建议层单独加载；缺失时页面照常运行，原始课程字段不受影响。
+    var sug = window.COURSE_MARKET_SUGGESTIONS || {};
+    var suggest = { label: sug.label || '建议 · 未经原校确认', note: sug.note || '', items: sug.items || {} };
+    this._db = { floors: floors, courses: courses, counters: counters, forum: forum, suggest: suggest };
     return this._db;
   }
 
@@ -783,10 +799,13 @@ class Component extends DCLogic {
     };
     var deco = function (c) {
       var f = fmap[c.floor]; var on = !!inCart[c.id];
+      var sg = Object.prototype.hasOwnProperty.call(D.suggest.items, c.id) ? D.suggest.items[c.id] : null;
       return Object.assign({}, c, {
         floorName: f.name, floorCode: f.code, tint: f.tint, deep: f.deep, counter: c.subject + '专柜',
         type: KIND[c.kind], updateLabel: D.forum.enrichments[c.id] && D.forum.enrichments[c.id].isNew ? '新增 · 教学推演（未经试教）' : '本次补全 · 查证与教学推演分栏', hasEnrichment: !!D.forum.enrichments[c.id], enrichment: D.forum.enrichments[c.id] || {}, canSelect: true, isReference: false, stageText: c.stageLabel, hasGrade: !!c.grade && c.grade !== c.stageLabel,
         gradeText: c.grade || c.stageLabel,
+        hasSuggestion: !!sg, suggestLabel: D.suggest.label, suggestNote: D.suggest.note,
+        suggestGrade: sg ? sg[0] : '', suggestHours: sg ? sg[1] : '', suggestMaterials: sg ? sg[2] : '',
         inCart: on, cartLabel: on ? '✓ 已加入' : '加入购物车',
         btnBg: on ? f.deep : '#1E2522', btnFg: '#FFFFFF', btnBd: on ? f.deep : '#1E2522',
         toggle: toggleCart(c.id),
@@ -842,7 +861,7 @@ class Component extends DCLogic {
         if (!section || section.courseIds.indexOf(c.id) < 0) return false;
       }
       if (tokens.length) {
-        var hay = [c.code, c.name, c.subject, fmap[c.floor].name, c.intro, c.grade].concat(c.steps).join(' ').toLowerCase();
+        var hay = [c.code, c.name, c.subject, fmap[c.floor].name, c.intro, c.grade, Object.prototype.hasOwnProperty.call(D.suggest.items, c.id) ? D.suggest.items[c.id][0] : ''].concat(c.steps).join(' ').toLowerCase();
         if (tokens.some(function (t) { return hay.indexOf(t) < 0; })) return false;
       }
       return true;
