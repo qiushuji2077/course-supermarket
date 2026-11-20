@@ -99,7 +99,9 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   .detail-meta { grid-template-columns: 1fr !important; }
   .detail-actions { width: 100%; flex-wrap: wrap; }
   .detail-actions button { flex: 1 1 auto; }
-  .shelf-count { width: 100%; justify-content: space-between; }
+  .shelf-count { width: 100%; justify-content: space-between; flex-wrap: wrap; }
+  .plan-toggle { margin-left: 0 !important; }
+  .shelf-head { flex-wrap: wrap; gap: 10px; }
   .step-nav button { height: 44px !important; }
   .forum-update summary { line-height: 44px; }
 }

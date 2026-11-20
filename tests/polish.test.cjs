@@ -67,6 +67,26 @@ test('copied receipt text carries the same selection, notes and local-only state
  assert.ok(!/已发送|已提交/.test(t));
 });
 
+test('courses with step-by-step plans are ranked first by default and can be filtered or re-sorted',()=>{
+ const a=app();const ids=new Set(Object.keys(forum.enrichments));
+ a.setState({limit:9999});let v=a.renderVals();
+ assert.equal(v.sort,'plan');assert.equal(v.planCount,ids.size);assert.equal(v.matchCount,a.db().courses.length);
+ const order=v.visible.map(c=>c.id);
+ assert.ok(order.slice(0,ids.size).every(id=>ids.has(id)));assert.ok(order.slice(ids.size).every(id=>!ids.has(id)));
+ const rest=order.slice(ids.size),shelf=a.db().courses.map(c=>c.id).filter(id=>!ids.has(id));
+ assert.deepEqual(rest,shelf);
+ for(const c of v.visible)assert.equal(c.hasEnrichment,ids.has(c.id));
+ v.toggleSort();a.setState({limit:9999});v=a.renderVals();
+ assert.equal(v.sort,'code');assert.deepEqual(v.visible.map(c=>c.id),a.db().courses.map(c=>c.id));
+ v.togglePlanOnly();a.setState({limit:9999});v=a.renderVals();
+ assert.equal(v.planOnlyPressed,'true');assert.equal(v.matchCount,ids.size);assert.equal(v.hasFilters,true);
+ v.togglePlanOnly();assert.equal(a.renderVals().planOnlyPressed,'false');
+ a.setState({q:'阅读',sort:'plan',limit:9999});v=a.renderVals();
+ const firstPlain=v.visible.findIndex(c=>!c.hasEnrichment);
+ assert.ok(v.visible.slice(firstPlain<0?v.visible.length:firstPlain).every(c=>!c.hasEnrichment));
+ assert.match(html,/class="plan-badge"[^>]*未经试教/);
+});
+
 test('release marker, service-worker cache and stylesheet version move together',()=>{
  const release=html.match(/data-release="([^"]+)"/)[1];
  assert.equal(sw.match(/SHELF_VERSION = '([^']+)'/)[1],release);
