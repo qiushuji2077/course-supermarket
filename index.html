@@ -400,7 +400,7 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 
 <div style="display: flex; flex-direction: column; gap: 10px;">
 <h2 style="margin: 0; font-size: 17px; font-weight: 700;">一、拟开设课程</h2>
-<div class="receipt-scroll" role="region" aria-label="拟开设课程表，可左右滑动" tabindex="0">
+<div class="receipt-scroll" role="region" aria-label="拟开设课程表" tabindex="0">
 <table style="width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.6;">
 <thead>
 <tr style="background: #F4EFE6;">
@@ -562,17 +562,44 @@ class Component extends DCLogic {
         var fusions = Array.isArray(saved.fusions) ? saved.fusions.filter(function (f) {
           return f && typeof f.name === 'string' && Array.isArray(f.sources) && f.sources.every(function (id) { return known[id]; });
         }) : [];
+        fusions = fusions.map(function (f) { return Object.assign({}, f, { sources: f.sources.filter(function (id) { return cart.indexOf(id) >= 0; }) }); });
         this._savedState = { cart: cart, notes: notes, fusions: fusions, fusionSeq: Number(saved.fusionSeq) || 0 };
+        ['school', 'orderNo', 'orderDate', 'floor', 'counter', 'stage', 'kind', 'q', 'limit', 'updatedOnly', 'forumSection'].forEach(function (key) {
+          if (typeof saved[key] === typeof d[key] && saved[key] !== null) this._savedState[key] = saved[key];
+        }, this);
+        if ((Array.isArray(saved.cart) && cart.length !== saved.cart.length) ||
+            (Array.isArray(saved.fusions) && JSON.stringify(fusions) !== JSON.stringify(saved.fusions))) {
+          this._savedState.orderNo = ''; this._savedState.orderDate = '';
+        }
+        this._savedState.school = Object.assign({}, d.school, this._savedState.school);
       } catch (e) {}
     }
     return Object.assign(d, this._savedState, this.state || {});
   }
 
   setState(next) {
-    var merged = Object.assign({}, this.st(), next);
+    var prev = this.st();
+    next = Object.assign({}, next);
+    if (next.cart) {
+      next.fusions = (next.fusions || prev.fusions).map(function (f) {
+        return Object.assign({}, f, { sources: f.sources.filter(function (id) { return next.cart.indexOf(id) >= 0; }) });
+      });
+    }
+    if (prev.orderNo && ['cart', 'notes', 'fusions', 'school'].some(function (key) {
+      return Object.prototype.hasOwnProperty.call(next, key) && JSON.stringify(next[key]) !== JSON.stringify(prev[key]);
+    })) {
+      next.orderNo = ''; next.orderDate = '';
+      if ((next.screen || prev.screen) === 'receipt') next.screen = 'checkout';
+    }
+    if (typeof window !== 'undefined' && prev.screen === 'browse' && next.screen && next.screen !== 'browse') this._shelfScroll = window.scrollY;
+    if (prev.screen !== 'browse' && next.screen === 'browse') this._restoreShelf = true;
+    var merged = Object.assign({}, prev, next);
     try {
       localStorage.setItem('course-market-cart-v2', JSON.stringify({
-        cart: merged.cart, notes: merged.notes, fusions: merged.fusions, fusionSeq: merged.fusionSeq
+        cart: merged.cart, notes: merged.notes, fusions: merged.fusions, fusionSeq: merged.fusionSeq,
+        school: merged.school, orderNo: merged.orderNo, orderDate: merged.orderDate,
+        floor: merged.floor, counter: merged.counter, stage: merged.stage, kind: merged.kind, q: merged.q,
+        limit: merged.limit, updatedOnly: merged.updatedOnly, forumSection: merged.forumSection
       }));
     } catch (e) {}
     return super.setState(next);
@@ -673,6 +700,11 @@ class Component extends DCLogic {
   componentDidUpdate() {
     if (typeof window === 'undefined' || typeof document === 'undefined') return;
     var s = this.st();
+    if (this._restoreShelf) {
+      this._restoreShelf = false;
+      var y = this._shelfScroll || 0;
+      window.requestAnimationFrame(function () { window.scrollTo(0, y); });
+    }
     try {
       var want = this.routeOf(s);
       if (want !== (window.location.hash || '') && window.history && window.history.pushState) {
@@ -810,7 +842,7 @@ class Component extends DCLogic {
         if (!section || section.courseIds.indexOf(c.id) < 0) return false;
       }
       if (tokens.length) {
-        var hay = [c.code, c.name, c.subject, c.intro, c.grade].concat(c.steps).join(' ').toLowerCase();
+        var hay = [c.code, c.name, c.subject, fmap[c.floor].name, c.intro, c.grade].concat(c.steps).join(' ').toLowerCase();
         if (tokens.some(function (t) { return hay.indexOf(t) < 0; })) return false;
       }
       return true;
@@ -881,7 +913,7 @@ class Component extends DCLogic {
     var submit = function () {
       var d = new Date();
       var p = function (n) { return n < 10 ? '0' + n : '' + n; };
-      var no = 'KC' + d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()) + '-' + Math.floor(1000 + Math.random() * 9000);
+      var no = 'KC' + d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()) + '-' + d.getTime().toString(36) + '-' + Math.floor(1000 + Math.random() * 9000);
       self.setState({ orderNo: no, orderDate: d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日', screen: 'receipt', detail: null });
       top();
     };
