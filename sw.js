@@ -1,12 +1,12 @@
 /* 课程超市 PWA：每次打开网络优先拉货架。 */
-const SHELF_VERSION = '20261119-polish-v1';
+const SHELF_VERSION = '20261120-receipt-v1';
 const PRECACHE = 'cs-' + SHELF_VERSION;
 
 // 完整缓存更新文件后再接管，避免离线用户缺少本次资料。
 const APP_SHELL = [
   './', './index.html', './assets/design-catalog.js?v=20260924',
   './assets/forum-catalog.js?v=20260930-forum-v1', './assets/design-support.js',
-  './assets/design-responsive.css?v=20261119-polish-v1',
+  './assets/design-responsive.css?v=20261120-receipt-v1',
   './assets/vendor/react.js', './assets/vendor/react-dom.js', './manifest.webmanifest'
 ];
 self.addEventListener('install', (event) => {
@@ -46,7 +46,9 @@ async function networkFirst(request) {
     }
     return fresh;
   } catch (err) {
-    const cached = await caches.match(request);
+    const cached = request.mode === 'navigate'
+      ? await caches.match(new URL('./index.html', self.location.href).href)
+      : await caches.match(request);
     if (cached) return cached;
     throw err;
   }
