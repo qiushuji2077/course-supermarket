@@ -126,6 +126,6 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
 
 .filters { scroll-margin-top: 160px; }
 /* 筛选行在中等宽度下换行，而不是把按钮文字挤成两行。 */
-.filters .filter-line { flex-wrap: wrap; row-gap: 10px; }
+.filters .filter-line:last-child { flex-wrap: wrap; row-gap: 10px; }
 .filters .filter-line > span,
 .filters .filter-line button { white-space: nowrap; flex-shrink: 0; }
