@@ -565,6 +565,10 @@ class Component extends DCLogic {
         ['school', 'orderNo', 'orderDate', 'floor', 'counter', 'stage', 'kind', 'q', 'limit', 'updatedOnly', 'forumSection'].forEach(function (key) {
           if (typeof saved[key] === typeof d[key] && saved[key] !== null) this._savedState[key] = saved[key];
         }, this);
+        if ((Array.isArray(saved.cart) && cart.length !== saved.cart.length) ||
+            (Array.isArray(saved.fusions) && JSON.stringify(fusions) !== JSON.stringify(saved.fusions))) {
+          this._savedState.orderNo = ''; this._savedState.orderDate = '';
+        }
         this._savedState.school = Object.assign({}, d.school, this._savedState.school);
       } catch (e) {}
     }

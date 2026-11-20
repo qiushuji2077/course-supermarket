@@ -32,6 +32,19 @@ test('content edits invalidate identity but browsing and unchanged fields do not
     assert.equal(app().stateOfHash('#receipt').screen,'checkout');
   }
 });
+test('restoring a shortened cart or fusion selection discards receipt identity', () => {
+  for (const selection of [
+    {cart:['YW-001','missing-course'],fusions:[]},
+    {cart:['YW-001'],fusions:[{name:'缺失来源',sources:['missing-course']}]},
+    {cart:['YW-001'],fusions:[{name:'已移出来源',sources:['YW-001','YW-002']}]}
+  ]) {
+    const {app,store} = setup();
+    store['course-market-cart-v2'] = JSON.stringify({...selection,orderNo:'KC-old',orderDate:'旧日期'});
+    const a = app();
+    assert.equal(a.st().orderNo,''); assert.equal(a.st().orderDate,'');
+    assert.equal(a.stateOfHash('#receipt').screen,'checkout');
+  }
+});
 test('removed cart sources are pruned without discarding fusion ideas, including on reload', () => {
   const {app,store} = setup(), a = app();
   a.setState({cart:['YW-001','YW-002'],fusions:[{id:'f',name:'保留想法',sources:['YW-001','YW-002']}]});
