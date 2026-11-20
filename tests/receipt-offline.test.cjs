@@ -17,7 +17,7 @@ function setup() {
 }
 test('receipt identity, school and browsing preferences survive reload and receipt links', () => {
   const {app} = setup(), a = app();
-  a.setState({cart:['YW-001'],school:{name:'测试学校',contact:'老师',phone:'123',term:'秋',vision:'探索'},q:'语言馆',floor:'f1',stage:'小',kind:'k',counter:'语文',updatedOnly:true,forumSection:'all',limit:48});
+  a.setState({cart:['YW-001'],school:{name:'测试学校',contact:'老师',phone:'123',term:a.termOptions(new Date())[0],vision:'探索'},q:'语言馆',floor:'f1',stage:'小',kind:'k',counter:'语文',updatedOnly:true,forumSection:'all',limit:48});
   a.renderVals().submit();
   const b = app();
   for (const key of ['school','orderNo','orderDate','q','floor','stage','kind','counter','updatedOnly','limit']) assert.equal(JSON.stringify(b.st()[key]),JSON.stringify(a.st()[key]));
@@ -43,6 +43,17 @@ test('restoring a shortened cart or fusion selection discards receipt identity',
     const a = app();
     assert.equal(a.st().orderNo,''); assert.equal(a.st().orderDate,'');
     assert.equal(a.stateOfHash('#receipt').screen,'checkout');
+  }
+});
+test('restore accepts current terms and drops expired terms to the default', () => {
+  const {app,store} = setup();
+  const current = app().termOptions(new Date())[0];
+  for (const term of [current,'2000年秋季学期','']) {
+    store['course-market-cart-v2'] = JSON.stringify({cart:['YW-001'],school:{name:'学校',term},orderNo:'KC-saved',orderDate:'日期'});
+    const a = app();
+    assert.equal(a.st().school.term,term === current ? current : '');
+    assert.equal(a.st().school.name,'学校');
+    assert.equal(a.st().orderNo,term && term !== current ? '' : 'KC-saved');
   }
 });
 test('removed cart sources are pruned without discarding fusion ideas, including on reload', () => {
