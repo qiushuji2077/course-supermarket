@@ -55,6 +55,21 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   .detail-dialog { width: 100% !important; max-height: calc(100dvh - 32px) !important; }
 }
 
+@media screen and (max-width: 560px) {
+  .receipt-scroll table { min-width: 0; }
+  .receipt-scroll thead { display: none; }
+  .receipt-scroll tbody, .receipt-scroll tr, .receipt-scroll td { display: block; }
+  .receipt-scroll tr { margin-bottom: 16px; }
+  .receipt-scroll td { text-align: left !important; overflow-wrap: anywhere; }
+  .receipt-scroll td::before { display: block; font-weight: 700; }
+  .receipt-scroll td:nth-child(1)::before { content: '序号'; }
+  .receipt-scroll td:nth-child(2)::before { content: '货架号'; }
+  .receipt-scroll td:nth-child(3)::before { content: '课程名称'; }
+  .receipt-scroll td:nth-child(4)::before { content: '学段'; }
+  .receipt-scroll td:nth-child(5)::before { content: '适用年级'; }
+  .receipt-scroll td:nth-child(6)::before { content: '学校想法与调整'; }
+}
+
 @media (max-width: 560px) {
   .site-header-inner { padding: 10px 16px !important; }
   .site-header-inner > :first-child > :first-child { width: 38px !important; height: 38px !important; }
