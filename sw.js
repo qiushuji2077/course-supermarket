@@ -47,7 +47,9 @@ async function networkFirst(request) {
     }
     return fresh;
   } catch (err) {
-    const cached = await caches.match(request);
+    const cached = request.mode === 'navigate'
+      ? await caches.match(new URL('./index.html', self.location.href).href)
+      : await caches.match(request);
     if (cached) return cached;
     throw err;
   }
