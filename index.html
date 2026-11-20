@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-release="20261120-receipt-v1">
+<html lang="zh-CN" data-release="20261120-plan-v2">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,7 @@
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="./assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
-<link rel="stylesheet" href="./assets/design-responsive.css?v=20261120-receipt-v1">
+<link rel="stylesheet" href="./assets/design-responsive.css?v=20261120-plan-v2">
 <title>课程超市</title>
 <script src="./assets/vendor/react.js"></script>
 <script src="./assets/vendor/react-dom.js"></script>
@@ -139,6 +139,7 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 <button onClick="{{kd.pick}}" style="height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid {{kd.bd}}; background: {{kd.bg}}; color: {{kd.fg}}; font-size: 14px;">{{kd.label}}</button>
 </sc-for>
 </div>
+<button class="plan-toggle" aria-pressed="{{planOnlyPressed}}" onClick="{{togglePlanOnly}}" style="height: 40px; padding: 0 16px; margin-left: 12px; border-radius: 999px; border: 1px solid {{planPill.bd}}; background: {{planPill.bg}}; color: {{planPill.fg}}; font-size: 14px;">只看含分步方案（{{enrichmentCount}}）</button>
 <div style="flex-grow: 1;"></div>
 <div class="course-search" style="display: flex; align-items: center; gap: 8px; height: 44px; width: 320px; padding: 0 14px; box-sizing: border-box; border: 1px solid #C9C0AE; border-radius: 10px; background: #FFFFFF;">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B625D" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
@@ -147,10 +148,11 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 </div>
 </div>
 
-<div style="display: flex; justify-content: space-between; align-items: baseline;">
+<div class="shelf-head" style="display: flex; justify-content: space-between; align-items: baseline;">
 <h2 style="margin: 0; font-family: 'Noto Serif SC', serif; font-size: 28px;">{{shelfTitle}}</h2>
 <div class="shelf-count" style="display: flex; align-items: center; gap: 12px;">
 <sc-if value="{{hasFilters}}" hint-placeholder-val="{{ false }}"><button onClick="{{showAllCourses}}" style="height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9C0AE; background: #FFFDF8; color: #1E2522; font-size: 13px;">清除筛选</button></sc-if>
+<button class="sort-toggle" onClick="{{toggleSort}}" title="切换排序方式" style="height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9C0AE; background: #FFFDF8; color: #1E2522; font-size: 13px;">排序：{{sortLabel}}</button>
 <span role="status" style="font-size: 14px; color: #5B625D;">共 {{matchCount}} 件，已展示 {{visibleCount}} 件</span>
 </div>
 </div>
@@ -165,7 +167,7 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 <div style="height: 108px; background: {{item.tint}}; padding: 14px 16px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;">
 <div style="display: flex; justify-content: space-between; align-items: center;">
 <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: {{item.deep}};">货架 {{item.code}}</span>
-<span style="font-size: 12px; font-weight: 500; padding: 2px 8px; border-radius: 999px; background: #FFFDF8; color: {{item.deep}};">{{item.type}}</span>
+<span style="display: flex; gap: 6px; align-items: center;"><sc-if value="{{item.hasEnrichment}}"><span class="plan-badge" title="含目标、学生任务、材料、分步课时、评价与安全提示；方案为教学推演，未经试教" style="font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: #1F5B4A; color: #FFFFFF;">分步方案</span></sc-if><span style="font-size: 12px; font-weight: 500; padding: 2px 8px; border-radius: 999px; background: #FFFDF8; color: {{item.deep}};">{{item.type}}</span></span>
 </div>
 <span style="font-family: 'Noto Serif SC', serif; font-size: 28px; font-weight: 900; letter-spacing: 0.06em; color: {{item.deep}};">{{item.subject}}</span>
 </div>
@@ -539,7 +541,7 @@ textarea:focus,input:focus{outline:2px solid #1F5B4A;outline-offset:1px}
 class Component extends DCLogic {
   st() {
     var d = {
-      screen: 'browse', floor: 'all', counter: 'all', stage: 'all', kind: 'all', q: '', limit: 0, updatedOnly: false, forumSection: 'all',
+      screen: 'browse', floor: 'all', counter: 'all', stage: 'all', kind: 'all', q: '', limit: 0, updatedOnly: false, forumSection: 'all', sort: 'plan',
       cart: [], notes: {}, detail: null,
       fuseSel: {}, fuseName: '', fuseIdea: '', fusions: [], fusionSeq: 0,
       school: { name: '', contact: '', phone: '', term: '', vision: '' },
@@ -845,6 +847,11 @@ class Component extends DCLogic {
       }
       return true;
     });
+    // 默认把含分步方案的课程排在前面，其余保持货架编号顺序。
+    if (s.sort !== 'code') {
+      matched = matched.filter(function (c) { return D.forum.enrichments[c.id]; }).concat(matched.filter(function (c) { return !D.forum.enrichments[c.id]; }));
+    }
+    var planCount = matched.filter(function (c) { return D.forum.enrichments[c.id]; }).length;
     var visible = matched.slice(0, limit).map(deco);
     var rest = matched.length - visible.length;
     var shelfTitle = (s.floor === 'all' ? '全部楼层' : fmap[s.floor].code + ' ' + fmap[s.floor].name)
@@ -973,6 +980,11 @@ class Component extends DCLogic {
       practiceTotal: D.courses.filter(function (c) { return c.kind === 'p'; }).length,
       floorNav: floorNav, counterNav: counterNav, stageNav: stageNav, kindNav: kindNav, q: s.q,
       onQ: function (e) { self.setState({ q: e.target.value, limit: 0 }); },
+      planCount: planCount, sort: s.sort === 'code' ? 'code' : 'plan',
+      sortLabel: s.sort === 'code' ? '按货架编号' : '分步方案优先',
+      toggleSort: function () { self.setState({ sort: s.sort === 'code' ? 'plan' : 'code', limit: 0 }); },
+      planPill: pill(!!s.updatedOnly), planOnlyPressed: s.updatedOnly ? 'true' : 'false',
+      togglePlanOnly: function () { self.setState({ updatedOnly: !s.updatedOnly, limit: 0 }); },
       visible: visible, visibleCount: visible.length, matchCount: matched.length, noResult: matched.length === 0, shelfTitle: shelfTitle,
       hasMore: rest > 0, restCount: rest, moreCount: Math.min(rest, pageSize),
       loadMore: function () { self.setState({ limit: limit + pageSize }); },

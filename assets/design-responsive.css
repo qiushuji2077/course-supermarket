@@ -114,7 +114,9 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   .detail-meta { grid-template-columns: 1fr !important; }
   .detail-actions { width: 100%; flex-wrap: wrap; }
   .detail-actions button { flex: 1 1 auto; }
-  .shelf-count { width: 100%; justify-content: space-between; }
+  .shelf-count { width: 100%; justify-content: space-between; flex-wrap: wrap; }
+  .plan-toggle { margin-left: 0 !important; }
+  .shelf-head { flex-wrap: wrap; gap: 10px; }
   .step-nav button { height: 44px !important; }
   .forum-update summary { line-height: 44px; }
 }
@@ -138,3 +140,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
 @media (max-width: 560px) { .forum-index { grid-template-columns: 1fr; } .forum-update { padding: 16px !important; } }
 
 .filters { scroll-margin-top: 160px; }
+/* 筛选行在中等宽度下换行，而不是把按钮文字挤成两行。 */
+.filters .filter-line:last-child { flex-wrap: wrap; row-gap: 10px; }
+.filters .filter-line > span,
+.filters .filter-line button { white-space: nowrap; flex-shrink: 0; }
