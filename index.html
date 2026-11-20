@@ -570,10 +570,6 @@ class Component extends DCLogic {
           this._savedState.orderNo = ''; this._savedState.orderDate = '';
         }
         this._savedState.school = Object.assign({}, d.school, this._savedState.school);
-        if (this._savedState.school.term && this.termOptions(new Date()).indexOf(this._savedState.school.term) < 0) {
-          this._savedState.school.term = d.school.term;
-          this._savedState.orderNo = ''; this._savedState.orderDate = '';
-        }
       } catch (e) {}
     }
     return Object.assign(d, this._savedState, this.state || {});
