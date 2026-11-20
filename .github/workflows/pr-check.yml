@@ -20,6 +20,7 @@ jobs:
           test -f index.html
           test -f assets/design-catalog.js
           test -f assets/forum-catalog.js
+          test -f assets/suggestion-catalog.js
           test -f assets/design-support.js
           test -f assets/design-responsive.css
           test -f assets/vendor/react.js
